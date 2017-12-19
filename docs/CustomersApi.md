@@ -4,12 +4,12 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_account_information_details**](CustomersApi.md#get_account_information_details) | **GET** /1.0.0/account/{customeruuid} | Get account information details
-[**list_users**](CustomersApi.md#list_users) | **GET** /1.0.0/account/{customeruuid}/user | List users
+[**100_account_by_customeruuid_get**](CustomersApi.md#100_account_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid} | Get account information details
+[**100_account_user_by_customeruuid_get**](CustomersApi.md#100_account_user_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid}/user | List users
 
 
-# **get_account_information_details**
-> Model100AccountResponse get_account_information_details(customeruuid)
+# **100_account_by_customeruuid_get**
+> Model100AccountResponse 100_account_by_customeruuid_get(customeruuid)
 
 Get account information details
 
@@ -23,19 +23,16 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
-TelstraTPN.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
 api_instance = TelstraTPN.CustomersApi()
 customeruuid = 'customeruuid_example' # str | Unique identifier representing a specific customer
 
 try: 
     # Get account information details
-    api_response = api_instance.get_account_information_details(customeruuid)
+    api_response = api_instance.100_account_by_customeruuid_get(customeruuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CustomersApi->get_account_information_details: %s\n" % e)
+    print("Exception when calling CustomersApi->100_account_by_customeruuid_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -50,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -59,8 +56,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_users**
-> list[User] list_users(customeruuid)
+# **100_account_user_by_customeruuid_get**
+> list[User] 100_account_user_by_customeruuid_get(customeruuid)
 
 List users
 
@@ -74,19 +71,16 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
-TelstraTPN.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
 api_instance = TelstraTPN.CustomersApi()
 customeruuid = 'customeruuid_example' # str | Unique identifier representing a specific customer
 
 try: 
     # List users
-    api_response = api_instance.list_users(customeruuid)
+    api_response = api_instance.100_account_user_by_customeruuid_get(customeruuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CustomersApi->list_users: %s\n" % e)
+    print("Exception when calling CustomersApi->100_account_user_by_customeruuid_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -101,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

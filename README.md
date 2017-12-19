@@ -1,7 +1,7 @@
 # TelstraTPN
 Telstra Programmable Network is a self-provisioning platform that allows its users to create on-demand connectivity services between multiple end-points and add various network functions to those services. Programmable Network enables to connectivity to a global ecosystem of networking services as well as public and private cloud services. Once you are connected to the platform on one or more POPs (points of presence), you can start creating those services based on the use case that you want to accomplish. The Programmable Network API is available to all customers who have registered to use the Programmable Network. To register, please contact your account representative.
 
-- API version: 2.1.2
+- API version: 2.1.3
 - Package version: 1.0.0
 
 ## Requirements.
@@ -47,9 +47,6 @@ import time
 import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: auth
-TelstraTPN.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # create an instance of the API class
 api_instance = TelstraTPN.AuthenticationApi()
 grant_type = 'grant_type_example' # str | 
@@ -58,10 +55,10 @@ password = 'password_example' # str |
 
 try:
     # Create an authentication token
-    api_response = api_instance.create_an_authentication_token(grant_type, username, password)
+    api_response = api_instance.100_auth_generatetoken_post(grant_type, username, password)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuthenticationApi->create_an_authentication_token: %s\n" % e)
+    print("Exception when calling AuthenticationApi->100_auth_generatetoken_post: %s\n" % e)
 
 ```
 
@@ -71,30 +68,33 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthenticationApi* | [**create_an_authentication_token**](docs/AuthenticationApi.md#create_an_authentication_token) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
-*AuthenticationApi* | [**validate_authentication_token**](docs/AuthenticationApi.md#validate_authentication_token) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
-*ContractsApi* | [**create_new_contract_on_specified_link**](docs/ContractsApi.md#create_new_contract_on_specified_link) | **POST** /1.0.0/inventory/links/{linkid}/contract | Create new Contract on specified link
-*ContractsApi* | [**get_active_contract_by_contract_id**](docs/ContractsApi.md#get_active_contract_by_contract_id) | **GET** /1.0.0/inventory/links/{linkid}/contract/{contractid} | Get active Contract by ContractID
-*ContractsApi* | [**update_active_contract_by_contract_id**](docs/ContractsApi.md#update_active_contract_by_contract_id) | **PUT** /1.0.0/inventory/links/{linkid}/contract/{contractid} | Update active Contract by ContractID
-*CustomersApi* | [**get_account_information_details**](docs/CustomersApi.md#get_account_information_details) | **GET** /1.0.0/account/{customeruuid} | Get account information details
-*CustomersApi* | [**list_users**](docs/CustomersApi.md#list_users) | **GET** /1.0.0/account/{customeruuid}/user | List users
-*DatacentresApi* | [**get_list_of_all_the_data_centers**](docs/DatacentresApi.md#get_list_of_all_the_data_centers) | **GET** /1.0.0/inventory/datacenters | Get list of all the data centers
-*EndpointsApi* | [**create_physical__port_endpoint**](docs/EndpointsApi.md#create_physical__port_endpoint) | **POST** /1.0.0/inventory/regularendpoint | Create Physical (Port) Endpoint
-*EndpointsApi* | [**create_vnf_endpoint**](docs/EndpointsApi.md#create_vnf_endpoint) | **POST** /1.0.0/inventory/vnfendpoint | Create VNF Endpoint
-*EndpointsApi* | [**get_information_about_the_specified_endpoint**](docs/EndpointsApi.md#get_information_about_the_specified_endpoint) | **GET** /1.0.0/inventory/endpoint/{endpointuuid} | Get information about the specified endpoint
-*EndpointsApi* | [**get_list_of_endpoints_for_a_customer**](docs/EndpointsApi.md#get_list_of_endpoints_for_a_customer) | **GET** /1.0.0/inventory/endpoints/customeruuid/{customeruuid} | Get list of endpoints for a customer
-*LinksApi* | [**create_link_and_initial_contract**](docs/LinksApi.md#create_link_and_initial_contract) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
-*LinksApi* | [**get_active_links**](docs/LinksApi.md#get_active_links) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
-*LinksApi* | [**get_details_of_specified_link**](docs/LinksApi.md#get_details_of_specified_link) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
-*LinksApi* | [**get_link_history**](docs/LinksApi.md#get_link_history) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
-*TopologiesApi* | [**create_a_named_topology_tag**](docs/TopologiesApi.md#create_a_named_topology_tag) | **POST** /ttms/1.0.0/topology_tag | Create a named topology tag
-*TopologiesApi* | [**get_information_about_the_specified_topology_tag**](docs/TopologiesApi.md#get_information_about_the_specified_topology_tag) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Get information about the specified topology tag
-*TopologiesApi* | [**list_all_topology_tags**](docs/TopologiesApi.md#list_all_topology_tags) | **GET** /ttms/1.0.0/topology_tag | List all topology tags
-*TopologiesApi* | [**list_objects_for_topology**](docs/TopologiesApi.md#list_objects_for_topology) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/objects/ | List objects for Topology
-*VnfsApi* | [**list_images_in_the_marketplace**](docs/VnfsApi.md#list_images_in_the_marketplace) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
-*VportsApi* | [**create_v_port_for_physical_endpoint**](docs/VportsApi.md#create_v_port_for_physical_endpoint) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
-*VportsApi* | [**create_vnf_v_port**](docs/VportsApi.md#create_vnf_v_port) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
-*VportsApi* | [**get_information_about_the_specified_v_port**](docs/VportsApi.md#get_information_about_the_specified_v_port) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
+*AuthenticationApi* | [**100_auth_generatetoken_post**](docs/AuthenticationApi.md#100_auth_generatetoken_post) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
+*AuthenticationApi* | [**100_auth_validatetoken_get**](docs/AuthenticationApi.md#100_auth_validatetoken_get) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
+*ContractsApi* | [**100_inventory_links_contract_by_linkid_and_contractid_get**](docs/ContractsApi.md#100_inventory_links_contract_by_linkid_and_contractid_get) | **GET** /1.0.0/inventory/links/{linkid}/contract/{contractid} | Get active Contract by ContractID
+*ContractsApi* | [**100_inventory_links_contract_by_linkid_and_contractid_put**](docs/ContractsApi.md#100_inventory_links_contract_by_linkid_and_contractid_put) | **PUT** /1.0.0/inventory/links/{linkid}/contract/{contractid} | Update active Contract by ContractID
+*ContractsApi* | [**100_inventory_links_contract_by_linkid_post**](docs/ContractsApi.md#100_inventory_links_contract_by_linkid_post) | **POST** /1.0.0/inventory/links/{linkid}/contract | Create new Contract on specified link
+*CustomersApi* | [**100_account_by_customeruuid_get**](docs/CustomersApi.md#100_account_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid} | Get account information details
+*CustomersApi* | [**100_account_user_by_customeruuid_get**](docs/CustomersApi.md#100_account_user_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid}/user | List users
+*DatacentresApi* | [**100_inventory_datacenters_get**](docs/DatacentresApi.md#100_inventory_datacenters_get) | **GET** /1.0.0/inventory/datacenters | Get list of all the data centers
+*EndpointsApi* | [**100_inventory_endpoint_by_endpointuuid_get**](docs/EndpointsApi.md#100_inventory_endpoint_by_endpointuuid_get) | **GET** /1.0.0/inventory/endpoint/{endpointuuid} | Get information about the specified endpoint
+*EndpointsApi* | [**100_inventory_endpoints_customeruuid_by_customeruuid_get**](docs/EndpointsApi.md#100_inventory_endpoints_customeruuid_by_customeruuid_get) | **GET** /1.0.0/inventory/endpoints/customeruuid/{customeruuid} | Get list of endpoints for a customer
+*EndpointsApi* | [**100_inventory_regularendpoint_post**](docs/EndpointsApi.md#100_inventory_regularendpoint_post) | **POST** /1.0.0/inventory/regularendpoint | Create Physical (Port) Endpoint
+*EndpointsApi* | [**100_inventory_vnfendpoint_post**](docs/EndpointsApi.md#100_inventory_vnfendpoint_post) | **POST** /1.0.0/inventory/vnfendpoint | Create VNF Endpoint
+*EndpointsApi* | [**eis100_endpoints_assign_topology_tag_by_endpointuuid_post**](docs/EndpointsApi.md#eis100_endpoints_assign_topology_tag_by_endpointuuid_post) | **POST** /eis/1.0.0/endpoints/{endpointuuid}/assign_topology_tag | Assign a Topology Tag to an Endpoint
+*LinksApi* | [**100_inventory_link_post**](docs/LinksApi.md#100_inventory_link_post) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
+*LinksApi* | [**100_inventory_links_by_linkid_get**](docs/LinksApi.md#100_inventory_links_by_linkid_get) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
+*LinksApi* | [**100_inventory_links_customer_by_customeruuid_get**](docs/LinksApi.md#100_inventory_links_customer_by_customeruuid_get) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
+*LinksApi* | [**100_inventory_links_history_by_linkid_get**](docs/LinksApi.md#100_inventory_links_history_by_linkid_get) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
+*TopologiesApi* | [**ttms100_topology_tag_by_topotaguuid_delete**](docs/TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_delete) | **DELETE** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Delete a topology tag
+*TopologiesApi* | [**ttms100_topology_tag_by_topotaguuid_get**](docs/TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Get information about the specified topology tag
+*TopologiesApi* | [**ttms100_topology_tag_by_topotaguuid_put**](docs/TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_put) | **PUT** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Update a topology tag&#39;s name and/or description
+*TopologiesApi* | [**ttms100_topology_tag_get**](docs/TopologiesApi.md#ttms100_topology_tag_get) | **GET** /ttms/1.0.0/topology_tag | List all topology tags
+*TopologiesApi* | [**ttms100_topology_tag_objects_by_topotaguuid_get**](docs/TopologiesApi.md#ttms100_topology_tag_objects_by_topotaguuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/objects/ | List objects for Topology
+*TopologiesApi* | [**ttms100_topology_tag_post**](docs/TopologiesApi.md#ttms100_topology_tag_post) | **POST** /ttms/1.0.0/topology_tag | Create a named topology tag
+*VnfsApi* | [**100_marketplace_image_get**](docs/VnfsApi.md#100_marketplace_image_get) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
+*VportsApi* | [**100_inventory_regularvport_post**](docs/VportsApi.md#100_inventory_regularvport_post) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
+*VportsApi* | [**100_inventory_vnf_vport_post**](docs/VportsApi.md#100_inventory_vnf_vport_post) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
+*VportsApi* | [**100_inventory_vport_by_vportuuid_get**](docs/VportsApi.md#100_inventory_vport_by_vportuuid_get) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
 
 
 ## Documentation For Models
@@ -103,15 +103,16 @@ Class | Method | HTTP request | Description
  - [Classification](docs/Classification.md)
  - [Contract](docs/Contract.md)
  - [Datacenter](docs/Datacenter.md)
+ - [Eis100EndpointsAssignTopologyTagRequest](docs/Eis100EndpointsAssignTopologyTagRequest.md)
  - [Endpoint](docs/Endpoint.md)
  - [EndpointPort](docs/EndpointPort.md)
  - [Endpointlist](docs/Endpointlist.md)
  - [Error](docs/Error.md)
- - [Error70](docs/Error70.md)
+ - [Error74](docs/Error74.md)
  - [Flavor](docs/Flavor.md)
  - [GlanceImage](docs/GlanceImage.md)
  - [Link](docs/Link.md)
- - [Link62](docs/Link62.md)
+ - [Link66](docs/Link66.md)
  - [Meta](docs/Meta.md)
  - [Model100AccountResponse](docs/Model100AccountResponse.md)
  - [Model100AuthGeneratetokenResponse](docs/Model100AuthGeneratetokenResponse.md)
@@ -123,10 +124,10 @@ Class | Method | HTTP request | Description
  - [Model100InventoryLinkRequest](docs/Model100InventoryLinkRequest.md)
  - [Model100InventoryLinkResponse](docs/Model100InventoryLinkResponse.md)
  - [Model100InventoryLinksContractRequest](docs/Model100InventoryLinksContractRequest.md)
- - [Model100InventoryLinksContractRequest35](docs/Model100InventoryLinksContractRequest35.md)
+ - [Model100InventoryLinksContractRequest37](docs/Model100InventoryLinksContractRequest37.md)
  - [Model100InventoryLinksContractResponse](docs/Model100InventoryLinksContractResponse.md)
- - [Model100InventoryLinksContractResponse31](docs/Model100InventoryLinksContractResponse31.md)
- - [Model100InventoryLinksContractResponse36](docs/Model100InventoryLinksContractResponse36.md)
+ - [Model100InventoryLinksContractResponse33](docs/Model100InventoryLinksContractResponse33.md)
+ - [Model100InventoryLinksContractResponse38](docs/Model100InventoryLinksContractResponse38.md)
  - [Model100InventoryLinksHistoryResponse](docs/Model100InventoryLinksHistoryResponse.md)
  - [Model100InventoryLinksResponse](docs/Model100InventoryLinksResponse.md)
  - [Model100InventoryRegularendpointRequest](docs/Model100InventoryRegularendpointRequest.md)
@@ -138,11 +139,11 @@ Class | Method | HTTP request | Description
  - [Model100InventoryVnfendpointRequest](docs/Model100InventoryVnfendpointRequest.md)
  - [Model100InventoryVnfendpointResponse](docs/Model100InventoryVnfendpointResponse.md)
  - [Model100MarketplaceImageResponse](docs/Model100MarketplaceImageResponse.md)
- - [Object50](docs/Object50.md)
+ - [Object52](docs/Object52.md)
  - [Params](docs/Params.md)
- - [Params29](docs/Params29.md)
- - [Params32](docs/Params32.md)
- - [Params37](docs/Params37.md)
+ - [Params31](docs/Params31.md)
+ - [Params34](docs/Params34.md)
+ - [Params39](docs/Params39.md)
  - [Product](docs/Product.md)
  - [Role](docs/Role.md)
  - [SuccessFragment](docs/SuccessFragment.md)
@@ -156,12 +157,5 @@ Class | Method | HTTP request | Description
  - [Vportvalue](docs/Vportvalue.md)
 
 
-## Documentation For Authorization
 
 
-## auth
-
-- **Type**: OAuth
-- **Flow**: password
-- **Authorization URL**: 
-- **Scopes**: N/A

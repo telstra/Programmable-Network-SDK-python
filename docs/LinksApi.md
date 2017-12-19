@@ -4,14 +4,14 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_link_and_initial_contract**](LinksApi.md#create_link_and_initial_contract) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
-[**get_active_links**](LinksApi.md#get_active_links) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
-[**get_details_of_specified_link**](LinksApi.md#get_details_of_specified_link) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
-[**get_link_history**](LinksApi.md#get_link_history) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
+[**100_inventory_link_post**](LinksApi.md#100_inventory_link_post) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
+[**100_inventory_links_by_linkid_get**](LinksApi.md#100_inventory_links_by_linkid_get) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
+[**100_inventory_links_customer_by_customeruuid_get**](LinksApi.md#100_inventory_links_customer_by_customeruuid_get) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
+[**100_inventory_links_history_by_linkid_get**](LinksApi.md#100_inventory_links_history_by_linkid_get) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
 
 
-# **create_link_and_initial_contract**
-> Model100InventoryLinkResponse create_link_and_initial_contract(body=body)
+# **100_inventory_link_post**
+> Model100InventoryLinkResponse 100_inventory_link_post(body=body)
 
 Create Link and initial Contract
 
@@ -25,19 +25,16 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
-TelstraTPN.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
 api_instance = TelstraTPN.LinksApi()
 body = TelstraTPN.Model100InventoryLinkRequest() # Model100InventoryLinkRequest |  (optional)
 
 try: 
     # Create Link and initial Contract
-    api_response = api_instance.create_link_and_initial_contract(body=body)
+    api_response = api_instance.100_inventory_link_post(body=body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling LinksApi->create_link_and_initial_contract: %s\n" % e)
+    print("Exception when calling LinksApi->100_inventory_link_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -52,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -61,59 +58,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_active_links**
-> list[Link] get_active_links(customeruuid)
-
-Get active Links
-
-Get active Links
-
-### Example 
-```python
-from __future__ import print_function
-import time
-import TelstraTPN
-from TelstraTPN.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: auth
-TelstraTPN.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# create an instance of the API class
-api_instance = TelstraTPN.LinksApi()
-customeruuid = 'customeruuid_example' # str | Unique identifier representing a specific customer
-
-try: 
-    # Get active Links
-    api_response = api_instance.get_active_links(customeruuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LinksApi->get_active_links: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customeruuid** | **str**| Unique identifier representing a specific customer | 
-
-### Return type
-
-[**list[Link]**](Link.md)
-
-### Authorization
-
-[auth](../README.md#auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_details_of_specified_link**
-> Model100InventoryLinksResponse get_details_of_specified_link(linkid)
+# **100_inventory_links_by_linkid_get**
+> Model100InventoryLinksResponse 100_inventory_links_by_linkid_get(linkid)
 
 Get details of specified link
 
@@ -126,9 +72,6 @@ import time
 import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: auth
-TelstraTPN.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = TelstraTPN.LinksApi()
@@ -136,10 +79,10 @@ linkid = 'linkid_example' # str | Unique identifier representing a specific link
 
 try: 
     # Get details of specified link
-    api_response = api_instance.get_details_of_specified_link(linkid)
+    api_response = api_instance.100_inventory_links_by_linkid_get(linkid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling LinksApi->get_details_of_specified_link: %s\n" % e)
+    print("Exception when calling LinksApi->100_inventory_links_by_linkid_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -154,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -163,8 +106,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_link_history**
-> Model100InventoryLinksHistoryResponse get_link_history(linkid)
+# **100_inventory_links_customer_by_customeruuid_get**
+> list[Link] 100_inventory_links_customer_by_customeruuid_get(customeruuid)
+
+Get active Links
+
+Get active Links
+
+### Example 
+```python
+from __future__ import print_function
+import time
+import TelstraTPN
+from TelstraTPN.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = TelstraTPN.LinksApi()
+customeruuid = 'customeruuid_example' # str | Unique identifier representing a specific customer
+
+try: 
+    # Get active Links
+    api_response = api_instance.100_inventory_links_customer_by_customeruuid_get(customeruuid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling LinksApi->100_inventory_links_customer_by_customeruuid_get: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customeruuid** | **str**| Unique identifier representing a specific customer | 
+
+### Return type
+
+[**list[Link]**](Link.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **100_inventory_links_history_by_linkid_get**
+> Model100InventoryLinksHistoryResponse 100_inventory_links_history_by_linkid_get(linkid)
 
 Get Link history
 
@@ -178,19 +169,16 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
-TelstraTPN.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
 api_instance = TelstraTPN.LinksApi()
 linkid = 'linkid_example' # str | Unique identifier representing a specific link
 
 try: 
     # Get Link history
-    api_response = api_instance.get_link_history(linkid)
+    api_response = api_instance.100_inventory_links_history_by_linkid_get(linkid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling LinksApi->get_link_history: %s\n" % e)
+    print("Exception when calling LinksApi->100_inventory_links_history_by_linkid_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -205,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

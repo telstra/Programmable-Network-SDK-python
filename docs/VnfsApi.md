@@ -4,11 +4,11 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_images_in_the_marketplace**](VnfsApi.md#list_images_in_the_marketplace) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
+[**100_marketplace_image_get**](VnfsApi.md#100_marketplace_image_get) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
 
 
-# **list_images_in_the_marketplace**
-> Model100MarketplaceImageResponse list_images_in_the_marketplace()
+# **100_marketplace_image_get**
+> Model100MarketplaceImageResponse 100_marketplace_image_get()
 
 List images in the Marketplace
 
@@ -22,18 +22,15 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
-TelstraTPN.configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
 api_instance = TelstraTPN.VnfsApi()
 
 try: 
     # List images in the Marketplace
-    api_response = api_instance.list_images_in_the_marketplace()
+    api_response = api_instance.100_marketplace_image_get()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling VnfsApi->list_images_in_the_marketplace: %s\n" % e)
+    print("Exception when calling VnfsApi->100_marketplace_image_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -45,7 +42,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
