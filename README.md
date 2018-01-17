@@ -170,4 +170,3 @@ Class | Method | HTTP request | Description
 - **Scopes**: 
 - **Oauth2**: Oauth2
 
-
