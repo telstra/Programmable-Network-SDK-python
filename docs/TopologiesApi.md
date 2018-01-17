@@ -19,7 +19,7 @@ Delete a topology tag
 
 Delete a topology tag
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -31,7 +31,7 @@ from pprint import pprint
 api_instance = TelstraTPN.TopologiesApi()
 topotaguuid = 'topotaguuid_example' # str | Unique identifier representing a specific topology tag
 
-try: 
+try:
     # Delete a topology tag
     api_instance.ttms100_topology_tag_by_topotaguuid_delete(topotaguuid)
 except ApiException as e:
@@ -66,7 +66,7 @@ Get information about the specified topology tag
 
 Get information about the specified topology tag
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -78,7 +78,7 @@ from pprint import pprint
 api_instance = TelstraTPN.TopologiesApi()
 topotaguuid = 'topotaguuid_example' # str | Unique identifier representing a specific topology tag
 
-try: 
+try:
     # Get information about the specified topology tag
     api_response = api_instance.ttms100_topology_tag_by_topotaguuid_get(topotaguuid)
     pprint(api_response)
@@ -114,7 +114,7 @@ Update a topology tag's name and/or description
 
 Update a topology tag's name and/or description
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -127,7 +127,7 @@ api_instance = TelstraTPN.TopologiesApi()
 topotaguuid = 'topotaguuid_example' # str | Unique identifier representing a specific topology tag
 body = TelstraTPN.Ttms100TopologyTagRequest() # Ttms100TopologyTagRequest |  (optional)
 
-try: 
+try:
     # Update a topology tag's name and/or description
     api_response = api_instance.ttms100_topology_tag_by_topotaguuid_put(topotaguuid, body=body)
     pprint(api_response)
@@ -164,7 +164,7 @@ List all topology tags
 
 List all topology tags
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -175,7 +175,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = TelstraTPN.TopologiesApi()
 
-try: 
+try:
     # List all topology tags
     api_response = api_instance.ttms100_topology_tag_get()
     pprint(api_response)
@@ -208,7 +208,7 @@ List objects for Topology
 
 List all objects (Endpoints, Links, VPorts, etc.) associated with the topology tag.
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -220,7 +220,7 @@ from pprint import pprint
 api_instance = TelstraTPN.TopologiesApi()
 topotaguuid = 'topotaguuid_example' # str | Unique identifier representing a specific topology tag
 
-try: 
+try:
     # List objects for Topology
     api_response = api_instance.ttms100_topology_tag_objects_by_topotaguuid_get(topotaguuid)
     pprint(api_response)
@@ -256,7 +256,7 @@ Create a named topology tag
 
 Create a named topology tag
 
-### Example 
+### Example
 ```python
 from __future__ import print_function
 import time
@@ -268,7 +268,7 @@ from pprint import pprint
 api_instance = TelstraTPN.TopologiesApi()
 body = TelstraTPN.Ttms100TopologyTagRequest() # Ttms100TopologyTagRequest |  (optional)
 
-try: 
+try:
     # Create a named topology tag
     api_response = api_instance.ttms100_topology_tag_post(body=body)
     pprint(api_response)

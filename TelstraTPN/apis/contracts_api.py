@@ -40,7 +40,7 @@ class ContractsApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def 100_inventory_links_contract_by_linkid_and_contractid_get(self, linkid, contractid, **kwargs):
+    def inventory_links_contract_by_linkid_and_contractid_get(self, linkid, contractid, **kwargs):
         """
         Get active Contract by ContractID
         Get active Contract by ContractID
@@ -50,7 +50,7 @@ class ContractsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_links_contract_by_linkid_and_contractid_get(linkid, contractid, callback=callback_function)
+        >>> thread = api.inventory_links_contract_by_linkid_and_contractid_get(linkid, contractid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -62,12 +62,12 @@ class ContractsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_inventory_links_contract_by_linkid_and_contractid_get_with_http_info(linkid, contractid, **kwargs)
+            return self.inventory_links_contract_by_linkid_and_contractid_get_with_http_info(linkid, contractid, **kwargs)
         else:
-            (data) = self.100_inventory_links_contract_by_linkid_and_contractid_get_with_http_info(linkid, contractid, **kwargs)
+            (data) = self.inventory_links_contract_by_linkid_and_contractid_get_with_http_info(linkid, contractid, **kwargs)
             return data
 
-    def 100_inventory_links_contract_by_linkid_and_contractid_get_with_http_info(self, linkid, contractid, **kwargs):
+    def inventory_links_contract_by_linkid_and_contractid_get_with_http_info(self, linkid, contractid, **kwargs):
         """
         Get active Contract by ContractID
         Get active Contract by ContractID
@@ -77,7 +77,7 @@ class ContractsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_links_contract_by_linkid_and_contractid_get_with_http_info(linkid, contractid, callback=callback_function)
+        >>> thread = api.inventory_links_contract_by_linkid_and_contractid_get_with_http_info(linkid, contractid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -99,16 +99,16 @@ class ContractsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_inventory_links_contract_by_linkid_and_contractid_get" % key
+                    " to method inventory_links_contract_by_linkid_and_contractid_get" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'linkid' is set
         if ('linkid' not in params) or (params['linkid'] is None):
-            raise ValueError("Missing the required parameter `linkid` when calling `100_inventory_links_contract_by_linkid_and_contractid_get`")
+            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_contract_by_linkid_and_contractid_get`")
         # verify the required parameter 'contractid' is set
         if ('contractid' not in params) or (params['contractid'] is None):
-            raise ValueError("Missing the required parameter `contractid` when calling `100_inventory_links_contract_by_linkid_and_contractid_get`")
+            raise ValueError("Missing the required parameter `contractid` when calling `inventory_links_contract_by_linkid_and_contractid_get`")
 
 
         collection_formats = {}
@@ -153,7 +153,7 @@ class ContractsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def 100_inventory_links_contract_by_linkid_and_contractid_put(self, linkid, contractid, **kwargs):
+    def inventory_links_contract_by_linkid_and_contractid_put(self, linkid, contractid, **kwargs):
         """
         Update active Contract by ContractID
         Update active Contract by ContractID
@@ -163,7 +163,7 @@ class ContractsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_links_contract_by_linkid_and_contractid_put(linkid, contractid, callback=callback_function)
+        >>> thread = api.inventory_links_contract_by_linkid_and_contractid_put(linkid, contractid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -176,12 +176,12 @@ class ContractsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_inventory_links_contract_by_linkid_and_contractid_put_with_http_info(linkid, contractid, **kwargs)
+            return self.inventory_links_contract_by_linkid_and_contractid_put_with_http_info(linkid, contractid, **kwargs)
         else:
-            (data) = self.100_inventory_links_contract_by_linkid_and_contractid_put_with_http_info(linkid, contractid, **kwargs)
+            (data) = self.inventory_links_contract_by_linkid_and_contractid_put_with_http_info(linkid, contractid, **kwargs)
             return data
 
-    def 100_inventory_links_contract_by_linkid_and_contractid_put_with_http_info(self, linkid, contractid, **kwargs):
+    def inventory_links_contract_by_linkid_and_contractid_put_with_http_info(self, linkid, contractid, **kwargs):
         """
         Update active Contract by ContractID
         Update active Contract by ContractID
@@ -191,7 +191,7 @@ class ContractsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_links_contract_by_linkid_and_contractid_put_with_http_info(linkid, contractid, callback=callback_function)
+        >>> thread = api.inventory_links_contract_by_linkid_and_contractid_put_with_http_info(linkid, contractid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -214,16 +214,16 @@ class ContractsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_inventory_links_contract_by_linkid_and_contractid_put" % key
+                    " to method inventory_links_contract_by_linkid_and_contractid_put" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'linkid' is set
         if ('linkid' not in params) or (params['linkid'] is None):
-            raise ValueError("Missing the required parameter `linkid` when calling `100_inventory_links_contract_by_linkid_and_contractid_put`")
+            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_contract_by_linkid_and_contractid_put`")
         # verify the required parameter 'contractid' is set
         if ('contractid' not in params) or (params['contractid'] is None):
-            raise ValueError("Missing the required parameter `contractid` when calling `100_inventory_links_contract_by_linkid_and_contractid_put`")
+            raise ValueError("Missing the required parameter `contractid` when calling `inventory_links_contract_by_linkid_and_contractid_put`")
 
 
         collection_formats = {}
@@ -270,7 +270,7 @@ class ContractsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def 100_inventory_links_contract_by_linkid_post(self, linkid, **kwargs):
+    def inventory_links_contract_by_linkid_post(self, linkid, **kwargs):
         """
         Create new Contract on specified link
         Create new Contract on specified link
@@ -280,7 +280,7 @@ class ContractsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_links_contract_by_linkid_post(linkid, callback=callback_function)
+        >>> thread = api.inventory_links_contract_by_linkid_post(linkid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -292,12 +292,12 @@ class ContractsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_inventory_links_contract_by_linkid_post_with_http_info(linkid, **kwargs)
+            return self.inventory_links_contract_by_linkid_post_with_http_info(linkid, **kwargs)
         else:
-            (data) = self.100_inventory_links_contract_by_linkid_post_with_http_info(linkid, **kwargs)
+            (data) = self.inventory_links_contract_by_linkid_post_with_http_info(linkid, **kwargs)
             return data
 
-    def 100_inventory_links_contract_by_linkid_post_with_http_info(self, linkid, **kwargs):
+    def inventory_links_contract_by_linkid_post_with_http_info(self, linkid, **kwargs):
         """
         Create new Contract on specified link
         Create new Contract on specified link
@@ -307,7 +307,7 @@ class ContractsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_links_contract_by_linkid_post_with_http_info(linkid, callback=callback_function)
+        >>> thread = api.inventory_links_contract_by_linkid_post_with_http_info(linkid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -329,13 +329,13 @@ class ContractsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_inventory_links_contract_by_linkid_post" % key
+                    " to method inventory_links_contract_by_linkid_post" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'linkid' is set
         if ('linkid' not in params) or (params['linkid'] is None):
-            raise ValueError("Missing the required parameter `linkid` when calling `100_inventory_links_contract_by_linkid_post`")
+            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_contract_by_linkid_post`")
 
 
         collection_formats = {}

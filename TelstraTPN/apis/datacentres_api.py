@@ -40,7 +40,7 @@ class DatacentresApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def 100_inventory_datacenters_get(self, **kwargs):
+    def inventory_datacenters_get(self, **kwargs):
         """
         Get list of all the data centers
         Get list of all the data centers
@@ -50,7 +50,7 @@ class DatacentresApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_datacenters_get(callback=callback_function)
+        >>> thread = api.inventory_datacenters_get(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -60,12 +60,12 @@ class DatacentresApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_inventory_datacenters_get_with_http_info(**kwargs)
+            return self.inventory_datacenters_get_with_http_info(**kwargs)
         else:
-            (data) = self.100_inventory_datacenters_get_with_http_info(**kwargs)
+            (data) = self.inventory_datacenters_get_with_http_info(**kwargs)
             return data
 
-    def 100_inventory_datacenters_get_with_http_info(self, **kwargs):
+    def inventory_datacenters_get_with_http_info(self, **kwargs):
         """
         Get list of all the data centers
         Get list of all the data centers
@@ -75,7 +75,7 @@ class DatacentresApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_datacenters_get_with_http_info(callback=callback_function)
+        >>> thread = api.inventory_datacenters_get_with_http_info(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -95,7 +95,7 @@ class DatacentresApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_inventory_datacenters_get" % key
+                    " to method inventory_datacenters_get" % key
                 )
             params[key] = val
         del params['kwargs']

@@ -40,7 +40,7 @@ class LinksApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def 100_inventory_link_post(self, **kwargs):
+    def inventory_link_post(self, **kwargs):
         """
         Create Link and initial Contract
         Create Link and initial Contract
@@ -50,7 +50,7 @@ class LinksApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_link_post(callback=callback_function)
+        >>> thread = api.inventory_link_post(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -61,12 +61,12 @@ class LinksApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_inventory_link_post_with_http_info(**kwargs)
+            return self.inventory_link_post_with_http_info(**kwargs)
         else:
-            (data) = self.100_inventory_link_post_with_http_info(**kwargs)
+            (data) = self.inventory_link_post_with_http_info(**kwargs)
             return data
 
-    def 100_inventory_link_post_with_http_info(self, **kwargs):
+    def inventory_link_post_with_http_info(self, **kwargs):
         """
         Create Link and initial Contract
         Create Link and initial Contract
@@ -76,7 +76,7 @@ class LinksApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_link_post_with_http_info(callback=callback_function)
+        >>> thread = api.inventory_link_post_with_http_info(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -97,7 +97,7 @@ class LinksApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_inventory_link_post" % key
+                    " to method inventory_link_post" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -143,7 +143,7 @@ class LinksApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def 100_inventory_links_by_linkid_get(self, linkid, **kwargs):
+    def inventory_links_by_linkid_get(self, linkid, **kwargs):
         """
         Get details of specified link
         Get details of specified link
@@ -153,7 +153,7 @@ class LinksApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_links_by_linkid_get(linkid, callback=callback_function)
+        >>> thread = api.inventory_links_by_linkid_get(linkid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -164,12 +164,12 @@ class LinksApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_inventory_links_by_linkid_get_with_http_info(linkid, **kwargs)
+            return self.inventory_links_by_linkid_get_with_http_info(linkid, **kwargs)
         else:
-            (data) = self.100_inventory_links_by_linkid_get_with_http_info(linkid, **kwargs)
+            (data) = self.inventory_links_by_linkid_get_with_http_info(linkid, **kwargs)
             return data
 
-    def 100_inventory_links_by_linkid_get_with_http_info(self, linkid, **kwargs):
+    def inventory_links_by_linkid_get_with_http_info(self, linkid, **kwargs):
         """
         Get details of specified link
         Get details of specified link
@@ -179,7 +179,7 @@ class LinksApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_links_by_linkid_get_with_http_info(linkid, callback=callback_function)
+        >>> thread = api.inventory_links_by_linkid_get_with_http_info(linkid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -200,13 +200,13 @@ class LinksApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_inventory_links_by_linkid_get" % key
+                    " to method inventory_links_by_linkid_get" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'linkid' is set
         if ('linkid' not in params) or (params['linkid'] is None):
-            raise ValueError("Missing the required parameter `linkid` when calling `100_inventory_links_by_linkid_get`")
+            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_by_linkid_get`")
 
 
         collection_formats = {}
@@ -249,7 +249,7 @@ class LinksApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def 100_inventory_links_customer_by_customeruuid_get(self, customeruuid, **kwargs):
+    def inventory_links_customer_by_customeruuid_get(self, customeruuid, **kwargs):
         """
         Get active Links
         Get active Links
@@ -259,7 +259,7 @@ class LinksApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_links_customer_by_customeruuid_get(customeruuid, callback=callback_function)
+        >>> thread = api.inventory_links_customer_by_customeruuid_get(customeruuid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -270,12 +270,12 @@ class LinksApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_inventory_links_customer_by_customeruuid_get_with_http_info(customeruuid, **kwargs)
+            return self.inventory_links_customer_by_customeruuid_get_with_http_info(customeruuid, **kwargs)
         else:
-            (data) = self.100_inventory_links_customer_by_customeruuid_get_with_http_info(customeruuid, **kwargs)
+            (data) = self.inventory_links_customer_by_customeruuid_get_with_http_info(customeruuid, **kwargs)
             return data
 
-    def 100_inventory_links_customer_by_customeruuid_get_with_http_info(self, customeruuid, **kwargs):
+    def inventory_links_customer_by_customeruuid_get_with_http_info(self, customeruuid, **kwargs):
         """
         Get active Links
         Get active Links
@@ -285,7 +285,7 @@ class LinksApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_links_customer_by_customeruuid_get_with_http_info(customeruuid, callback=callback_function)
+        >>> thread = api.inventory_links_customer_by_customeruuid_get_with_http_info(customeruuid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -306,13 +306,13 @@ class LinksApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_inventory_links_customer_by_customeruuid_get" % key
+                    " to method inventory_links_customer_by_customeruuid_get" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'customeruuid' is set
         if ('customeruuid' not in params) or (params['customeruuid'] is None):
-            raise ValueError("Missing the required parameter `customeruuid` when calling `100_inventory_links_customer_by_customeruuid_get`")
+            raise ValueError("Missing the required parameter `customeruuid` when calling `inventory_links_customer_by_customeruuid_get`")
 
 
         collection_formats = {}
@@ -355,7 +355,7 @@ class LinksApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def 100_inventory_links_history_by_linkid_get(self, linkid, **kwargs):
+    def inventory_links_history_by_linkid_get(self, linkid, **kwargs):
         """
         Get Link history
         Get Link history
@@ -365,7 +365,7 @@ class LinksApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_links_history_by_linkid_get(linkid, callback=callback_function)
+        >>> thread = api.inventory_links_history_by_linkid_get(linkid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -376,12 +376,12 @@ class LinksApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_inventory_links_history_by_linkid_get_with_http_info(linkid, **kwargs)
+            return self.inventory_links_history_by_linkid_get_with_http_info(linkid, **kwargs)
         else:
-            (data) = self.100_inventory_links_history_by_linkid_get_with_http_info(linkid, **kwargs)
+            (data) = self.inventory_links_history_by_linkid_get_with_http_info(linkid, **kwargs)
             return data
 
-    def 100_inventory_links_history_by_linkid_get_with_http_info(self, linkid, **kwargs):
+    def inventory_links_history_by_linkid_get_with_http_info(self, linkid, **kwargs):
         """
         Get Link history
         Get Link history
@@ -391,7 +391,7 @@ class LinksApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_links_history_by_linkid_get_with_http_info(linkid, callback=callback_function)
+        >>> thread = api.inventory_links_history_by_linkid_get_with_http_info(linkid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -412,13 +412,13 @@ class LinksApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_inventory_links_history_by_linkid_get" % key
+                    " to method inventory_links_history_by_linkid_get" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'linkid' is set
         if ('linkid' not in params) or (params['linkid'] is None):
-            raise ValueError("Missing the required parameter `linkid` when calling `100_inventory_links_history_by_linkid_get`")
+            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_history_by_linkid_get`")
 
 
         collection_formats = {}

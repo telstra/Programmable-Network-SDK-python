@@ -40,7 +40,7 @@ class CustomersApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def 100_account_by_customeruuid_get(self, customeruuid, **kwargs):
+    def account_by_customeruuid_get(self, customeruuid, **kwargs):
         """
         Get account information details
         Get the account information for the specified customer
@@ -50,7 +50,7 @@ class CustomersApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_account_by_customeruuid_get(customeruuid, callback=callback_function)
+        >>> thread = api.account_by_customeruuid_get(customeruuid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -61,12 +61,12 @@ class CustomersApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_account_by_customeruuid_get_with_http_info(customeruuid, **kwargs)
+            return self.account_by_customeruuid_get_with_http_info(customeruuid, **kwargs)
         else:
-            (data) = self.100_account_by_customeruuid_get_with_http_info(customeruuid, **kwargs)
+            (data) = self.account_by_customeruuid_get_with_http_info(customeruuid, **kwargs)
             return data
 
-    def 100_account_by_customeruuid_get_with_http_info(self, customeruuid, **kwargs):
+    def account_by_customeruuid_get_with_http_info(self, customeruuid, **kwargs):
         """
         Get account information details
         Get the account information for the specified customer
@@ -76,7 +76,7 @@ class CustomersApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_account_by_customeruuid_get_with_http_info(customeruuid, callback=callback_function)
+        >>> thread = api.account_by_customeruuid_get_with_http_info(customeruuid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -97,13 +97,13 @@ class CustomersApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_account_by_customeruuid_get" % key
+                    " to method account_by_customeruuid_get" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'customeruuid' is set
         if ('customeruuid' not in params) or (params['customeruuid'] is None):
-            raise ValueError("Missing the required parameter `customeruuid` when calling `100_account_by_customeruuid_get`")
+            raise ValueError("Missing the required parameter `customeruuid` when calling `account_by_customeruuid_get`")
 
 
         collection_formats = {}
@@ -146,7 +146,7 @@ class CustomersApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def 100_account_user_by_customeruuid_get(self, customeruuid, **kwargs):
+    def account_user_by_customeruuid_get(self, customeruuid, **kwargs):
         """
         List users
         List all users associated with the specified customer
@@ -156,7 +156,7 @@ class CustomersApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_account_user_by_customeruuid_get(customeruuid, callback=callback_function)
+        >>> thread = api.account_user_by_customeruuid_get(customeruuid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -167,12 +167,12 @@ class CustomersApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_account_user_by_customeruuid_get_with_http_info(customeruuid, **kwargs)
+            return self.account_user_by_customeruuid_get_with_http_info(customeruuid, **kwargs)
         else:
-            (data) = self.100_account_user_by_customeruuid_get_with_http_info(customeruuid, **kwargs)
+            (data) = self.account_user_by_customeruuid_get_with_http_info(customeruuid, **kwargs)
             return data
 
-    def 100_account_user_by_customeruuid_get_with_http_info(self, customeruuid, **kwargs):
+    def account_user_by_customeruuid_get_with_http_info(self, customeruuid, **kwargs):
         """
         List users
         List all users associated with the specified customer
@@ -182,7 +182,7 @@ class CustomersApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_account_user_by_customeruuid_get_with_http_info(customeruuid, callback=callback_function)
+        >>> thread = api.account_user_by_customeruuid_get_with_http_info(customeruuid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -203,13 +203,13 @@ class CustomersApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_account_user_by_customeruuid_get" % key
+                    " to method account_user_by_customeruuid_get" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'customeruuid' is set
         if ('customeruuid' not in params) or (params['customeruuid'] is None):
-            raise ValueError("Missing the required parameter `customeruuid` when calling `100_account_user_by_customeruuid_get`")
+            raise ValueError("Missing the required parameter `customeruuid` when calling `account_user_by_customeruuid_get`")
 
 
         collection_formats = {}

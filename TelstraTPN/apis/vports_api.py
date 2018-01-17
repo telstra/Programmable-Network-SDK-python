@@ -40,7 +40,7 @@ class VportsApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def 100_inventory_regularvport_post(self, **kwargs):
+    def inventory_regularvport_post(self, **kwargs):
         """
         Create VPort for physical endpoint
         Create VPort representing a VLAN on a Physical Ethernet Port
@@ -50,7 +50,7 @@ class VportsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_regularvport_post(callback=callback_function)
+        >>> thread = api.inventory_regularvport_post(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -61,12 +61,12 @@ class VportsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_inventory_regularvport_post_with_http_info(**kwargs)
+            return self.inventory_regularvport_post_with_http_info(**kwargs)
         else:
-            (data) = self.100_inventory_regularvport_post_with_http_info(**kwargs)
+            (data) = self.inventory_regularvport_post_with_http_info(**kwargs)
             return data
 
-    def 100_inventory_regularvport_post_with_http_info(self, **kwargs):
+    def inventory_regularvport_post_with_http_info(self, **kwargs):
         """
         Create VPort for physical endpoint
         Create VPort representing a VLAN on a Physical Ethernet Port
@@ -76,7 +76,7 @@ class VportsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_regularvport_post_with_http_info(callback=callback_function)
+        >>> thread = api.inventory_regularvport_post_with_http_info(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -97,7 +97,7 @@ class VportsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_inventory_regularvport_post" % key
+                    " to method inventory_regularvport_post" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -143,7 +143,7 @@ class VportsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def 100_inventory_vnf_vport_post(self, **kwargs):
+    def inventory_vnf_vport_post(self, **kwargs):
         """
         Create VNF VPort
         Create VNF VPort
@@ -153,7 +153,7 @@ class VportsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_vnf_vport_post(callback=callback_function)
+        >>> thread = api.inventory_vnf_vport_post(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -164,12 +164,12 @@ class VportsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_inventory_vnf_vport_post_with_http_info(**kwargs)
+            return self.inventory_vnf_vport_post_with_http_info(**kwargs)
         else:
-            (data) = self.100_inventory_vnf_vport_post_with_http_info(**kwargs)
+            (data) = self.inventory_vnf_vport_post_with_http_info(**kwargs)
             return data
 
-    def 100_inventory_vnf_vport_post_with_http_info(self, **kwargs):
+    def inventory_vnf_vport_post_with_http_info(self, **kwargs):
         """
         Create VNF VPort
         Create VNF VPort
@@ -179,7 +179,7 @@ class VportsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_vnf_vport_post_with_http_info(callback=callback_function)
+        >>> thread = api.inventory_vnf_vport_post_with_http_info(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -200,7 +200,7 @@ class VportsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_inventory_vnf_vport_post" % key
+                    " to method inventory_vnf_vport_post" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -246,7 +246,7 @@ class VportsApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def 100_inventory_vport_by_vportuuid_get(self, vportuuid, **kwargs):
+    def inventory_vport_by_vportuuid_get(self, vportuuid, **kwargs):
         """
         Get information about the specified VPort
         Get information about the specified VPort
@@ -256,7 +256,7 @@ class VportsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_vport_by_vportuuid_get(vportuuid, callback=callback_function)
+        >>> thread = api.inventory_vport_by_vportuuid_get(vportuuid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -267,12 +267,12 @@ class VportsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_inventory_vport_by_vportuuid_get_with_http_info(vportuuid, **kwargs)
+            return self.inventory_vport_by_vportuuid_get_with_http_info(vportuuid, **kwargs)
         else:
-            (data) = self.100_inventory_vport_by_vportuuid_get_with_http_info(vportuuid, **kwargs)
+            (data) = self.inventory_vport_by_vportuuid_get_with_http_info(vportuuid, **kwargs)
             return data
 
-    def 100_inventory_vport_by_vportuuid_get_with_http_info(self, vportuuid, **kwargs):
+    def inventory_vport_by_vportuuid_get_with_http_info(self, vportuuid, **kwargs):
         """
         Get information about the specified VPort
         Get information about the specified VPort
@@ -282,7 +282,7 @@ class VportsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_inventory_vport_by_vportuuid_get_with_http_info(vportuuid, callback=callback_function)
+        >>> thread = api.inventory_vport_by_vportuuid_get_with_http_info(vportuuid, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -303,13 +303,13 @@ class VportsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_inventory_vport_by_vportuuid_get" % key
+                    " to method inventory_vport_by_vportuuid_get" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'vportuuid' is set
         if ('vportuuid' not in params) or (params['vportuuid'] is None):
-            raise ValueError("Missing the required parameter `vportuuid` when calling `100_inventory_vport_by_vportuuid_get`")
+            raise ValueError("Missing the required parameter `vportuuid` when calling `inventory_vport_by_vportuuid_get`")
 
 
         collection_formats = {}

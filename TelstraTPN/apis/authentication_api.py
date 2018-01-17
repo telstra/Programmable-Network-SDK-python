@@ -40,7 +40,7 @@ class AuthenticationApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def 100_auth_generatetoken_post(self, grant_type, username, password, **kwargs):
+    def auth_generatetoken_post(self, grant_type, username, password, **kwargs):
         """
         Create an authentication token
         Create an authentication token
@@ -50,7 +50,7 @@ class AuthenticationApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_auth_generatetoken_post(grant_type, username, password, callback=callback_function)
+        >>> thread = api.auth_generatetoken_post(grant_type, username, password, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -63,12 +63,12 @@ class AuthenticationApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_auth_generatetoken_post_with_http_info(grant_type, username, password, **kwargs)
+            return self.auth_generatetoken_post_with_http_info(grant_type, username, password, **kwargs)
         else:
-            (data) = self.100_auth_generatetoken_post_with_http_info(grant_type, username, password, **kwargs)
+            (data) = self.auth_generatetoken_post_with_http_info(grant_type, username, password, **kwargs)
             return data
 
-    def 100_auth_generatetoken_post_with_http_info(self, grant_type, username, password, **kwargs):
+    def auth_generatetoken_post_with_http_info(self, grant_type, username, password, **kwargs):
         """
         Create an authentication token
         Create an authentication token
@@ -78,7 +78,7 @@ class AuthenticationApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_auth_generatetoken_post_with_http_info(grant_type, username, password, callback=callback_function)
+        >>> thread = api.auth_generatetoken_post_with_http_info(grant_type, username, password, callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -101,19 +101,19 @@ class AuthenticationApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_auth_generatetoken_post" % key
+                    " to method auth_generatetoken_post" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'grant_type' is set
         if ('grant_type' not in params) or (params['grant_type'] is None):
-            raise ValueError("Missing the required parameter `grant_type` when calling `100_auth_generatetoken_post`")
+            raise ValueError("Missing the required parameter `grant_type` when calling `auth_generatetoken_post`")
         # verify the required parameter 'username' is set
         if ('username' not in params) or (params['username'] is None):
-            raise ValueError("Missing the required parameter `username` when calling `100_auth_generatetoken_post`")
+            raise ValueError("Missing the required parameter `username` when calling `auth_generatetoken_post`")
         # verify the required parameter 'password' is set
         if ('password' not in params) or (params['password'] is None):
-            raise ValueError("Missing the required parameter `password` when calling `100_auth_generatetoken_post`")
+            raise ValueError("Missing the required parameter `password` when calling `auth_generatetoken_post`")
 
 
         collection_formats = {}
@@ -160,7 +160,7 @@ class AuthenticationApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def 100_auth_validatetoken_get(self, **kwargs):
+    def auth_validatetoken_get(self, **kwargs):
         """
         Validate authentication token
         Validate the authentication token and get information about the user (roles, permissions, etc.)
@@ -170,7 +170,7 @@ class AuthenticationApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_auth_validatetoken_get(callback=callback_function)
+        >>> thread = api.auth_validatetoken_get(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -180,12 +180,12 @@ class AuthenticationApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_auth_validatetoken_get_with_http_info(**kwargs)
+            return self.auth_validatetoken_get_with_http_info(**kwargs)
         else:
-            (data) = self.100_auth_validatetoken_get_with_http_info(**kwargs)
+            (data) = self.auth_validatetoken_get_with_http_info(**kwargs)
             return data
 
-    def 100_auth_validatetoken_get_with_http_info(self, **kwargs):
+    def auth_validatetoken_get_with_http_info(self, **kwargs):
         """
         Validate authentication token
         Validate the authentication token and get information about the user (roles, permissions, etc.)
@@ -195,7 +195,7 @@ class AuthenticationApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_auth_validatetoken_get_with_http_info(callback=callback_function)
+        >>> thread = api.auth_validatetoken_get_with_http_info(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -215,7 +215,7 @@ class AuthenticationApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_auth_validatetoken_get" % key
+                    " to method auth_validatetoken_get" % key
                 )
             params[key] = val
         del params['kwargs']

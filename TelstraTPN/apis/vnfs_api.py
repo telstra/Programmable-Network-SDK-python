@@ -40,7 +40,7 @@ class VnfsApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
-    def 100_marketplace_image_get(self, **kwargs):
+    def marketplace_image_get(self, **kwargs):
         """
         List images in the Marketplace
         List images in the Marketplace
@@ -50,7 +50,7 @@ class VnfsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_marketplace_image_get(callback=callback_function)
+        >>> thread = api.marketplace_image_get(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -60,12 +60,12 @@ class VnfsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('callback'):
-            return self.100_marketplace_image_get_with_http_info(**kwargs)
+            return self.marketplace_image_get_with_http_info(**kwargs)
         else:
-            (data) = self.100_marketplace_image_get_with_http_info(**kwargs)
+            (data) = self.marketplace_image_get_with_http_info(**kwargs)
             return data
 
-    def 100_marketplace_image_get_with_http_info(self, **kwargs):
+    def marketplace_image_get_with_http_info(self, **kwargs):
         """
         List images in the Marketplace
         List images in the Marketplace
@@ -75,7 +75,7 @@ class VnfsApi(object):
         >>> def callback_function(response):
         >>>     pprint(response)
         >>>
-        >>> thread = api.100_marketplace_image_get_with_http_info(callback=callback_function)
+        >>> thread = api.marketplace_image_get_with_http_info(callback=callback_function)
 
         :param callback function: The callback function
             for asynchronous request. (optional)
@@ -95,7 +95,7 @@ class VnfsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method 100_marketplace_image_get" % key
+                    " to method marketplace_image_get" % key
                 )
             params[key] = val
         del params['kwargs']
