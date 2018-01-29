@@ -4,14 +4,14 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**auth_generatetoken_post**](AuthenticationApi.md#auth_generatetoken_post) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
-[**auth_validatetoken_get**](AuthenticationApi.md#auth_validatetoken_get) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
+[**auth_generatetoken_post**](AuthenticationApi.md#auth_generatetoken_post) | **POST** /1.0.0/auth/generatetoken | authgeneratetokenpost
+[**auth_validatetoken_get**](AuthenticationApi.md#auth_validatetoken_get) | **GET** /1.0.0/auth/validatetoken | authvalidatetokenget
 
 
 # **auth_generatetoken_post**
-> AuthGeneratetokenResponse auth_generatetoken_post(grant_type, username, password)
+> AuthgeneratetokenpostResponse auth_generatetoken_post(grant_type, username, password)
 
-Create an authentication token
+authgeneratetokenpost
 
 Create an authentication token
 
@@ -23,14 +23,18 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: auth
+configuration = TelstraTPN.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = TelstraTPN.AuthenticationApi()
+api_instance = TelstraTPN.AuthenticationApi(TelstraTPN.ApiClient(configuration))
 grant_type = 'grant_type_example' # str | 
 username = 'username_example' # str | 
 password = 'password_example' # str | 
 
 try:
-    # Create an authentication token
+    # authgeneratetokenpost
     api_response = api_instance.auth_generatetoken_post(grant_type, username, password)
     pprint(api_response)
 except ApiException as e:
@@ -47,11 +51,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthGeneratetokenResponse**](AuthGeneratetokenResponse.md)
+[**AuthgeneratetokenpostResponse**](AuthgeneratetokenpostResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
@@ -61,9 +65,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **auth_validatetoken_get**
-> AuthValidatetokenResponse auth_validatetoken_get()
+> AuthvalidatetokengetResponse auth_validatetoken_get()
 
-Validate authentication token
+authvalidatetokenget
 
 Validate the authentication token and get information about the user (roles, permissions, etc.)
 
@@ -75,11 +79,15 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: auth
+configuration = TelstraTPN.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = TelstraTPN.AuthenticationApi()
+api_instance = TelstraTPN.AuthenticationApi(TelstraTPN.ApiClient(configuration))
 
 try:
-    # Validate authentication token
+    # authvalidatetokenget
     api_response = api_instance.auth_validatetoken_get()
     pprint(api_response)
 except ApiException as e:
@@ -91,11 +99,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AuthValidatetokenResponse**](AuthValidatetokenResponse.md)
+[**AuthvalidatetokengetResponse**](AuthvalidatetokengetResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 

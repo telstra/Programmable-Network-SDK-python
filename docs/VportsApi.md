@@ -4,15 +4,15 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inventory_regularvport_post**](VportsApi.md#inventory_regularvport_post) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
-[**inventory_vnf_vport_post**](VportsApi.md#inventory_vnf_vport_post) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
-[**inventory_vport_by_vportuuid_get**](VportsApi.md#inventory_vport_by_vportuuid_get) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
+[**inventory_regularvport_post**](VportsApi.md#inventory_regularvport_post) | **POST** /1.0.0/inventory/regularvport | inventoryregularvportpost
+[**inventory_vnf_vport_post**](VportsApi.md#inventory_vnf_vport_post) | **POST** /1.0.0/inventory/vnf/vport | inventoryvnfvportpost
+[**inventory_vport_by_vportuuid_get**](VportsApi.md#inventory_vport_by_vportuuid_get) | **GET** /1.0.0/inventory/vport/{vportuuid} | inventoryvportvportuuidget
 
 
 # **inventory_regularvport_post**
-> InventoryRegularvportResponse inventory_regularvport_post(body=body)
+> InventoryregularvportpostResponse inventory_regularvport_post(body=body)
 
-Create VPort for physical endpoint
+inventoryregularvportpost
 
 Create VPort representing a VLAN on a Physical Ethernet Port
 
@@ -30,10 +30,10 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = TelstraTPN.VportsApi(TelstraTPN.ApiClient(configuration))
-body = TelstraTPN.InventoryRegularvportRequest() # InventoryRegularvportRequest |  (optional)
+body = TelstraTPN.Body53() # Body53 |  (optional)
 
 try:
-    # Create VPort for physical endpoint
+    # inventoryregularvportpost
     api_response = api_instance.inventory_regularvport_post(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -44,11 +44,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InventoryRegularvportRequest**](InventoryRegularvportRequest.md)|  | [optional] 
+ **body** | [**Body53**](Body53.md)|  | [optional] 
 
 ### Return type
 
-[**InventoryRegularvportResponse**](InventoryRegularvportResponse.md)
+[**InventoryregularvportpostResponse**](InventoryregularvportpostResponse.md)
 
 ### Authorization
 
@@ -62,9 +62,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inventory_vnf_vport_post**
-> InventoryVnfVportResponse inventory_vnf_vport_post(body=body)
+> InventoryvnfvportpostResponse inventory_vnf_vport_post(body=body)
 
-Create VNF VPort
+inventoryvnfvportpost
 
 Create VNF VPort
 
@@ -82,10 +82,10 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = TelstraTPN.VportsApi(TelstraTPN.ApiClient(configuration))
-body = TelstraTPN.InventoryVnfVportRequest() # InventoryVnfVportRequest |  (optional)
+body = TelstraTPN.Body56() # Body56 |  (optional)
 
 try:
-    # Create VNF VPort
+    # inventoryvnfvportpost
     api_response = api_instance.inventory_vnf_vport_post(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -96,11 +96,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InventoryVnfVportRequest**](InventoryVnfVportRequest.md)|  | [optional] 
+ **body** | [**Body56**](Body56.md)|  | [optional] 
 
 ### Return type
 
-[**InventoryVnfVportResponse**](InventoryVnfVportResponse.md)
+[**InventoryvnfvportpostResponse**](InventoryvnfvportpostResponse.md)
 
 ### Authorization
 
@@ -114,9 +114,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inventory_vport_by_vportuuid_get**
-> list[EndpointPort] inventory_vport_by_vportuuid_get(vportuuid)
+> EndpointPort inventory_vport_by_vportuuid_get(vportuuid)
 
-Get information about the specified VPort
+inventoryvportvportuuidget
 
 Get information about the specified VPort
 
@@ -137,7 +137,7 @@ api_instance = TelstraTPN.VportsApi(TelstraTPN.ApiClient(configuration))
 vportuuid = 'vportuuid_example' # str | Unique identifier representing a specific virtual port
 
 try:
-    # Get information about the specified VPort
+    # inventoryvportvportuuidget
     api_response = api_instance.inventory_vport_by_vportuuid_get(vportuuid)
     pprint(api_response)
 except ApiException as e:
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[EndpointPort]**](EndpointPort.md)
+[**EndpointPort**](EndpointPort.md)
 
 ### Authorization
 

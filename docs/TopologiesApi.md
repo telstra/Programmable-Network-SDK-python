@@ -4,18 +4,18 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ttms100_topology_tag_by_topotaguuid_delete**](TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_delete) | **DELETE** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Delete a topology tag
-[**ttms100_topology_tag_by_topotaguuid_get**](TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Get information about the specified topology tag
-[**ttms100_topology_tag_by_topotaguuid_put**](TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_put) | **PUT** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Update a topology tag&#39;s name and/or description
-[**ttms100_topology_tag_get**](TopologiesApi.md#ttms100_topology_tag_get) | **GET** /ttms/1.0.0/topology_tag | List all topology tags
-[**ttms100_topology_tag_objects_by_topotaguuid_get**](TopologiesApi.md#ttms100_topology_tag_objects_by_topotaguuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/objects/ | List objects for Topology
-[**ttms100_topology_tag_post**](TopologiesApi.md#ttms100_topology_tag_post) | **POST** /ttms/1.0.0/topology_tag | Create a named topology tag
+[**ttms100_topology_tag_by_topotaguuid_delete**](TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_delete) | **DELETE** /ttms/1.0.0/topology_tag/{topotaguuid}/ | ttmstopologytagtopotaguuiddelete
+[**ttms100_topology_tag_by_topotaguuid_get**](TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/ | ttmstopologytagtopotaguuidget
+[**ttms100_topology_tag_by_topotaguuid_put**](TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_put) | **PUT** /ttms/1.0.0/topology_tag/{topotaguuid}/ | ttmstopologytagtopotaguuidput
+[**ttms100_topology_tag_get**](TopologiesApi.md#ttms100_topology_tag_get) | **GET** /ttms/1.0.0/topology_tag | ttmstopologytagget
+[**ttms100_topology_tag_objects_by_topotaguuid_get**](TopologiesApi.md#ttms100_topology_tag_objects_by_topotaguuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/objects/ | ttmstopologytagtopotaguuidobjectsget
+[**ttms100_topology_tag_post**](TopologiesApi.md#ttms100_topology_tag_post) | **POST** /ttms/1.0.0/topology_tag | ttmstopologytagpost
 
 
 # **ttms100_topology_tag_by_topotaguuid_delete**
-> ttms100_topology_tag_by_topotaguuid_delete(topotaguuid)
+> ttms100_topology_tag_by_topotaguuid_delete(topotaguuid, body=body)
 
-Delete a topology tag
+ttmstopologytagtopotaguuiddelete
 
 Delete a topology tag
 
@@ -27,13 +27,18 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: auth
+configuration = TelstraTPN.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = TelstraTPN.TopologiesApi()
+api_instance = TelstraTPN.TopologiesApi(TelstraTPN.ApiClient(configuration))
 topotaguuid = 'topotaguuid_example' # str | Unique identifier representing a specific topology tag
+body = TelstraTPN.Body72() # Body72 |  (optional)
 
 try:
-    # Delete a topology tag
-    api_instance.ttms100_topology_tag_by_topotaguuid_delete(topotaguuid)
+    # ttmstopologytagtopotaguuiddelete
+    api_instance.ttms100_topology_tag_by_topotaguuid_delete(topotaguuid, body=body)
 except ApiException as e:
     print("Exception when calling TopologiesApi->ttms100_topology_tag_by_topotaguuid_delete: %s\n" % e)
 ```
@@ -43,6 +48,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **topotaguuid** | **str**| Unique identifier representing a specific topology tag | 
+ **body** | [**Body72**](Body72.md)|  | [optional] 
 
 ### Return type
 
@@ -50,7 +56,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
@@ -62,7 +68,7 @@ No authorization required
 # **ttms100_topology_tag_by_topotaguuid_get**
 > Topology ttms100_topology_tag_by_topotaguuid_get(topotaguuid)
 
-Get information about the specified topology tag
+ttmstopologytagtopotaguuidget
 
 Get information about the specified topology tag
 
@@ -74,12 +80,16 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: auth
+configuration = TelstraTPN.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = TelstraTPN.TopologiesApi()
+api_instance = TelstraTPN.TopologiesApi(TelstraTPN.ApiClient(configuration))
 topotaguuid = 'topotaguuid_example' # str | Unique identifier representing a specific topology tag
 
 try:
-    # Get information about the specified topology tag
+    # ttmstopologytagtopotaguuidget
     api_response = api_instance.ttms100_topology_tag_by_topotaguuid_get(topotaguuid)
     pprint(api_response)
 except ApiException as e:
@@ -98,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
@@ -110,7 +120,7 @@ No authorization required
 # **ttms100_topology_tag_by_topotaguuid_put**
 > Topology ttms100_topology_tag_by_topotaguuid_put(topotaguuid, body=body)
 
-Update a topology tag's name and/or description
+ttmstopologytagtopotaguuidput
 
 Update a topology tag's name and/or description
 
@@ -122,13 +132,17 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: auth
+configuration = TelstraTPN.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = TelstraTPN.TopologiesApi()
+api_instance = TelstraTPN.TopologiesApi(TelstraTPN.ApiClient(configuration))
 topotaguuid = 'topotaguuid_example' # str | Unique identifier representing a specific topology tag
-body = TelstraTPN.Ttms100TopologyTagRequest() # Ttms100TopologyTagRequest |  (optional)
+body = TelstraTPN.Body72() # Body72 |  (optional)
 
 try:
-    # Update a topology tag's name and/or description
+    # ttmstopologytagtopotaguuidput
     api_response = api_instance.ttms100_topology_tag_by_topotaguuid_put(topotaguuid, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -140,7 +154,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **topotaguuid** | **str**| Unique identifier representing a specific topology tag | 
- **body** | [**Ttms100TopologyTagRequest**](Ttms100TopologyTagRequest.md)|  | [optional] 
+ **body** | [**Body72**](Body72.md)|  | [optional] 
 
 ### Return type
 
@@ -148,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
@@ -160,7 +174,7 @@ No authorization required
 # **ttms100_topology_tag_get**
 > list[Topology] ttms100_topology_tag_get()
 
-List all topology tags
+ttmstopologytagget
 
 List all topology tags
 
@@ -172,11 +186,15 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: auth
+configuration = TelstraTPN.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = TelstraTPN.TopologiesApi()
+api_instance = TelstraTPN.TopologiesApi(TelstraTPN.ApiClient(configuration))
 
 try:
-    # List all topology tags
+    # ttmstopologytagget
     api_response = api_instance.ttms100_topology_tag_get()
     pprint(api_response)
 except ApiException as e:
@@ -192,7 +210,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
@@ -202,9 +220,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ttms100_topology_tag_objects_by_topotaguuid_get**
-> Ttms100TopologyTagObjectsResponse ttms100_topology_tag_objects_by_topotaguuid_get(topotaguuid)
+> TtmstopologytagtopotaguuidobjectsgetResponse ttms100_topology_tag_objects_by_topotaguuid_get(topotaguuid)
 
-List objects for Topology
+ttmstopologytagtopotaguuidobjectsget
 
 List all objects (Endpoints, Links, VPorts, etc.) associated with the topology tag.
 
@@ -216,12 +234,16 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: auth
+configuration = TelstraTPN.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = TelstraTPN.TopologiesApi()
+api_instance = TelstraTPN.TopologiesApi(TelstraTPN.ApiClient(configuration))
 topotaguuid = 'topotaguuid_example' # str | Unique identifier representing a specific topology tag
 
 try:
-    # List objects for Topology
+    # ttmstopologytagtopotaguuidobjectsget
     api_response = api_instance.ttms100_topology_tag_objects_by_topotaguuid_get(topotaguuid)
     pprint(api_response)
 except ApiException as e:
@@ -236,11 +258,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Ttms100TopologyTagObjectsResponse**](Ttms100TopologyTagObjectsResponse.md)
+[**TtmstopologytagtopotaguuidobjectsgetResponse**](TtmstopologytagtopotaguuidobjectsgetResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
@@ -252,7 +274,7 @@ No authorization required
 # **ttms100_topology_tag_post**
 > Topology ttms100_topology_tag_post(body=body)
 
-Create a named topology tag
+ttmstopologytagpost
 
 Create a named topology tag
 
@@ -264,12 +286,16 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
+# Configure OAuth2 access token for authorization: auth
+configuration = TelstraTPN.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
 # create an instance of the API class
-api_instance = TelstraTPN.TopologiesApi()
-body = TelstraTPN.Ttms100TopologyTagRequest() # Ttms100TopologyTagRequest |  (optional)
+api_instance = TelstraTPN.TopologiesApi(TelstraTPN.ApiClient(configuration))
+body = TelstraTPN.Body72() # Body72 |  (optional)
 
 try:
-    # Create a named topology tag
+    # ttmstopologytagpost
     api_response = api_instance.ttms100_topology_tag_post(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -280,7 +306,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Ttms100TopologyTagRequest**](Ttms100TopologyTagRequest.md)|  | [optional] 
+ **body** | [**Body72**](Body72.md)|  | [optional] 
 
 ### Return type
 
@@ -288,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 

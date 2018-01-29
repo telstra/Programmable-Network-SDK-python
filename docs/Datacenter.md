@@ -3,8 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**cityname** | **str** |  | [optional] 
+**countryname** | **str** |  | [optional] 
+**datacentercode** | **str** |  | [optional] 
+**datacentername** | **str** |  | [optional] 
 **datacenteruuid** | **str** |  | [optional] 
-**port** | [**list[EndpointPort]**](EndpointPort.md) |  | [optional] 
+**interfacetypes** | **list[str]** |  | [optional] 
+**operatorname** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

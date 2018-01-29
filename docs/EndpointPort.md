@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cabletype** | **str** |  | [optional] 
-**connectortype** | **str** |  | [optional] 
 **cfa** | **str** |  | [optional] 
+**connectortype** | **str** |  | [optional] 
 **endpointuuid** | **str** |  | [optional] 
 **interfacespeed** | **str** |  | [optional] 
 **interfacetype** | **str** |  | [optional] 
