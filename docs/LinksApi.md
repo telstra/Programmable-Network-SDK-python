@@ -4,16 +4,16 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inventory_link_post**](LinksApi.md#inventory_link_post) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
-[**inventory_links_by_linkid_get**](LinksApi.md#inventory_links_by_linkid_get) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
-[**inventory_links_customer_by_customeruuid_get**](LinksApi.md#inventory_links_customer_by_customeruuid_get) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
-[**inventory_links_history_by_linkid_get**](LinksApi.md#inventory_links_history_by_linkid_get) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
+[**inventory_link_post**](LinksApi.md#inventory_link_post) | **POST** /1.0.0/inventory/link | inventorylinkpost
+[**inventory_links_by_linkid_get**](LinksApi.md#inventory_links_by_linkid_get) | **GET** /1.0.0/inventory/links/{linkid} | inventorylinkslinkidget
+[**inventory_links_customer_by_customeruuid_get**](LinksApi.md#inventory_links_customer_by_customeruuid_get) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | inventorylinkscustomercustomeruuidget
+[**inventory_links_history_by_linkid_get**](LinksApi.md#inventory_links_history_by_linkid_get) | **GET** /1.0.0/inventory/links/history/{linkid} | inventorylinkshistorylinkidget
 
 
 # **inventory_link_post**
-> InventoryLinkResponse inventory_link_post(body=body)
+> InventorylinkpostResponse inventory_link_post(body=body)
 
-Create Link and initial Contract
+inventorylinkpost
 
 Create Link and initial Contract
 
@@ -31,10 +31,10 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = TelstraTPN.LinksApi(TelstraTPN.ApiClient(configuration))
-body = TelstraTPN.InventoryLinkRequest() # InventoryLinkRequest |  (optional)
+body = TelstraTPN.Body() # Body |  (optional)
 
 try:
-    # Create Link and initial Contract
+    # inventorylinkpost
     api_response = api_instance.inventory_link_post(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -45,11 +45,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**InventoryLinkRequest**](InventoryLinkRequest.md)|  | [optional] 
+ **body** | [**Body**](Body.md)|  | [optional] 
 
 ### Return type
 
-[**InventoryLinkResponse**](InventoryLinkResponse.md)
+[**InventorylinkpostResponse**](InventorylinkpostResponse.md)
 
 ### Authorization
 
@@ -63,9 +63,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inventory_links_by_linkid_get**
-> InventoryLinksResponse inventory_links_by_linkid_get(linkid)
+> InventorylinkslinkidgetResponse inventory_links_by_linkid_get(linkid)
 
-Get details of specified link
+inventorylinkslinkidget
 
 Get details of specified link
 
@@ -86,7 +86,7 @@ api_instance = TelstraTPN.LinksApi(TelstraTPN.ApiClient(configuration))
 linkid = 'linkid_example' # str | Unique identifier representing a specific link
 
 try:
-    # Get details of specified link
+    # inventorylinkslinkidget
     api_response = api_instance.inventory_links_by_linkid_get(linkid)
     pprint(api_response)
 except ApiException as e:
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InventoryLinksResponse**](InventoryLinksResponse.md)
+[**InventorylinkslinkidgetResponse**](InventorylinkslinkidgetResponse.md)
 
 ### Authorization
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 # **inventory_links_customer_by_customeruuid_get**
 > list[Link] inventory_links_customer_by_customeruuid_get(customeruuid)
 
-Get active Links
+inventorylinkscustomercustomeruuidget
 
 Get active Links
 
@@ -138,7 +138,7 @@ api_instance = TelstraTPN.LinksApi(TelstraTPN.ApiClient(configuration))
 customeruuid = 'customeruuid_example' # str | Unique identifier representing a specific customer
 
 try:
-    # Get active Links
+    # inventorylinkscustomercustomeruuidget
     api_response = api_instance.inventory_links_customer_by_customeruuid_get(customeruuid)
     pprint(api_response)
 except ApiException as e:
@@ -167,9 +167,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inventory_links_history_by_linkid_get**
-> InventoryLinksHistoryResponse inventory_links_history_by_linkid_get(linkid)
+> InventorylinkshistorylinkidgetResponse inventory_links_history_by_linkid_get(linkid)
 
-Get Link history
+inventorylinkshistorylinkidget
 
 Get Link history
 
@@ -190,7 +190,7 @@ api_instance = TelstraTPN.LinksApi(TelstraTPN.ApiClient(configuration))
 linkid = 'linkid_example' # str | Unique identifier representing a specific link
 
 try:
-    # Get Link history
+    # inventorylinkshistorylinkidget
     api_response = api_instance.inventory_links_history_by_linkid_get(linkid)
     pprint(api_response)
 except ApiException as e:
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InventoryLinksHistoryResponse**](InventoryLinksHistoryResponse.md)
+[**InventorylinkshistorylinkidgetResponse**](InventorylinkshistorylinkidgetResponse.md)
 
 ### Authorization
 

@@ -4,14 +4,14 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**account_by_customeruuid_get**](CustomersApi.md#account_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid} | Get account information details
-[**account_user_by_customeruuid_get**](CustomersApi.md#account_user_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid}/user | List users
+[**account_by_customeruuid_get**](CustomersApi.md#account_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid} | accountcustomeruuidget
+[**account_user_by_customeruuid_get**](CustomersApi.md#account_user_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid}/user | accountcustomeruuiduserget
 
 
 # **account_by_customeruuid_get**
-> list[AccountResponse] account_by_customeruuid_get(customeruuid)
+> AccountcustomeruuidgetResponse account_by_customeruuid_get(customeruuid)
 
-Get account information details
+accountcustomeruuidget
 
 Get the account information for the specified customer
 
@@ -32,7 +32,7 @@ api_instance = TelstraTPN.CustomersApi(TelstraTPN.ApiClient(configuration))
 customeruuid = 'customeruuid_example' # str | Unique identifier representing a specific customer
 
 try:
-    # Get account information details
+    # accountcustomeruuidget
     api_response = api_instance.account_by_customeruuid_get(customeruuid)
     pprint(api_response)
 except ApiException as e:
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[AccountResponse]**](AccountResponse.md)
+[**AccountcustomeruuidgetResponse**](AccountcustomeruuidgetResponse.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 # **account_user_by_customeruuid_get**
 > list[User] account_user_by_customeruuid_get(customeruuid)
 
-List users
+accountcustomeruuiduserget
 
 List all users associated with the specified customer
 
@@ -84,7 +84,7 @@ api_instance = TelstraTPN.CustomersApi(TelstraTPN.ApiClient(configuration))
 customeruuid = 'customeruuid_example' # str | Unique identifier representing a specific customer
 
 try:
-    # List users
+    # accountcustomeruuiduserget
     api_response = api_instance.account_user_by_customeruuid_get(customeruuid)
     pprint(api_response)
 except ApiException as e:

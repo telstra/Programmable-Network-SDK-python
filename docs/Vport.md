@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **str** |  | [optional] 
 **bandwidth** | **int** |  | [optional] 
 **interfacesequence** | **int** |  | [optional] 
+**status** | **str** |  | [optional] 
 **vporttype** | **str** |  | [optional] 
 **vportuuid** | **str** |  | [optional] 
 **vportvalue** | [**Vportvalue**](Vportvalue.md) |  | [optional] 
