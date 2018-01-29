@@ -52,7 +52,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = TelstraTPN.AuthenticationApi()
-grant_type = 'grant_type_example' # str | 
+grant_type = 'password' # str | 
 username = 'username_example' # str | 
 password = 'password_example' # str | 
 
