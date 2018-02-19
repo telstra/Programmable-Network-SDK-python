@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **status** | **str** |  | [optional] 
 **vporttype** | **str** |  | [optional] 
 **vportuuid** | **str** |  | [optional] 
-**vportvalue** | [**Vportvalue**](Vportvalue.md) |  | [optional] 
+**vportvalue** | [**VportVportvalue**](VportVportvalue.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,14 +4,12 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**auth_generatetoken_post**](AuthenticationApi.md#auth_generatetoken_post) | **POST** /1.0.0/auth/generatetoken | authgeneratetokenpost
-[**auth_validatetoken_get**](AuthenticationApi.md#auth_validatetoken_get) | **GET** /1.0.0/auth/validatetoken | authvalidatetokenget
+[**authgeneratetokenpost**](AuthenticationApi.md#authgeneratetokenpost) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
+[**authvalidatetokenget**](AuthenticationApi.md#authvalidatetokenget) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
 
 
-# **auth_generatetoken_post**
-> AuthgeneratetokenpostResponse auth_generatetoken_post(grant_type, username, password)
-
-authgeneratetokenpost
+# **authgeneratetokenpost**
+> InlineResponse2001 authgeneratetokenpost(grant_type, username, password)
 
 Create an authentication token
 
@@ -23,51 +21,47 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
-configuration = TelstraTPN.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
 # create an instance of the API class
-api_instance = TelstraTPN.AuthenticationApi(TelstraTPN.ApiClient(configuration))
-grant_type = 'grant_type_example' # str | 
+api_instance = TelstraTPN.AuthenticationApi()
+grant_type = 'password' # str |  (default to password)
 username = 'username_example' # str | 
 password = 'password_example' # str | 
 
 try:
-    # authgeneratetokenpost
-    api_response = api_instance.auth_generatetoken_post(grant_type, username, password)
+    # Create an authentication token
+    api_response = api_instance.authgeneratetokenpost(grant_type, username, password)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuthenticationApi->auth_generatetoken_post: %s\n" % e)
+    print("Exception when calling AuthenticationApi->authgeneratetokenpost: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grant_type** | **str**|  | 
+ **grant_type** | **str**|  | [default to password]
  **username** | **str**|  | 
  **password** | **str**|  | 
 
 ### Return type
 
-[**AuthgeneratetokenpostResponse**](AuthgeneratetokenpostResponse.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **auth_validatetoken_get**
-> AuthvalidatetokengetResponse auth_validatetoken_get()
+# **authvalidatetokenget**
+> InlineResponse2002 authvalidatetokenget()
 
-authvalidatetokenget
+Validate authentication token
 
 Validate the authentication token and get information about the user (roles, permissions, etc.)
 
@@ -79,7 +73,7 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
+# Configure OAuth2 access token for authorization: oAuth2
 configuration = TelstraTPN.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -87,11 +81,11 @@ configuration.access_token = 'YOUR_ACCESS_TOKEN'
 api_instance = TelstraTPN.AuthenticationApi(TelstraTPN.ApiClient(configuration))
 
 try:
-    # authvalidatetokenget
-    api_response = api_instance.auth_validatetoken_get()
+    # Validate authentication token
+    api_response = api_instance.authvalidatetokenget()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuthenticationApi->auth_validatetoken_get: %s\n" % e)
+    print("Exception when calling AuthenticationApi->authvalidatetokenget: %s\n" % e)
 ```
 
 ### Parameters
@@ -99,16 +93,16 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AuthvalidatetokengetResponse**](AuthvalidatetokengetResponse.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+[oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

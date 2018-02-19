@@ -4,14 +4,14 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**account_by_customeruuid_get**](CustomersApi.md#account_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid} | accountcustomeruuidget
-[**account_user_by_customeruuid_get**](CustomersApi.md#account_user_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid}/user | accountcustomeruuiduserget
+[**accountcustomeruuidget**](CustomersApi.md#accountcustomeruuidget) | **GET** /1.0.0/account/{customeruuid} | Get account information details
+[**accountcustomeruuiduserget**](CustomersApi.md#accountcustomeruuiduserget) | **GET** /1.0.0/account/{customeruuid}/user | List users
 
 
-# **account_by_customeruuid_get**
-> AccountcustomeruuidgetResponse account_by_customeruuid_get(customeruuid)
+# **accountcustomeruuidget**
+> InlineResponse200 accountcustomeruuidget(customeruuid)
 
-accountcustomeruuidget
+Get account information details
 
 Get the account information for the specified customer
 
@@ -23,7 +23,7 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
+# Configure OAuth2 access token for authorization: oAuth2
 configuration = TelstraTPN.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -32,11 +32,11 @@ api_instance = TelstraTPN.CustomersApi(TelstraTPN.ApiClient(configuration))
 customeruuid = 'customeruuid_example' # str | Unique identifier representing a specific customer
 
 try:
-    # accountcustomeruuidget
-    api_response = api_instance.account_by_customeruuid_get(customeruuid)
+    # Get account information details
+    api_response = api_instance.accountcustomeruuidget(customeruuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CustomersApi->account_by_customeruuid_get: %s\n" % e)
+    print("Exception when calling CustomersApi->accountcustomeruuidget: %s\n" % e)
 ```
 
 ### Parameters
@@ -47,23 +47,23 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AccountcustomeruuidgetResponse**](AccountcustomeruuidgetResponse.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+[oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **account_user_by_customeruuid_get**
-> list[User] account_user_by_customeruuid_get(customeruuid)
+# **accountcustomeruuiduserget**
+> list[User] accountcustomeruuiduserget(customeruuid)
 
-accountcustomeruuiduserget
+List users
 
 List all users associated with the specified customer
 
@@ -75,7 +75,7 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
+# Configure OAuth2 access token for authorization: oAuth2
 configuration = TelstraTPN.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -84,11 +84,11 @@ api_instance = TelstraTPN.CustomersApi(TelstraTPN.ApiClient(configuration))
 customeruuid = 'customeruuid_example' # str | Unique identifier representing a specific customer
 
 try:
-    # accountcustomeruuiduserget
-    api_response = api_instance.account_user_by_customeruuid_get(customeruuid)
+    # List users
+    api_response = api_instance.accountcustomeruuiduserget(customeruuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CustomersApi->account_user_by_customeruuid_get: %s\n" % e)
+    print("Exception when calling CustomersApi->accountcustomeruuiduserget: %s\n" % e)
 ```
 
 ### Parameters
@@ -103,12 +103,12 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+[oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -4,12 +4,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **billing_id** | **str** |  | [optional] 
-**connections** | **list[str]** |  | [optional] 
+**connections** | [**Connections**](Connections.md) |  | [optional] 
 **contracts** | [**list[Contract]**](Contract.md) |  | [optional] 
 **description** | **str** |  | [optional] 
-**latency** | **int** | Latency: 0&#x3D;Low, 1&#x3D;Standard, 2&#x3D;Best Effort | [optional] 
+**latency** | [**Latency**](Latency.md) |  | [optional] 
 **link_status** | **int** |  | [optional] 
-**linkid** | **str** | Identifier of a link | [optional] 
+**linkid** | [**Linkid**](Linkid.md) |  | [optional] 
 **tag** | **str** |  | [optional] 
 **type** | **str** |  | [optional] 
 
