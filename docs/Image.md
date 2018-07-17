@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tags** | [**list[VnfTag]**](VnfTag.md) |  | [optional] 
 **brief_description** | **str** |  | [optional] 
 **buyers** | **str** |  | [optional] 
 **classifications** | [**list[ImageClassifications]**](ImageClassifications.md) |  | [optional] 
@@ -33,6 +32,7 @@ Name | Type | Description | Notes
 **restrict_vnc_console** | **bool** |  | [optional] 
 **status** | **str** |  | [optional] 
 **support_hot_plug** | **bool** |  | [optional] 
+**tags** | [**list[VnfTag]**](VnfTag.md) |  | [optional] 
 **upload_at** | **int** |  | [optional] 
 **vendor_name** | **str** |  | [optional] 
 **zero_day_config_spec** | [**ImageZeroDayConfigSpec**](ImageZeroDayConfigSpec.md) |  | [optional] 

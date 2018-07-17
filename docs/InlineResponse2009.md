@@ -3,10 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**endpoints** | [**list[Endpoint]**](Endpoint.md) |  | [optional] 
-**links** | [**list[Links]**](Links.md) |  | [optional] 
-**sharedvports** | **list[str]** |  | [optional] 
-**topology_tag** | **str** |  | [optional] 
+**meta** | [**Meta**](Meta.md) |  | [optional] 
+**objects** | [**list[Image]**](Image.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

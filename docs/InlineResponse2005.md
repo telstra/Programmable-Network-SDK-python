@@ -3,8 +3,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**vnfuuid** | **str** | vnfuuid which was passed in the request | [optional] 
-**vnportuuid** | **str** | uuid of the newly-created vport | [optional] 
+**description** | **str** |  | [optional] 
+**latency** | **int** |  | [optional] 
+**linkid** | **str** |  | [optional] 
+**contracts** | [**list[Contract]**](Contract.md) |  | [optional] 
+**tag** | **str** |  | [optional] 
+**connections** | [**Connections**](Connections.md) |  | [optional] 
+**type** | **str** |  | [optional] 
+**link_status** | **int** |  | [optional] 
+**billing_id** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

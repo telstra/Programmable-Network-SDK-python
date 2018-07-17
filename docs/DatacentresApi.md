@@ -1,14 +1,14 @@
 # TelstraTPN.DatacentresApi
 
-All URIs are relative to *https://penapi.pacnetconnect.com*
+All URIs are relative to *https://penapi.pacnetconnect.com/1.0.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inventorydatacentersget**](DatacentresApi.md#inventorydatacentersget) | **GET** /1.0.0/inventory/datacenters | Get list of all the data centers
+[**inventory_datacenters_get**](DatacentresApi.md#inventory_datacenters_get) | **GET** /inventory/datacenters/ | Get list of all the data centers
 
 
-# **inventorydatacentersget**
-> Datacenterget inventorydatacentersget()
+# **inventory_datacenters_get**
+> InlineResponse200 inventory_datacenters_get()
 
 Get list of all the data centers
 
@@ -29,10 +29,10 @@ api_instance = TelstraTPN.DatacentresApi(TelstraTPN.ApiClient(configuration))
 
 try:
     # Get list of all the data centers
-    api_response = api_instance.inventorydatacentersget()
+    api_response = api_instance.inventory_datacenters_get()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DatacentresApi->inventorydatacentersget: %s\n" % e)
+    print("Exception when calling DatacentresApi->inventory_datacenters_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -40,7 +40,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Datacenterget**](Datacenterget.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -49,7 +49,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/jsonapplication/xml, 
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

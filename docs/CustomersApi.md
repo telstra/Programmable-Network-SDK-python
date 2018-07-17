@@ -1,15 +1,15 @@
 # TelstraTPN.CustomersApi
 
-All URIs are relative to *https://penapi.pacnetconnect.com*
+All URIs are relative to *https://penapi.pacnetconnect.com/1.0.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**accountcustomeruuidget**](CustomersApi.md#accountcustomeruuidget) | **GET** /1.0.0/account/{customeruuid} | Get account information details
-[**accountcustomeruuiduserget**](CustomersApi.md#accountcustomeruuiduserget) | **GET** /1.0.0/account/{customeruuid}/user | List users
+[**account_customeruuid_get**](CustomersApi.md#account_customeruuid_get) | **GET** /account/{customeruuid}/ | Get account information details
+[**account_customeruuid_user_get**](CustomersApi.md#account_customeruuid_user_get) | **GET** /account/{customeruuid}/user/ | List users
 
 
-# **accountcustomeruuidget**
-> InlineResponse200 accountcustomeruuidget(customeruuid)
+# **account_customeruuid_get**
+> InlineResponse20017 account_customeruuid_get(customeruuid)
 
 Get account information details
 
@@ -33,10 +33,10 @@ customeruuid = 'customeruuid_example' # str | Unique identifier representing a s
 
 try:
     # Get account information details
-    api_response = api_instance.accountcustomeruuidget(customeruuid)
+    api_response = api_instance.account_customeruuid_get(customeruuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CustomersApi->accountcustomeruuidget: %s\n" % e)
+    print("Exception when calling CustomersApi->account_customeruuid_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -56,12 +56,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/jsonapplication/xml, 
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **accountcustomeruuiduserget**
-> list[User] accountcustomeruuiduserget(customeruuid)
+# **account_customeruuid_user_get**
+> list[User] account_customeruuid_user_get(customeruuid)
 
 List users
 
@@ -85,10 +85,10 @@ customeruuid = 'customeruuid_example' # str | Unique identifier representing a s
 
 try:
     # List users
-    api_response = api_instance.accountcustomeruuiduserget(customeruuid)
+    api_response = api_instance.account_customeruuid_user_get(customeruuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CustomersApi->accountcustomeruuiduserget: %s\n" % e)
+    print("Exception when calling CustomersApi->account_customeruuid_user_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
