@@ -1,14 +1,14 @@
 # TelstraTPN.UsersApi
 
-All URIs are relative to *https://penapi.pacnetconnect.com/1.0.0*
+All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**account_customeruuid_user_get**](UsersApi.md#account_customeruuid_user_get) | **GET** /account/{customeruuid}/user/ | List users
+[**account_user**](UsersApi.md#account_user) | **GET** /1.0.0/account/{customeruuid}/user | List users
 
 
-# **account_customeruuid_user_get**
-> list[User] account_customeruuid_user_get(customeruuid)
+# **account_user**
+> list[User] account_user(customeruuid)
 
 List users
 
@@ -32,10 +32,10 @@ customeruuid = 'customeruuid_example' # str | Unique identifier representing a s
 
 try:
     # List users
-    api_response = api_instance.account_customeruuid_user_get(customeruuid)
+    api_response = api_instance.account_user(customeruuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling UsersApi->account_customeruuid_user_get: %s\n" % e)
+    print("Exception when calling UsersApi->account_user: %s\n" % e)
 ```
 
 ### Parameters

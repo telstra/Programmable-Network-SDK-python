@@ -33,12 +33,12 @@ class DatacentresApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def inventory_datacenters_get(self, **kwargs):  # noqa: E501
+    def inventory_datacentres(self, **kwargs):  # noqa: E501
         """Get list of all the data centers  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_datacenters_get(async=True)
+        >>> thread = api.inventory_datacentres(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -48,17 +48,17 @@ class DatacentresApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_datacenters_get_with_http_info(**kwargs)  # noqa: E501
+            return self.inventory_datacentres_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_datacenters_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.inventory_datacentres_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def inventory_datacenters_get_with_http_info(self, **kwargs):  # noqa: E501
+    def inventory_datacentres_with_http_info(self, **kwargs):  # noqa: E501
         """Get list of all the data centers  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_datacenters_get_with_http_info(async=True)
+        >>> thread = api.inventory_datacentres_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -67,21 +67,22 @@ class DatacentresApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = []  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_datacenters_get" % key
+                    " to method inventory_datacentres" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -97,13 +98,13 @@ class DatacentresApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json''application/xml', ])  # noqa: E501
+            ['application/json', 'application/xml', ])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/datacenters/', 'GET',
+            '/1.0.0/inventory/datacenters', 'GET',
             path_params,
             query_params,
             header_params,
@@ -112,8 +113,8 @@ class DatacentresApi(object):
             files=local_var_files,
             response_type='InlineResponse200',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)

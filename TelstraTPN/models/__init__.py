@@ -67,9 +67,9 @@ from TelstraTPN.models.inline_response200_datacenters import InlineResponse200Da
 from TelstraTPN.models.inline_response202 import InlineResponse202
 from TelstraTPN.models.inline_response202_errormsg import InlineResponse202Errormsg
 from TelstraTPN.models.inline_response401 import InlineResponse401
-from TelstraTPN.models.inventorylinksstatsflowlinkidstartdateenddate_tags import InventorylinksstatsflowlinkidstartdateenddateTags
 from TelstraTPN.models.link import Link
 from TelstraTPN.models.meta import Meta
+from TelstraTPN.models.model100inventorylinksstatsflowlinkidstartdateenddate_tags import Model100inventorylinksstatsflowlinkidstartdateenddateTags
 from TelstraTPN.models.pop import Pop
 from TelstraTPN.models.rebootrequest import Rebootrequest
 from TelstraTPN.models.regendpointrequest import Regendpointrequest

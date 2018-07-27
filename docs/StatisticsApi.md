@@ -1,16 +1,16 @@
 # TelstraTPN.StatisticsApi
 
-All URIs are relative to *https://penapi.pacnetconnect.com/1.0.0*
+All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get**](StatisticsApi.md#inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get) | **GET** /inventory/links-stats/endpoint/{endpointuuid}/{startdate}/{enddate}/ | Get statistics for endpoint
-[**inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get**](StatisticsApi.md#inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get) | **GET** /inventory/links-stats/endpointstate/{endpointuuid}/{startdate}/{enddate}/ | Get state statistics for endpoint
-[**inventory_links_stats_flow_linkid_startdate_enddate_get**](StatisticsApi.md#inventory_links_stats_flow_linkid_startdate_enddate_get) | **GET** /inventory/links-stats/flow/{linkid}/{startdate}/{enddate}/ | Get statistics for flow
+[**inventory_links_stats_endpoint**](StatisticsApi.md#inventory_links_stats_endpoint) | **GET** /1.0.0/inventory/links-stats/endpoint/{endpointuuid}/{startdate}/{enddate} | Get statistics for endpoint
+[**inventory_links_stats_endpointstate**](StatisticsApi.md#inventory_links_stats_endpointstate) | **GET** /1.0.0/inventory/links-stats/endpointstate/{endpointuuid}/{startdate}/{enddate} | Get state statistics for endpoint
+[**inventory_links_stats_flow**](StatisticsApi.md#inventory_links_stats_flow) | **GET** /1.0.0/inventory/links-stats/flow/{linkid}/{startdate}/{enddate} | Get statistics for flow
 
 
-# **inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get**
-> list[InlineResponse20018] inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get(endpointuuid, startdate, enddate)
+# **inventory_links_stats_endpoint**
+> list[InlineResponse20018] inventory_links_stats_endpoint(endpointuuid, startdate, enddate)
 
 Get statistics for endpoint
 
@@ -36,10 +36,10 @@ enddate = 'enddate_example' # str | End date for statistics query
 
 try:
     # Get statistics for endpoint
-    api_response = api_instance.inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get(endpointuuid, startdate, enddate)
+    api_response = api_instance.inventory_links_stats_endpoint(endpointuuid, startdate, enddate)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling StatisticsApi->inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get: %s\n" % e)
+    print("Exception when calling StatisticsApi->inventory_links_stats_endpoint: %s\n" % e)
 ```
 
 ### Parameters
@@ -65,8 +65,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get**
-> list[InlineResponse20020] inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get(endpointuuid, startdate, enddate)
+# **inventory_links_stats_endpointstate**
+> list[InlineResponse20020] inventory_links_stats_endpointstate(endpointuuid, startdate, enddate)
 
 Get state statistics for endpoint
 
@@ -92,10 +92,10 @@ enddate = 'enddate_example' # str | End date for statistics query
 
 try:
     # Get state statistics for endpoint
-    api_response = api_instance.inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get(endpointuuid, startdate, enddate)
+    api_response = api_instance.inventory_links_stats_endpointstate(endpointuuid, startdate, enddate)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling StatisticsApi->inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get: %s\n" % e)
+    print("Exception when calling StatisticsApi->inventory_links_stats_endpointstate: %s\n" % e)
 ```
 
 ### Parameters
@@ -121,8 +121,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_links_stats_flow_linkid_startdate_enddate_get**
-> list[InlineResponse20019] inventory_links_stats_flow_linkid_startdate_enddate_get(linkid, startdate, enddate)
+# **inventory_links_stats_flow**
+> list[InlineResponse20019] inventory_links_stats_flow(linkid, startdate, enddate)
 
 Get statistics for flow
 
@@ -148,10 +148,10 @@ enddate = 'enddate_example' # str | End date for statistics query
 
 try:
     # Get statistics for flow
-    api_response = api_instance.inventory_links_stats_flow_linkid_startdate_enddate_get(linkid, startdate, enddate)
+    api_response = api_instance.inventory_links_stats_flow(linkid, startdate, enddate)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling StatisticsApi->inventory_links_stats_flow_linkid_startdate_enddate_get: %s\n" % e)
+    print("Exception when calling StatisticsApi->inventory_links_stats_flow: %s\n" % e)
 ```
 
 ### Parameters

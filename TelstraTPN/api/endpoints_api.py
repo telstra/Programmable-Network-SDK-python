@@ -33,12 +33,12 @@ class EndpointsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def endpoint_endpointuuid_endpointuuid_get(self, endpointuuid, **kwargs):  # noqa: E501
+    def endpoint_endpointuuid_get(self, endpointuuid, **kwargs):  # noqa: E501
         """Get Endpoint name and status  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoint_endpointuuid_endpointuuid_get(endpointuuid, async=True)
+        >>> thread = api.endpoint_endpointuuid_get(endpointuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -49,17 +49,17 @@ class EndpointsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.endpoint_endpointuuid_endpointuuid_get_with_http_info(endpointuuid, **kwargs)  # noqa: E501
+            return self.endpoint_endpointuuid_get_with_http_info(endpointuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.endpoint_endpointuuid_endpointuuid_get_with_http_info(endpointuuid, **kwargs)  # noqa: E501
+            (data) = self.endpoint_endpointuuid_get_with_http_info(endpointuuid, **kwargs)  # noqa: E501
             return data
 
-    def endpoint_endpointuuid_endpointuuid_get_with_http_info(self, endpointuuid, **kwargs):  # noqa: E501
+    def endpoint_endpointuuid_get_with_http_info(self, endpointuuid, **kwargs):  # noqa: E501
         """Get Endpoint name and status  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoint_endpointuuid_endpointuuid_get_with_http_info(endpointuuid, async=True)
+        >>> thread = api.endpoint_endpointuuid_get_with_http_info(endpointuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -69,31 +69,32 @@ class EndpointsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['endpointuuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method endpoint_endpointuuid_endpointuuid_get" % key
+                    " to method endpoint_endpointuuid_get" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'endpointuuid' is set
-        if ('endpointuuid' not in params or
-                params['endpointuuid'] is None):
-            raise ValueError("Missing the required parameter `endpointuuid` when calling `endpoint_endpointuuid_endpointuuid_get`")  # noqa: E501
+        if ('endpointuuid' not in local_var_params or
+                local_var_params['endpointuuid'] is None):
+            raise ValueError("Missing the required parameter `endpointuuid` when calling `endpoint_endpointuuid_get`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'endpointuuid' in params:
-            path_params['endpointuuid'] = params['endpointuuid']  # noqa: E501
+        if 'endpointuuid' in local_var_params:
+            path_params['endpointuuid'] = local_var_params['endpointuuid']  # noqa: E501
 
         query_params = []
 
@@ -111,7 +112,7 @@ class EndpointsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/endpoint/endpointuuid/{endpointuuid}/', 'GET',
+            '/eis/1.0.0/endpoint/endpointuuid/{endpointuuid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -120,18 +121,18 @@ class EndpointsApi(object):
             files=local_var_files,
             response_type='InlineResponse2004',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def endpoint_endpointuuid_endpointuuid_put(self, endpointuuid, **kwargs):  # noqa: E501
+    def endpoint_endpointuuid_put(self, endpointuuid, **kwargs):  # noqa: E501
         """Update Endpoint name  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoint_endpointuuid_endpointuuid_put(endpointuuid, async=True)
+        >>> thread = api.endpoint_endpointuuid_put(endpointuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -143,17 +144,17 @@ class EndpointsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.endpoint_endpointuuid_endpointuuid_put_with_http_info(endpointuuid, **kwargs)  # noqa: E501
+            return self.endpoint_endpointuuid_put_with_http_info(endpointuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.endpoint_endpointuuid_endpointuuid_put_with_http_info(endpointuuid, **kwargs)  # noqa: E501
+            (data) = self.endpoint_endpointuuid_put_with_http_info(endpointuuid, **kwargs)  # noqa: E501
             return data
 
-    def endpoint_endpointuuid_endpointuuid_put_with_http_info(self, endpointuuid, **kwargs):  # noqa: E501
+    def endpoint_endpointuuid_put_with_http_info(self, endpointuuid, **kwargs):  # noqa: E501
         """Update Endpoint name  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoint_endpointuuid_endpointuuid_put_with_http_info(endpointuuid, async=True)
+        >>> thread = api.endpoint_endpointuuid_put_with_http_info(endpointuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -163,6 +164,8 @@ class EndpointsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['endpointuuid', 'endpointupdaterequest']  # noqa: E501
         all_params.append('async')
@@ -170,25 +173,24 @@ class EndpointsApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method endpoint_endpointuuid_endpointuuid_put" % key
+                    " to method endpoint_endpointuuid_put" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'endpointuuid' is set
-        if ('endpointuuid' not in params or
-                params['endpointuuid'] is None):
-            raise ValueError("Missing the required parameter `endpointuuid` when calling `endpoint_endpointuuid_endpointuuid_put`")  # noqa: E501
+        if ('endpointuuid' not in local_var_params or
+                local_var_params['endpointuuid'] is None):
+            raise ValueError("Missing the required parameter `endpointuuid` when calling `endpoint_endpointuuid_put`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'endpointuuid' in params:
-            path_params['endpointuuid'] = params['endpointuuid']  # noqa: E501
+        if 'endpointuuid' in local_var_params:
+            path_params['endpointuuid'] = local_var_params['endpointuuid']  # noqa: E501
 
         query_params = []
 
@@ -198,11 +200,11 @@ class EndpointsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'endpointupdaterequest' in params:
-            body_params = params['endpointupdaterequest']
+        if 'endpointupdaterequest' in local_var_params:
+            body_params = local_var_params['endpointupdaterequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json''application/xml', ])  # noqa: E501
+            ['application/json', 'application/xml', ])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -212,7 +214,7 @@ class EndpointsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/endpoint/endpointuuid/{endpointuuid}/', 'PUT',
+            '/eis/1.0.0/endpoint/endpointuuid/{endpointuuid}', 'PUT',
             path_params,
             query_params,
             header_params,
@@ -221,18 +223,18 @@ class EndpointsApi(object):
             files=local_var_files,
             response_type='SuccessFragment',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def endpoints_endpointuuid_assign_topology_tag_post(self, endpointuuid, **kwargs):  # noqa: E501
+    def endpoints_assign_topology_tag(self, endpointuuid, **kwargs):  # noqa: E501
         """Assign an Endpoint to a Topology  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoints_endpointuuid_assign_topology_tag_post(endpointuuid, async=True)
+        >>> thread = api.endpoints_assign_topology_tag(endpointuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -244,17 +246,17 @@ class EndpointsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.endpoints_endpointuuid_assign_topology_tag_post_with_http_info(endpointuuid, **kwargs)  # noqa: E501
+            return self.endpoints_assign_topology_tag_with_http_info(endpointuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.endpoints_endpointuuid_assign_topology_tag_post_with_http_info(endpointuuid, **kwargs)  # noqa: E501
+            (data) = self.endpoints_assign_topology_tag_with_http_info(endpointuuid, **kwargs)  # noqa: E501
             return data
 
-    def endpoints_endpointuuid_assign_topology_tag_post_with_http_info(self, endpointuuid, **kwargs):  # noqa: E501
+    def endpoints_assign_topology_tag_with_http_info(self, endpointuuid, **kwargs):  # noqa: E501
         """Assign an Endpoint to a Topology  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoints_endpointuuid_assign_topology_tag_post_with_http_info(endpointuuid, async=True)
+        >>> thread = api.endpoints_assign_topology_tag_with_http_info(endpointuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -264,6 +266,8 @@ class EndpointsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['endpointuuid', 'assigntopotagrequest']  # noqa: E501
         all_params.append('async')
@@ -271,25 +275,24 @@ class EndpointsApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method endpoints_endpointuuid_assign_topology_tag_post" % key
+                    " to method endpoints_assign_topology_tag" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'endpointuuid' is set
-        if ('endpointuuid' not in params or
-                params['endpointuuid'] is None):
-            raise ValueError("Missing the required parameter `endpointuuid` when calling `endpoints_endpointuuid_assign_topology_tag_post`")  # noqa: E501
+        if ('endpointuuid' not in local_var_params or
+                local_var_params['endpointuuid'] is None):
+            raise ValueError("Missing the required parameter `endpointuuid` when calling `endpoints_assign_topology_tag`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'endpointuuid' in params:
-            path_params['endpointuuid'] = params['endpointuuid']  # noqa: E501
+        if 'endpointuuid' in local_var_params:
+            path_params['endpointuuid'] = local_var_params['endpointuuid']  # noqa: E501
 
         query_params = []
 
@@ -299,8 +302,8 @@ class EndpointsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'assigntopotagrequest' in params:
-            body_params = params['assigntopotagrequest']
+        if 'assigntopotagrequest' in local_var_params:
+            body_params = local_var_params['assigntopotagrequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -313,7 +316,7 @@ class EndpointsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/endpoints/{endpointuuid}/assign_topology_tag/', 'POST',
+            '/eis/1.0.0/endpoints/{endpointuuid}/assign_topology_tag', 'POST',
             path_params,
             query_params,
             header_params,
@@ -322,116 +325,19 @@ class EndpointsApi(object):
             files=local_var_files,
             response_type='SuccessFragment',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete(self, topotaguuid, endpointuuid, **kwargs):  # noqa: E501
-        """Remove Endpoint from a Topology  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete(topotaguuid, endpointuuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str topotaguuid: Unique identifier representing a specific topology tag (required)
-        :param str endpointuuid: Unique identifier representing a specific endpoint (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete_with_http_info(topotaguuid, endpointuuid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete_with_http_info(topotaguuid, endpointuuid, **kwargs)  # noqa: E501
-            return data
-
-    def endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete_with_http_info(self, topotaguuid, endpointuuid, **kwargs):  # noqa: E501
-        """Remove Endpoint from a Topology  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete_with_http_info(topotaguuid, endpointuuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str topotaguuid: Unique identifier representing a specific topology tag (required)
-        :param str endpointuuid: Unique identifier representing a specific endpoint (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['topotaguuid', 'endpointuuid']  # noqa: E501
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'topotaguuid' is set
-        if ('topotaguuid' not in params or
-                params['topotaguuid'] is None):
-            raise ValueError("Missing the required parameter `topotaguuid` when calling `endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete`")  # noqa: E501
-        # verify the required parameter 'endpointuuid' is set
-        if ('endpointuuid' not in params or
-                params['endpointuuid'] is None):
-            raise ValueError("Missing the required parameter `endpointuuid` when calling `endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'topotaguuid' in params:
-            path_params['topotaguuid'] = params['topotaguuid']  # noqa: E501
-        if 'endpointuuid' in params:
-            path_params['endpointuuid'] = params['endpointuuid']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['oAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/endpoints/topology_tag_uuid/{topotaguuid}/endpoint/{endpointuuid}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def endpoints_topology_tag_uuid_topotaguuid_get(self, topotaguuid, **kwargs):  # noqa: E501
+    def endpoints_topology_tag_uuid(self, topotaguuid, **kwargs):  # noqa: E501
         """List Endpoints for Topology  # noqa: E501
 
         List all Endpoints associated with the topology tag.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoints_topology_tag_uuid_topotaguuid_get(topotaguuid, async=True)
+        >>> thread = api.endpoints_topology_tag_uuid(topotaguuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -442,18 +348,18 @@ class EndpointsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.endpoints_topology_tag_uuid_topotaguuid_get_with_http_info(topotaguuid, **kwargs)  # noqa: E501
+            return self.endpoints_topology_tag_uuid_with_http_info(topotaguuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.endpoints_topology_tag_uuid_topotaguuid_get_with_http_info(topotaguuid, **kwargs)  # noqa: E501
+            (data) = self.endpoints_topology_tag_uuid_with_http_info(topotaguuid, **kwargs)  # noqa: E501
             return data
 
-    def endpoints_topology_tag_uuid_topotaguuid_get_with_http_info(self, topotaguuid, **kwargs):  # noqa: E501
+    def endpoints_topology_tag_uuid_with_http_info(self, topotaguuid, **kwargs):  # noqa: E501
         """List Endpoints for Topology  # noqa: E501
 
         List all Endpoints associated with the topology tag.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoints_topology_tag_uuid_topotaguuid_get_with_http_info(topotaguuid, async=True)
+        >>> thread = api.endpoints_topology_tag_uuid_with_http_info(topotaguuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -462,6 +368,8 @@ class EndpointsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['topotaguuid']  # noqa: E501
         all_params.append('async')
@@ -469,25 +377,24 @@ class EndpointsApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method endpoints_topology_tag_uuid_topotaguuid_get" % key
+                    " to method endpoints_topology_tag_uuid" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'topotaguuid' is set
-        if ('topotaguuid' not in params or
-                params['topotaguuid'] is None):
-            raise ValueError("Missing the required parameter `topotaguuid` when calling `endpoints_topology_tag_uuid_topotaguuid_get`")  # noqa: E501
+        if ('topotaguuid' not in local_var_params or
+                local_var_params['topotaguuid'] is None):
+            raise ValueError("Missing the required parameter `topotaguuid` when calling `endpoints_topology_tag_uuid`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'topotaguuid' in params:
-            path_params['topotaguuid'] = params['topotaguuid']  # noqa: E501
+        if 'topotaguuid' in local_var_params:
+            path_params['topotaguuid'] = local_var_params['topotaguuid']  # noqa: E501
 
         query_params = []
 
@@ -505,7 +412,7 @@ class EndpointsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/endpoints/topology_tag_uuid/{topotaguuid}/', 'GET',
+            '/eis/1.0.0/endpoints/topology_tag_uuid/{topotaguuid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -514,18 +421,116 @@ class EndpointsApi(object):
             files=local_var_files,
             response_type='InlineResponse20014',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_endpoint_endpointuuid_get(self, endpointuuid, **kwargs):  # noqa: E501
+    def endpoints_topology_tag_uuid_endpoint(self, topotaguuid, endpointuuid, **kwargs):  # noqa: E501
+        """Remove Endpoint from a Topology  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.endpoints_topology_tag_uuid_endpoint(topotaguuid, endpointuuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str topotaguuid: Unique identifier representing a specific topology tag (required)
+        :param str endpointuuid: Unique identifier representing a specific endpoint (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.endpoints_topology_tag_uuid_endpoint_with_http_info(topotaguuid, endpointuuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.endpoints_topology_tag_uuid_endpoint_with_http_info(topotaguuid, endpointuuid, **kwargs)  # noqa: E501
+            return data
+
+    def endpoints_topology_tag_uuid_endpoint_with_http_info(self, topotaguuid, endpointuuid, **kwargs):  # noqa: E501
+        """Remove Endpoint from a Topology  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.endpoints_topology_tag_uuid_endpoint_with_http_info(topotaguuid, endpointuuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str topotaguuid: Unique identifier representing a specific topology tag (required)
+        :param str endpointuuid: Unique identifier representing a specific endpoint (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['topotaguuid', 'endpointuuid']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method endpoints_topology_tag_uuid_endpoint" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'topotaguuid' is set
+        if ('topotaguuid' not in local_var_params or
+                local_var_params['topotaguuid'] is None):
+            raise ValueError("Missing the required parameter `topotaguuid` when calling `endpoints_topology_tag_uuid_endpoint`")  # noqa: E501
+        # verify the required parameter 'endpointuuid' is set
+        if ('endpointuuid' not in local_var_params or
+                local_var_params['endpointuuid'] is None):
+            raise ValueError("Missing the required parameter `endpointuuid` when calling `endpoints_topology_tag_uuid_endpoint`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'topotaguuid' in local_var_params:
+            path_params['topotaguuid'] = local_var_params['topotaguuid']  # noqa: E501
+        if 'endpointuuid' in local_var_params:
+            path_params['endpointuuid'] = local_var_params['endpointuuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['oAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/eis/1.0.0/endpoints/topology_tag_uuid/{topotaguuid}/endpoint/{endpointuuid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def inventory_endpoint(self, endpointuuid, **kwargs):  # noqa: E501
         """Get information about the specified endpoint  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_endpoint_endpointuuid_get(endpointuuid, async=True)
+        >>> thread = api.inventory_endpoint(endpointuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -536,17 +541,17 @@ class EndpointsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_endpoint_endpointuuid_get_with_http_info(endpointuuid, **kwargs)  # noqa: E501
+            return self.inventory_endpoint_with_http_info(endpointuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_endpoint_endpointuuid_get_with_http_info(endpointuuid, **kwargs)  # noqa: E501
+            (data) = self.inventory_endpoint_with_http_info(endpointuuid, **kwargs)  # noqa: E501
             return data
 
-    def inventory_endpoint_endpointuuid_get_with_http_info(self, endpointuuid, **kwargs):  # noqa: E501
+    def inventory_endpoint_with_http_info(self, endpointuuid, **kwargs):  # noqa: E501
         """Get information about the specified endpoint  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_endpoint_endpointuuid_get_with_http_info(endpointuuid, async=True)
+        >>> thread = api.inventory_endpoint_with_http_info(endpointuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -556,31 +561,32 @@ class EndpointsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['endpointuuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_endpoint_endpointuuid_get" % key
+                    " to method inventory_endpoint" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'endpointuuid' is set
-        if ('endpointuuid' not in params or
-                params['endpointuuid'] is None):
-            raise ValueError("Missing the required parameter `endpointuuid` when calling `inventory_endpoint_endpointuuid_get`")  # noqa: E501
+        if ('endpointuuid' not in local_var_params or
+                local_var_params['endpointuuid'] is None):
+            raise ValueError("Missing the required parameter `endpointuuid` when calling `inventory_endpoint`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'endpointuuid' in params:
-            path_params['endpointuuid'] = params['endpointuuid']  # noqa: E501
+        if 'endpointuuid' in local_var_params:
+            path_params['endpointuuid'] = local_var_params['endpointuuid']  # noqa: E501
 
         query_params = []
 
@@ -598,7 +604,7 @@ class EndpointsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/endpoint/{endpointuuid}/', 'GET',
+            '/1.0.0/inventory/endpoint/{endpointuuid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -607,18 +613,18 @@ class EndpointsApi(object):
             files=local_var_files,
             response_type='InlineResponse2002',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_endpoints_customeruuid_customeruuid_get(self, customeruuid, **kwargs):  # noqa: E501
+    def inventory_endpoints_customeruuid(self, customeruuid, **kwargs):  # noqa: E501
         """Get list of endpoints for a customer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_endpoints_customeruuid_customeruuid_get(customeruuid, async=True)
+        >>> thread = api.inventory_endpoints_customeruuid(customeruuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -629,17 +635,17 @@ class EndpointsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_endpoints_customeruuid_customeruuid_get_with_http_info(customeruuid, **kwargs)  # noqa: E501
+            return self.inventory_endpoints_customeruuid_with_http_info(customeruuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_endpoints_customeruuid_customeruuid_get_with_http_info(customeruuid, **kwargs)  # noqa: E501
+            (data) = self.inventory_endpoints_customeruuid_with_http_info(customeruuid, **kwargs)  # noqa: E501
             return data
 
-    def inventory_endpoints_customeruuid_customeruuid_get_with_http_info(self, customeruuid, **kwargs):  # noqa: E501
+    def inventory_endpoints_customeruuid_with_http_info(self, customeruuid, **kwargs):  # noqa: E501
         """Get list of endpoints for a customer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_endpoints_customeruuid_customeruuid_get_with_http_info(customeruuid, async=True)
+        >>> thread = api.inventory_endpoints_customeruuid_with_http_info(customeruuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -649,31 +655,32 @@ class EndpointsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['customeruuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_endpoints_customeruuid_customeruuid_get" % key
+                    " to method inventory_endpoints_customeruuid" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'customeruuid' is set
-        if ('customeruuid' not in params or
-                params['customeruuid'] is None):
-            raise ValueError("Missing the required parameter `customeruuid` when calling `inventory_endpoints_customeruuid_customeruuid_get`")  # noqa: E501
+        if ('customeruuid' not in local_var_params or
+                local_var_params['customeruuid'] is None):
+            raise ValueError("Missing the required parameter `customeruuid` when calling `inventory_endpoints_customeruuid`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'customeruuid' in params:
-            path_params['customeruuid'] = params['customeruuid']  # noqa: E501
+        if 'customeruuid' in local_var_params:
+            path_params['customeruuid'] = local_var_params['customeruuid']  # noqa: E501
 
         query_params = []
 
@@ -691,7 +698,7 @@ class EndpointsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/endpoints/customeruuid/{customeruuid}/', 'GET',
+            '/1.0.0/inventory/endpoints/customeruuid/{customeruuid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -700,19 +707,19 @@ class EndpointsApi(object):
             files=local_var_files,
             response_type='InlineResponse2001',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
+    def inventory_links_stats_endpoint(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
         """Get statistics for endpoint  # noqa: E501
 
         Get statistics related to the specified endpoint  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get(endpointuuid, startdate, enddate, async=True)
+        >>> thread = api.inventory_links_stats_endpoint(endpointuuid, startdate, enddate, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -725,18 +732,18 @@ class EndpointsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
+            return self.inventory_links_stats_endpoint_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
+            (data) = self.inventory_links_stats_endpoint_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
             return data
 
-    def inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get_with_http_info(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
+    def inventory_links_stats_endpoint_with_http_info(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
         """Get statistics for endpoint  # noqa: E501
 
         Get statistics related to the specified endpoint  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get_with_http_info(endpointuuid, startdate, enddate, async=True)
+        >>> thread = api.inventory_links_stats_endpoint_with_http_info(endpointuuid, startdate, enddate, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -748,43 +755,44 @@ class EndpointsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['endpointuuid', 'startdate', 'enddate']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get" % key
+                    " to method inventory_links_stats_endpoint" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'endpointuuid' is set
-        if ('endpointuuid' not in params or
-                params['endpointuuid'] is None):
-            raise ValueError("Missing the required parameter `endpointuuid` when calling `inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get`")  # noqa: E501
+        if ('endpointuuid' not in local_var_params or
+                local_var_params['endpointuuid'] is None):
+            raise ValueError("Missing the required parameter `endpointuuid` when calling `inventory_links_stats_endpoint`")  # noqa: E501
         # verify the required parameter 'startdate' is set
-        if ('startdate' not in params or
-                params['startdate'] is None):
-            raise ValueError("Missing the required parameter `startdate` when calling `inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get`")  # noqa: E501
+        if ('startdate' not in local_var_params or
+                local_var_params['startdate'] is None):
+            raise ValueError("Missing the required parameter `startdate` when calling `inventory_links_stats_endpoint`")  # noqa: E501
         # verify the required parameter 'enddate' is set
-        if ('enddate' not in params or
-                params['enddate'] is None):
-            raise ValueError("Missing the required parameter `enddate` when calling `inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get`")  # noqa: E501
+        if ('enddate' not in local_var_params or
+                local_var_params['enddate'] is None):
+            raise ValueError("Missing the required parameter `enddate` when calling `inventory_links_stats_endpoint`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'endpointuuid' in params:
-            path_params['endpointuuid'] = params['endpointuuid']  # noqa: E501
-        if 'startdate' in params:
-            path_params['startdate'] = params['startdate']  # noqa: E501
-        if 'enddate' in params:
-            path_params['enddate'] = params['enddate']  # noqa: E501
+        if 'endpointuuid' in local_var_params:
+            path_params['endpointuuid'] = local_var_params['endpointuuid']  # noqa: E501
+        if 'startdate' in local_var_params:
+            path_params['startdate'] = local_var_params['startdate']  # noqa: E501
+        if 'enddate' in local_var_params:
+            path_params['enddate'] = local_var_params['enddate']  # noqa: E501
 
         query_params = []
 
@@ -802,7 +810,7 @@ class EndpointsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/links-stats/endpoint/{endpointuuid}/{startdate}/{enddate}/', 'GET',
+            '/1.0.0/inventory/links-stats/endpoint/{endpointuuid}/{startdate}/{enddate}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -811,19 +819,19 @@ class EndpointsApi(object):
             files=local_var_files,
             response_type='list[InlineResponse20018]',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
+    def inventory_links_stats_endpointstate(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
         """Get state statistics for endpoint  # noqa: E501
 
         Get statistics related to the state of the specified endpoint  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get(endpointuuid, startdate, enddate, async=True)
+        >>> thread = api.inventory_links_stats_endpointstate(endpointuuid, startdate, enddate, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -836,18 +844,18 @@ class EndpointsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
+            return self.inventory_links_stats_endpointstate_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
+            (data) = self.inventory_links_stats_endpointstate_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
             return data
 
-    def inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get_with_http_info(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
+    def inventory_links_stats_endpointstate_with_http_info(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
         """Get state statistics for endpoint  # noqa: E501
 
         Get statistics related to the state of the specified endpoint  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get_with_http_info(endpointuuid, startdate, enddate, async=True)
+        >>> thread = api.inventory_links_stats_endpointstate_with_http_info(endpointuuid, startdate, enddate, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -859,43 +867,44 @@ class EndpointsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['endpointuuid', 'startdate', 'enddate']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get" % key
+                    " to method inventory_links_stats_endpointstate" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'endpointuuid' is set
-        if ('endpointuuid' not in params or
-                params['endpointuuid'] is None):
-            raise ValueError("Missing the required parameter `endpointuuid` when calling `inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get`")  # noqa: E501
+        if ('endpointuuid' not in local_var_params or
+                local_var_params['endpointuuid'] is None):
+            raise ValueError("Missing the required parameter `endpointuuid` when calling `inventory_links_stats_endpointstate`")  # noqa: E501
         # verify the required parameter 'startdate' is set
-        if ('startdate' not in params or
-                params['startdate'] is None):
-            raise ValueError("Missing the required parameter `startdate` when calling `inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get`")  # noqa: E501
+        if ('startdate' not in local_var_params or
+                local_var_params['startdate'] is None):
+            raise ValueError("Missing the required parameter `startdate` when calling `inventory_links_stats_endpointstate`")  # noqa: E501
         # verify the required parameter 'enddate' is set
-        if ('enddate' not in params or
-                params['enddate'] is None):
-            raise ValueError("Missing the required parameter `enddate` when calling `inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get`")  # noqa: E501
+        if ('enddate' not in local_var_params or
+                local_var_params['enddate'] is None):
+            raise ValueError("Missing the required parameter `enddate` when calling `inventory_links_stats_endpointstate`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'endpointuuid' in params:
-            path_params['endpointuuid'] = params['endpointuuid']  # noqa: E501
-        if 'startdate' in params:
-            path_params['startdate'] = params['startdate']  # noqa: E501
-        if 'enddate' in params:
-            path_params['enddate'] = params['enddate']  # noqa: E501
+        if 'endpointuuid' in local_var_params:
+            path_params['endpointuuid'] = local_var_params['endpointuuid']  # noqa: E501
+        if 'startdate' in local_var_params:
+            path_params['startdate'] = local_var_params['startdate']  # noqa: E501
+        if 'enddate' in local_var_params:
+            path_params['enddate'] = local_var_params['enddate']  # noqa: E501
 
         query_params = []
 
@@ -913,7 +922,7 @@ class EndpointsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/links-stats/endpointstate/{endpointuuid}/{startdate}/{enddate}/', 'GET',
+            '/1.0.0/inventory/links-stats/endpointstate/{endpointuuid}/{startdate}/{enddate}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -922,18 +931,18 @@ class EndpointsApi(object):
             files=local_var_files,
             response_type='list[InlineResponse20020]',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_regularendpoint_post(self, **kwargs):  # noqa: E501
+    def inventory_regularendpoint(self, **kwargs):  # noqa: E501
         """Create Physical (Port) Endpoint  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_regularendpoint_post(async=True)
+        >>> thread = api.inventory_regularendpoint(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -944,17 +953,17 @@ class EndpointsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_regularendpoint_post_with_http_info(**kwargs)  # noqa: E501
+            return self.inventory_regularendpoint_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_regularendpoint_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.inventory_regularendpoint_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def inventory_regularendpoint_post_with_http_info(self, **kwargs):  # noqa: E501
+    def inventory_regularendpoint_with_http_info(self, **kwargs):  # noqa: E501
         """Create Physical (Port) Endpoint  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_regularendpoint_post_with_http_info(async=True)
+        >>> thread = api.inventory_regularendpoint_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -963,6 +972,8 @@ class EndpointsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['regendpointrequest']  # noqa: E501
         all_params.append('async')
@@ -970,15 +981,14 @@ class EndpointsApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_regularendpoint_post" % key
+                    " to method inventory_regularendpoint" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -992,8 +1002,8 @@ class EndpointsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'regendpointrequest' in params:
-            body_params = params['regendpointrequest']
+        if 'regendpointrequest' in local_var_params:
+            body_params = local_var_params['regendpointrequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1006,7 +1016,7 @@ class EndpointsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/regularendpoint/', 'POST',
+            '/1.0.0/inventory/regularendpoint', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1015,19 +1025,19 @@ class EndpointsApi(object):
             files=local_var_files,
             response_type='SuccessFragment',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_regularvport_post(self, **kwargs):  # noqa: E501
+    def inventory_regularvport(self, **kwargs):  # noqa: E501
         """Create VPort for physical endpoint  # noqa: E501
 
         Create VPort representing a VLAN on a Physical Ethernet Port  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_regularvport_post(async=True)
+        >>> thread = api.inventory_regularvport(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1038,18 +1048,18 @@ class EndpointsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_regularvport_post_with_http_info(**kwargs)  # noqa: E501
+            return self.inventory_regularvport_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_regularvport_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.inventory_regularvport_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def inventory_regularvport_post_with_http_info(self, **kwargs):  # noqa: E501
+    def inventory_regularvport_with_http_info(self, **kwargs):  # noqa: E501
         """Create VPort for physical endpoint  # noqa: E501
 
         Create VPort representing a VLAN on a Physical Ethernet Port  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_regularvport_post_with_http_info(async=True)
+        >>> thread = api.inventory_regularvport_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1058,6 +1068,8 @@ class EndpointsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['regvportrequest']  # noqa: E501
         all_params.append('async')
@@ -1065,15 +1077,14 @@ class EndpointsApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_regularvport_post" % key
+                    " to method inventory_regularvport" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -1087,8 +1098,8 @@ class EndpointsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'regvportrequest' in params:
-            body_params = params['regvportrequest']
+        if 'regvportrequest' in local_var_params:
+            body_params = local_var_params['regvportrequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1101,7 +1112,7 @@ class EndpointsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/regularvport/', 'POST',
+            '/1.0.0/inventory/regularvport', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1110,18 +1121,18 @@ class EndpointsApi(object):
             files=local_var_files,
             response_type='SuccessFragment',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_vnfendpoint_post(self, **kwargs):  # noqa: E501
+    def inventory_vnfendpoint(self, **kwargs):  # noqa: E501
         """Instantiate Virtual Network Function  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_vnfendpoint_post(async=True)
+        >>> thread = api.inventory_vnfendpoint(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1132,17 +1143,17 @@ class EndpointsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_vnfendpoint_post_with_http_info(**kwargs)  # noqa: E501
+            return self.inventory_vnfendpoint_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_vnfendpoint_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.inventory_vnfendpoint_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def inventory_vnfendpoint_post_with_http_info(self, **kwargs):  # noqa: E501
+    def inventory_vnfendpoint_with_http_info(self, **kwargs):  # noqa: E501
         """Instantiate Virtual Network Function  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_vnfendpoint_post_with_http_info(async=True)
+        >>> thread = api.inventory_vnfendpoint_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1151,6 +1162,8 @@ class EndpointsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['vnfendpointrequest']  # noqa: E501
         all_params.append('async')
@@ -1158,15 +1171,14 @@ class EndpointsApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_vnfendpoint_post" % key
+                    " to method inventory_vnfendpoint" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -1180,8 +1192,8 @@ class EndpointsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'vnfendpointrequest' in params:
-            body_params = params['vnfendpointrequest']
+        if 'vnfendpointrequest' in local_var_params:
+            body_params = local_var_params['vnfendpointrequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -1194,7 +1206,7 @@ class EndpointsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/vnfendpoint/', 'POST',
+            '/1.0.0/inventory/vnfendpoint', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1203,18 +1215,18 @@ class EndpointsApi(object):
             files=local_var_files,
             response_type='SuccessFragment',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def vnfendpoint_vnfuuid_vnfuuid_get(self, vnfuuid, **kwargs):  # noqa: E501
+    def vnfendpoint_vnfuuid(self, vnfuuid, **kwargs):  # noqa: E501
         """Get details of a specific VNF  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.vnfendpoint_vnfuuid_vnfuuid_get(vnfuuid, async=True)
+        >>> thread = api.vnfendpoint_vnfuuid(vnfuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1225,17 +1237,17 @@ class EndpointsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.vnfendpoint_vnfuuid_vnfuuid_get_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            return self.vnfendpoint_vnfuuid_with_http_info(vnfuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.vnfendpoint_vnfuuid_vnfuuid_get_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            (data) = self.vnfendpoint_vnfuuid_with_http_info(vnfuuid, **kwargs)  # noqa: E501
             return data
 
-    def vnfendpoint_vnfuuid_vnfuuid_get_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
+    def vnfendpoint_vnfuuid_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
         """Get details of a specific VNF  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.vnfendpoint_vnfuuid_vnfuuid_get_with_http_info(vnfuuid, async=True)
+        >>> thread = api.vnfendpoint_vnfuuid_with_http_info(vnfuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1245,31 +1257,32 @@ class EndpointsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['vnfuuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method vnfendpoint_vnfuuid_vnfuuid_get" % key
+                    " to method vnfendpoint_vnfuuid" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'vnfuuid' is set
-        if ('vnfuuid' not in params or
-                params['vnfuuid'] is None):
-            raise ValueError("Missing the required parameter `vnfuuid` when calling `vnfendpoint_vnfuuid_vnfuuid_get`")  # noqa: E501
+        if ('vnfuuid' not in local_var_params or
+                local_var_params['vnfuuid'] is None):
+            raise ValueError("Missing the required parameter `vnfuuid` when calling `vnfendpoint_vnfuuid`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'vnfuuid' in params:
-            path_params['vnfuuid'] = params['vnfuuid']  # noqa: E501
+        if 'vnfuuid' in local_var_params:
+            path_params['vnfuuid'] = local_var_params['vnfuuid']  # noqa: E501
 
         query_params = []
 
@@ -1287,7 +1300,7 @@ class EndpointsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/vnfendpoint/vnfuuid/{vnfuuid}/', 'GET',
+            '/eis/1.0.0/vnfendpoint/vnfuuid/{vnfuuid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1296,8 +1309,8 @@ class EndpointsApi(object):
             files=local_var_files,
             response_type='InlineResponse2003',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)

@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **str** |  | [optional] 
-**latency** | **int** |  | [optional] 
-**linkid** | **str** |  | [optional] 
+**latency** | **int** | Latency: 0&#x3D;Low, 1&#x3D;Standard, 2&#x3D;Best Effort | [optional] 
+**linkid** | **str** | Identifier of a link | [optional] 
 **contracts** | [**list[Contract]**](Contract.md) |  | [optional] 
 **tag** | **str** |  | [optional] 
 **connections** | [**Connections**](Connections.md) |  | [optional] 

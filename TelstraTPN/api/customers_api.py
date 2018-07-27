@@ -33,13 +33,13 @@ class CustomersApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def account_customeruuid_get(self, customeruuid, **kwargs):  # noqa: E501
+    def account(self, customeruuid, **kwargs):  # noqa: E501
         """Get account information details  # noqa: E501
 
         Get the account information for the specified customer  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.account_customeruuid_get(customeruuid, async=True)
+        >>> thread = api.account(customeruuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -50,18 +50,18 @@ class CustomersApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.account_customeruuid_get_with_http_info(customeruuid, **kwargs)  # noqa: E501
+            return self.account_with_http_info(customeruuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.account_customeruuid_get_with_http_info(customeruuid, **kwargs)  # noqa: E501
+            (data) = self.account_with_http_info(customeruuid, **kwargs)  # noqa: E501
             return data
 
-    def account_customeruuid_get_with_http_info(self, customeruuid, **kwargs):  # noqa: E501
+    def account_with_http_info(self, customeruuid, **kwargs):  # noqa: E501
         """Get account information details  # noqa: E501
 
         Get the account information for the specified customer  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.account_customeruuid_get_with_http_info(customeruuid, async=True)
+        >>> thread = api.account_with_http_info(customeruuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -71,31 +71,32 @@ class CustomersApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['customeruuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method account_customeruuid_get" % key
+                    " to method account" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'customeruuid' is set
-        if ('customeruuid' not in params or
-                params['customeruuid'] is None):
-            raise ValueError("Missing the required parameter `customeruuid` when calling `account_customeruuid_get`")  # noqa: E501
+        if ('customeruuid' not in local_var_params or
+                local_var_params['customeruuid'] is None):
+            raise ValueError("Missing the required parameter `customeruuid` when calling `account`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'customeruuid' in params:
-            path_params['customeruuid'] = params['customeruuid']  # noqa: E501
+        if 'customeruuid' in local_var_params:
+            path_params['customeruuid'] = local_var_params['customeruuid']  # noqa: E501
 
         query_params = []
 
@@ -107,13 +108,13 @@ class CustomersApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json''application/xml', ])  # noqa: E501
+            ['application/json', 'application/xml', ])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/account/{customeruuid}/', 'GET',
+            '/1.0.0/account/{customeruuid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -122,19 +123,19 @@ class CustomersApi(object):
             files=local_var_files,
             response_type='InlineResponse20017',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def account_customeruuid_user_get(self, customeruuid, **kwargs):  # noqa: E501
+    def account_user(self, customeruuid, **kwargs):  # noqa: E501
         """List users  # noqa: E501
 
         List all users associated with the specified customer  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.account_customeruuid_user_get(customeruuid, async=True)
+        >>> thread = api.account_user(customeruuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -145,18 +146,18 @@ class CustomersApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.account_customeruuid_user_get_with_http_info(customeruuid, **kwargs)  # noqa: E501
+            return self.account_user_with_http_info(customeruuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.account_customeruuid_user_get_with_http_info(customeruuid, **kwargs)  # noqa: E501
+            (data) = self.account_user_with_http_info(customeruuid, **kwargs)  # noqa: E501
             return data
 
-    def account_customeruuid_user_get_with_http_info(self, customeruuid, **kwargs):  # noqa: E501
+    def account_user_with_http_info(self, customeruuid, **kwargs):  # noqa: E501
         """List users  # noqa: E501
 
         List all users associated with the specified customer  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.account_customeruuid_user_get_with_http_info(customeruuid, async=True)
+        >>> thread = api.account_user_with_http_info(customeruuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -166,31 +167,32 @@ class CustomersApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['customeruuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method account_customeruuid_user_get" % key
+                    " to method account_user" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'customeruuid' is set
-        if ('customeruuid' not in params or
-                params['customeruuid'] is None):
-            raise ValueError("Missing the required parameter `customeruuid` when calling `account_customeruuid_user_get`")  # noqa: E501
+        if ('customeruuid' not in local_var_params or
+                local_var_params['customeruuid'] is None):
+            raise ValueError("Missing the required parameter `customeruuid` when calling `account_user`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'customeruuid' in params:
-            path_params['customeruuid'] = params['customeruuid']  # noqa: E501
+        if 'customeruuid' in local_var_params:
+            path_params['customeruuid'] = local_var_params['customeruuid']  # noqa: E501
 
         query_params = []
 
@@ -208,7 +210,7 @@ class CustomersApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/account/{customeruuid}/user/', 'GET',
+            '/1.0.0/account/{customeruuid}/user', 'GET',
             path_params,
             query_params,
             header_params,
@@ -217,8 +219,8 @@ class CustomersApi(object):
             files=local_var_files,
             response_type='list[User]',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)

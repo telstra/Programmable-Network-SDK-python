@@ -113,6 +113,7 @@ class InlineResponse2005(object):
     def latency(self):
         """Gets the latency of this InlineResponse2005.  # noqa: E501
 
+        Latency: 0=Low, 1=Standard, 2=Best Effort  # noqa: E501
 
         :return: The latency of this InlineResponse2005.  # noqa: E501
         :rtype: int
@@ -123,6 +124,7 @@ class InlineResponse2005(object):
     def latency(self, latency):
         """Sets the latency of this InlineResponse2005.
 
+        Latency: 0=Low, 1=Standard, 2=Best Effort  # noqa: E501
 
         :param latency: The latency of this InlineResponse2005.  # noqa: E501
         :type: int
@@ -134,6 +136,7 @@ class InlineResponse2005(object):
     def linkid(self):
         """Gets the linkid of this InlineResponse2005.  # noqa: E501
 
+        Identifier of a link  # noqa: E501
 
         :return: The linkid of this InlineResponse2005.  # noqa: E501
         :rtype: str
@@ -144,6 +147,7 @@ class InlineResponse2005(object):
     def linkid(self, linkid):
         """Sets the linkid of this InlineResponse2005.
 
+        Identifier of a link  # noqa: E501
 
         :param linkid: The linkid of this InlineResponse2005.  # noqa: E501
         :type: str

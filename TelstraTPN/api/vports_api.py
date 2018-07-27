@@ -33,13 +33,13 @@ class VportsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def inventory_regularvport_post(self, **kwargs):  # noqa: E501
+    def inventory_regularvport(self, **kwargs):  # noqa: E501
         """Create VPort for physical endpoint  # noqa: E501
 
         Create VPort representing a VLAN on a Physical Ethernet Port  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_regularvport_post(async=True)
+        >>> thread = api.inventory_regularvport(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -50,18 +50,18 @@ class VportsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_regularvport_post_with_http_info(**kwargs)  # noqa: E501
+            return self.inventory_regularvport_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_regularvport_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.inventory_regularvport_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def inventory_regularvport_post_with_http_info(self, **kwargs):  # noqa: E501
+    def inventory_regularvport_with_http_info(self, **kwargs):  # noqa: E501
         """Create VPort for physical endpoint  # noqa: E501
 
         Create VPort representing a VLAN on a Physical Ethernet Port  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_regularvport_post_with_http_info(async=True)
+        >>> thread = api.inventory_regularvport_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -71,21 +71,22 @@ class VportsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['regvportrequest']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_regularvport_post" % key
+                    " to method inventory_regularvport" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -99,8 +100,8 @@ class VportsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'regvportrequest' in params:
-            body_params = params['regvportrequest']
+        if 'regvportrequest' in local_var_params:
+            body_params = local_var_params['regvportrequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -113,7 +114,7 @@ class VportsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/regularvport/', 'POST',
+            '/1.0.0/inventory/regularvport', 'POST',
             path_params,
             query_params,
             header_params,
@@ -122,18 +123,18 @@ class VportsApi(object):
             files=local_var_files,
             response_type='SuccessFragment',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_vnf_vport_post(self, **kwargs):  # noqa: E501
+    def inventory_vnf_vport(self, **kwargs):  # noqa: E501
         """Create VNF VPort  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_vnf_vport_post(async=True)
+        >>> thread = api.inventory_vnf_vport(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -144,17 +145,17 @@ class VportsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_vnf_vport_post_with_http_info(**kwargs)  # noqa: E501
+            return self.inventory_vnf_vport_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_vnf_vport_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.inventory_vnf_vport_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def inventory_vnf_vport_post_with_http_info(self, **kwargs):  # noqa: E501
+    def inventory_vnf_vport_with_http_info(self, **kwargs):  # noqa: E501
         """Create VNF VPort  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_vnf_vport_post_with_http_info(async=True)
+        >>> thread = api.inventory_vnf_vport_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -164,21 +165,22 @@ class VportsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['vportrequest']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_vnf_vport_post" % key
+                    " to method inventory_vnf_vport" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -192,8 +194,8 @@ class VportsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'vportrequest' in params:
-            body_params = params['vportrequest']
+        if 'vportrequest' in local_var_params:
+            body_params = local_var_params['vportrequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -206,7 +208,7 @@ class VportsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/vnf/vport/', 'POST',
+            '/1.0.0/inventory/vnf/vport', 'POST',
             path_params,
             query_params,
             header_params,
@@ -215,18 +217,18 @@ class VportsApi(object):
             files=local_var_files,
             response_type='InlineResponse2008',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_vport_vportuuid_get(self, vportuuid, **kwargs):  # noqa: E501
+    def inventory_vport(self, vportuuid, **kwargs):  # noqa: E501
         """Get information about the specified VPort  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_vport_vportuuid_get(vportuuid, async=True)
+        >>> thread = api.inventory_vport(vportuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -237,17 +239,17 @@ class VportsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_vport_vportuuid_get_with_http_info(vportuuid, **kwargs)  # noqa: E501
+            return self.inventory_vport_with_http_info(vportuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_vport_vportuuid_get_with_http_info(vportuuid, **kwargs)  # noqa: E501
+            (data) = self.inventory_vport_with_http_info(vportuuid, **kwargs)  # noqa: E501
             return data
 
-    def inventory_vport_vportuuid_get_with_http_info(self, vportuuid, **kwargs):  # noqa: E501
+    def inventory_vport_with_http_info(self, vportuuid, **kwargs):  # noqa: E501
         """Get information about the specified VPort  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_vport_vportuuid_get_with_http_info(vportuuid, async=True)
+        >>> thread = api.inventory_vport_with_http_info(vportuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -257,31 +259,32 @@ class VportsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['vportuuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_vport_vportuuid_get" % key
+                    " to method inventory_vport" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'vportuuid' is set
-        if ('vportuuid' not in params or
-                params['vportuuid'] is None):
-            raise ValueError("Missing the required parameter `vportuuid` when calling `inventory_vport_vportuuid_get`")  # noqa: E501
+        if ('vportuuid' not in local_var_params or
+                local_var_params['vportuuid'] is None):
+            raise ValueError("Missing the required parameter `vportuuid` when calling `inventory_vport`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'vportuuid' in params:
-            path_params['vportuuid'] = params['vportuuid']  # noqa: E501
+        if 'vportuuid' in local_var_params:
+            path_params['vportuuid'] = local_var_params['vportuuid']  # noqa: E501
 
         query_params = []
 
@@ -299,7 +302,7 @@ class VportsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/vport/{vportuuid}/', 'GET',
+            '/1.0.0/inventory/vport/{vportuuid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -308,8 +311,8 @@ class VportsApi(object):
             files=local_var_files,
             response_type='EndpointPort',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)

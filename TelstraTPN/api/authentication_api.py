@@ -33,12 +33,12 @@ class AuthenticationApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def auth_generatetoken_post(self, grant_type, username, password, **kwargs):  # noqa: E501
+    def generate_token(self, grant_type, username, password, **kwargs):  # noqa: E501
         """Create an authentication token  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.auth_generatetoken_post(grant_type, username, password, async=True)
+        >>> thread = api.generate_token(grant_type, username, password, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -51,17 +51,17 @@ class AuthenticationApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.auth_generatetoken_post_with_http_info(grant_type, username, password, **kwargs)  # noqa: E501
+            return self.generate_token_with_http_info(grant_type, username, password, **kwargs)  # noqa: E501
         else:
-            (data) = self.auth_generatetoken_post_with_http_info(grant_type, username, password, **kwargs)  # noqa: E501
+            (data) = self.generate_token_with_http_info(grant_type, username, password, **kwargs)  # noqa: E501
             return data
 
-    def auth_generatetoken_post_with_http_info(self, grant_type, username, password, **kwargs):  # noqa: E501
+    def generate_token_with_http_info(self, grant_type, username, password, **kwargs):  # noqa: E501
         """Create an authentication token  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.auth_generatetoken_post_with_http_info(grant_type, username, password, async=True)
+        >>> thread = api.generate_token_with_http_info(grant_type, username, password, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -73,33 +73,34 @@ class AuthenticationApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['grant_type', 'username', 'password']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method auth_generatetoken_post" % key
+                    " to method generate_token" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'grant_type' is set
-        if ('grant_type' not in params or
-                params['grant_type'] is None):
-            raise ValueError("Missing the required parameter `grant_type` when calling `auth_generatetoken_post`")  # noqa: E501
+        if ('grant_type' not in local_var_params or
+                local_var_params['grant_type'] is None):
+            raise ValueError("Missing the required parameter `grant_type` when calling `generate_token`")  # noqa: E501
         # verify the required parameter 'username' is set
-        if ('username' not in params or
-                params['username'] is None):
-            raise ValueError("Missing the required parameter `username` when calling `auth_generatetoken_post`")  # noqa: E501
+        if ('username' not in local_var_params or
+                local_var_params['username'] is None):
+            raise ValueError("Missing the required parameter `username` when calling `generate_token`")  # noqa: E501
         # verify the required parameter 'password' is set
-        if ('password' not in params or
-                params['password'] is None):
-            raise ValueError("Missing the required parameter `password` when calling `auth_generatetoken_post`")  # noqa: E501
+        if ('password' not in local_var_params or
+                local_var_params['password'] is None):
+            raise ValueError("Missing the required parameter `password` when calling `generate_token`")  # noqa: E501
 
         collection_formats = {}
 
@@ -111,12 +112,12 @@ class AuthenticationApi(object):
 
         form_params = []
         local_var_files = {}
-        if 'grant_type' in params:
-            form_params.append(('grant_type', params['grant_type']))  # noqa: E501
-        if 'username' in params:
-            form_params.append(('username', params['username']))  # noqa: E501
-        if 'password' in params:
-            form_params.append(('password', params['password']))  # noqa: E501
+        if 'grant_type' in local_var_params:
+            form_params.append(('grant_type', local_var_params['grant_type']))  # noqa: E501
+        if 'username' in local_var_params:
+            form_params.append(('username', local_var_params['username']))  # noqa: E501
+        if 'password' in local_var_params:
+            form_params.append(('password', local_var_params['password']))  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
@@ -131,7 +132,7 @@ class AuthenticationApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/auth/generatetoken/', 'POST',
+            '/1.0.0/auth/generatetoken', 'POST',
             path_params,
             query_params,
             header_params,
@@ -140,19 +141,19 @@ class AuthenticationApi(object):
             files=local_var_files,
             response_type='InlineResponse20015',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def auth_validatetoken_get(self, **kwargs):  # noqa: E501
+    def validate_token(self, **kwargs):  # noqa: E501
         """Validate authentication token  # noqa: E501
 
         Validate the authentication token and get information about the user (roles, permissions, etc.)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.auth_validatetoken_get(async=True)
+        >>> thread = api.validate_token(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -162,18 +163,18 @@ class AuthenticationApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.auth_validatetoken_get_with_http_info(**kwargs)  # noqa: E501
+            return self.validate_token_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.auth_validatetoken_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.validate_token_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def auth_validatetoken_get_with_http_info(self, **kwargs):  # noqa: E501
+    def validate_token_with_http_info(self, **kwargs):  # noqa: E501
         """Validate authentication token  # noqa: E501
 
         Validate the authentication token and get information about the user (roles, permissions, etc.)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.auth_validatetoken_get_with_http_info(async=True)
+        >>> thread = api.validate_token_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -182,21 +183,22 @@ class AuthenticationApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = []  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method auth_validatetoken_get" % key
+                    " to method validate_token" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -218,7 +220,7 @@ class AuthenticationApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/auth/validatetoken/', 'GET',
+            '/1.0.0/auth/validatetoken', 'GET',
             path_params,
             query_params,
             header_params,
@@ -227,8 +229,8 @@ class AuthenticationApi(object):
             files=local_var_files,
             response_type='InlineResponse20016',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)

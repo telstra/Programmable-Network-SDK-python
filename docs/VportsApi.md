@@ -1,16 +1,16 @@
 # TelstraTPN.VportsApi
 
-All URIs are relative to *https://penapi.pacnetconnect.com/1.0.0*
+All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inventory_regularvport_post**](VportsApi.md#inventory_regularvport_post) | **POST** /inventory/regularvport/ | Create VPort for physical endpoint
-[**inventory_vnf_vport_post**](VportsApi.md#inventory_vnf_vport_post) | **POST** /inventory/vnf/vport/ | Create VNF VPort
-[**inventory_vport_vportuuid_get**](VportsApi.md#inventory_vport_vportuuid_get) | **GET** /inventory/vport/{vportuuid}/ | Get information about the specified VPort
+[**inventory_regularvport**](VportsApi.md#inventory_regularvport) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
+[**inventory_vnf_vport**](VportsApi.md#inventory_vnf_vport) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
+[**inventory_vport**](VportsApi.md#inventory_vport) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
 
 
-# **inventory_regularvport_post**
-> SuccessFragment inventory_regularvport_post(regvportrequest=regvportrequest)
+# **inventory_regularvport**
+> SuccessFragment inventory_regularvport(regvportrequest=regvportrequest)
 
 Create VPort for physical endpoint
 
@@ -34,10 +34,10 @@ regvportrequest = TelstraTPN.Regvportrequest() # Regvportrequest |  (optional)
 
 try:
     # Create VPort for physical endpoint
-    api_response = api_instance.inventory_regularvport_post(regvportrequest=regvportrequest)
+    api_response = api_instance.inventory_regularvport(regvportrequest=regvportrequest)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling VportsApi->inventory_regularvport_post: %s\n" % e)
+    print("Exception when calling VportsApi->inventory_regularvport: %s\n" % e)
 ```
 
 ### Parameters
@@ -61,8 +61,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_vnf_vport_post**
-> InlineResponse2008 inventory_vnf_vport_post(vportrequest=vportrequest)
+# **inventory_vnf_vport**
+> InlineResponse2008 inventory_vnf_vport(vportrequest=vportrequest)
 
 Create VNF VPort
 
@@ -84,10 +84,10 @@ vportrequest = TelstraTPN.Vportrequest() # Vportrequest |  (optional)
 
 try:
     # Create VNF VPort
-    api_response = api_instance.inventory_vnf_vport_post(vportrequest=vportrequest)
+    api_response = api_instance.inventory_vnf_vport(vportrequest=vportrequest)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling VportsApi->inventory_vnf_vport_post: %s\n" % e)
+    print("Exception when calling VportsApi->inventory_vnf_vport: %s\n" % e)
 ```
 
 ### Parameters
@@ -111,8 +111,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_vport_vportuuid_get**
-> EndpointPort inventory_vport_vportuuid_get(vportuuid)
+# **inventory_vport**
+> EndpointPort inventory_vport(vportuuid)
 
 Get information about the specified VPort
 
@@ -134,10 +134,10 @@ vportuuid = 'vportuuid_example' # str | Unique identifier representing a specifi
 
 try:
     # Get information about the specified VPort
-    api_response = api_instance.inventory_vport_vportuuid_get(vportuuid)
+    api_response = api_instance.inventory_vport(vportuuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling VportsApi->inventory_vport_vportuuid_get: %s\n" % e)
+    print("Exception when calling VportsApi->inventory_vport: %s\n" % e)
 ```
 
 ### Parameters

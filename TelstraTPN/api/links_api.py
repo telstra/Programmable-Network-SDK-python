@@ -33,12 +33,12 @@ class LinksApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def inventory_link_post(self, **kwargs):  # noqa: E501
+    def inventory_link(self, **kwargs):  # noqa: E501
         """Create Link and initial Contract  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_link_post(async=True)
+        >>> thread = api.inventory_link(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -49,17 +49,17 @@ class LinksApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_link_post_with_http_info(**kwargs)  # noqa: E501
+            return self.inventory_link_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_link_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.inventory_link_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def inventory_link_post_with_http_info(self, **kwargs):  # noqa: E501
+    def inventory_link_with_http_info(self, **kwargs):  # noqa: E501
         """Create Link and initial Contract  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_link_post_with_http_info(async=True)
+        >>> thread = api.inventory_link_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -69,21 +69,22 @@ class LinksApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['createlinkrequest']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_link_post" % key
+                    " to method inventory_link" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -97,8 +98,8 @@ class LinksApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'createlinkrequest' in params:
-            body_params = params['createlinkrequest']
+        if 'createlinkrequest' in local_var_params:
+            body_params = local_var_params['createlinkrequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -111,7 +112,7 @@ class LinksApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/link/', 'POST',
+            '/1.0.0/inventory/link', 'POST',
             path_params,
             query_params,
             header_params,
@@ -120,204 +121,18 @@ class LinksApi(object):
             files=local_var_files,
             response_type='SuccessFragment',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_links_customer_customeruuid_get(self, customeruuid, **kwargs):  # noqa: E501
-        """Get active Links  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_customer_customeruuid_get(customeruuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str customeruuid: Unique identifier representing a specific customer (required)
-        :return: list[Link]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.inventory_links_customer_customeruuid_get_with_http_info(customeruuid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.inventory_links_customer_customeruuid_get_with_http_info(customeruuid, **kwargs)  # noqa: E501
-            return data
-
-    def inventory_links_customer_customeruuid_get_with_http_info(self, customeruuid, **kwargs):  # noqa: E501
-        """Get active Links  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_customer_customeruuid_get_with_http_info(customeruuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str customeruuid: Unique identifier representing a specific customer (required)
-        :return: list[Link]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['customeruuid']  # noqa: E501
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method inventory_links_customer_customeruuid_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'customeruuid' is set
-        if ('customeruuid' not in params or
-                params['customeruuid'] is None):
-            raise ValueError("Missing the required parameter `customeruuid` when calling `inventory_links_customer_customeruuid_get`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'customeruuid' in params:
-            path_params['customeruuid'] = params['customeruuid']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['oAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/inventory/links/customer/{customeruuid}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[Link]',  # noqa: E501
-            auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def inventory_links_history_linkid_get(self, linkid, **kwargs):  # noqa: E501
-        """Get Link history  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_history_linkid_get(linkid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str linkid: Unique identifier representing a specific link (required)
-        :return: InlineResponse2005
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.inventory_links_history_linkid_get_with_http_info(linkid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.inventory_links_history_linkid_get_with_http_info(linkid, **kwargs)  # noqa: E501
-            return data
-
-    def inventory_links_history_linkid_get_with_http_info(self, linkid, **kwargs):  # noqa: E501
-        """Get Link history  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_history_linkid_get_with_http_info(linkid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str linkid: Unique identifier representing a specific link (required)
-        :return: InlineResponse2005
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['linkid']  # noqa: E501
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method inventory_links_history_linkid_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'linkid' is set
-        if ('linkid' not in params or
-                params['linkid'] is None):
-            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_history_linkid_get`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'linkid' in params:
-            path_params['linkid'] = params['linkid']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['oAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/inventory/links/history/{linkid}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse2005',  # noqa: E501
-            auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def inventory_links_linkid_get(self, linkid, **kwargs):  # noqa: E501
+    def inventory_links(self, linkid, **kwargs):  # noqa: E501
         """Get details of specified link  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_linkid_get(linkid, async=True)
+        >>> thread = api.inventory_links(linkid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -328,17 +143,17 @@ class LinksApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_links_linkid_get_with_http_info(linkid, **kwargs)  # noqa: E501
+            return self.inventory_links_with_http_info(linkid, **kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_links_linkid_get_with_http_info(linkid, **kwargs)  # noqa: E501
+            (data) = self.inventory_links_with_http_info(linkid, **kwargs)  # noqa: E501
             return data
 
-    def inventory_links_linkid_get_with_http_info(self, linkid, **kwargs):  # noqa: E501
+    def inventory_links_with_http_info(self, linkid, **kwargs):  # noqa: E501
         """Get details of specified link  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_linkid_get_with_http_info(linkid, async=True)
+        >>> thread = api.inventory_links_with_http_info(linkid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -348,31 +163,32 @@ class LinksApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['linkid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_links_linkid_get" % key
+                    " to method inventory_links" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'linkid' is set
-        if ('linkid' not in params or
-                params['linkid'] is None):
-            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_linkid_get`")  # noqa: E501
+        if ('linkid' not in local_var_params or
+                local_var_params['linkid'] is None):
+            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'linkid' in params:
-            path_params['linkid'] = params['linkid']  # noqa: E501
+        if 'linkid' in local_var_params:
+            path_params['linkid'] = local_var_params['linkid']  # noqa: E501
 
         query_params = []
 
@@ -390,7 +206,7 @@ class LinksApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/links/{linkid}/', 'GET',
+            '/1.0.0/inventory/links/{linkid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -399,91 +215,74 @@ class LinksApi(object):
             files=local_var_files,
             response_type='InlineResponse2007',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_links_stats_flow_linkid_startdate_enddate_get(self, linkid, startdate, enddate, **kwargs):  # noqa: E501
-        """Get statistics for flow  # noqa: E501
+    def inventory_links_customer(self, customeruuid, **kwargs):  # noqa: E501
+        """Get active Links  # noqa: E501
 
-        Get statistics related to the specified flow  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_stats_flow_linkid_startdate_enddate_get(linkid, startdate, enddate, async=True)
+        >>> thread = api.inventory_links_customer(customeruuid, async=True)
         >>> result = thread.get()
 
         :param async bool
-        :param str linkid: Unique identifier representing a specific link (required)
-        :param str startdate: Start date for statistics query (required)
-        :param str enddate: End date for statistics query (required)
-        :return: list[InlineResponse20019]
+        :param str customeruuid: Unique identifier representing a specific customer (required)
+        :return: list[Link]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_links_stats_flow_linkid_startdate_enddate_get_with_http_info(linkid, startdate, enddate, **kwargs)  # noqa: E501
+            return self.inventory_links_customer_with_http_info(customeruuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_links_stats_flow_linkid_startdate_enddate_get_with_http_info(linkid, startdate, enddate, **kwargs)  # noqa: E501
+            (data) = self.inventory_links_customer_with_http_info(customeruuid, **kwargs)  # noqa: E501
             return data
 
-    def inventory_links_stats_flow_linkid_startdate_enddate_get_with_http_info(self, linkid, startdate, enddate, **kwargs):  # noqa: E501
-        """Get statistics for flow  # noqa: E501
+    def inventory_links_customer_with_http_info(self, customeruuid, **kwargs):  # noqa: E501
+        """Get active Links  # noqa: E501
 
-        Get statistics related to the specified flow  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_stats_flow_linkid_startdate_enddate_get_with_http_info(linkid, startdate, enddate, async=True)
+        >>> thread = api.inventory_links_customer_with_http_info(customeruuid, async=True)
         >>> result = thread.get()
 
         :param async bool
-        :param str linkid: Unique identifier representing a specific link (required)
-        :param str startdate: Start date for statistics query (required)
-        :param str enddate: End date for statistics query (required)
-        :return: list[InlineResponse20019]
+        :param str customeruuid: Unique identifier representing a specific customer (required)
+        :return: list[Link]
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['linkid', 'startdate', 'enddate']  # noqa: E501
+        local_var_params = locals()
+
+        all_params = ['customeruuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_links_stats_flow_linkid_startdate_enddate_get" % key
+                    " to method inventory_links_customer" % key
                 )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'linkid' is set
-        if ('linkid' not in params or
-                params['linkid'] is None):
-            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_stats_flow_linkid_startdate_enddate_get`")  # noqa: E501
-        # verify the required parameter 'startdate' is set
-        if ('startdate' not in params or
-                params['startdate'] is None):
-            raise ValueError("Missing the required parameter `startdate` when calling `inventory_links_stats_flow_linkid_startdate_enddate_get`")  # noqa: E501
-        # verify the required parameter 'enddate' is set
-        if ('enddate' not in params or
-                params['enddate'] is None):
-            raise ValueError("Missing the required parameter `enddate` when calling `inventory_links_stats_flow_linkid_startdate_enddate_get`")  # noqa: E501
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'customeruuid' is set
+        if ('customeruuid' not in local_var_params or
+                local_var_params['customeruuid'] is None):
+            raise ValueError("Missing the required parameter `customeruuid` when calling `inventory_links_customer`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'linkid' in params:
-            path_params['linkid'] = params['linkid']  # noqa: E501
-        if 'startdate' in params:
-            path_params['startdate'] = params['startdate']  # noqa: E501
-        if 'enddate' in params:
-            path_params['enddate'] = params['enddate']  # noqa: E501
+        if 'customeruuid' in local_var_params:
+            path_params['customeruuid'] = local_var_params['customeruuid']  # noqa: E501
 
         query_params = []
 
@@ -501,7 +300,213 @@ class LinksApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/links-stats/flow/{linkid}/{startdate}/{enddate}/', 'GET',
+            '/1.0.0/inventory/links/customer/{customeruuid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[Link]',  # noqa: E501
+            auth_settings=auth_settings,
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def inventory_links_history(self, linkid, **kwargs):  # noqa: E501
+        """Get Link history  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.inventory_links_history(linkid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str linkid: Unique identifier representing a specific link (required)
+        :return: InlineResponse2005
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.inventory_links_history_with_http_info(linkid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.inventory_links_history_with_http_info(linkid, **kwargs)  # noqa: E501
+            return data
+
+    def inventory_links_history_with_http_info(self, linkid, **kwargs):  # noqa: E501
+        """Get Link history  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.inventory_links_history_with_http_info(linkid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str linkid: Unique identifier representing a specific link (required)
+        :return: InlineResponse2005
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['linkid']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method inventory_links_history" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'linkid' is set
+        if ('linkid' not in local_var_params or
+                local_var_params['linkid'] is None):
+            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_history`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'linkid' in local_var_params:
+            path_params['linkid'] = local_var_params['linkid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['oAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/1.0.0/inventory/links/history/{linkid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2005',  # noqa: E501
+            auth_settings=auth_settings,
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def inventory_links_stats_flow(self, linkid, startdate, enddate, **kwargs):  # noqa: E501
+        """Get statistics for flow  # noqa: E501
+
+        Get statistics related to the specified flow  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.inventory_links_stats_flow(linkid, startdate, enddate, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str linkid: Unique identifier representing a specific link (required)
+        :param str startdate: Start date for statistics query (required)
+        :param str enddate: End date for statistics query (required)
+        :return: list[InlineResponse20019]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.inventory_links_stats_flow_with_http_info(linkid, startdate, enddate, **kwargs)  # noqa: E501
+        else:
+            (data) = self.inventory_links_stats_flow_with_http_info(linkid, startdate, enddate, **kwargs)  # noqa: E501
+            return data
+
+    def inventory_links_stats_flow_with_http_info(self, linkid, startdate, enddate, **kwargs):  # noqa: E501
+        """Get statistics for flow  # noqa: E501
+
+        Get statistics related to the specified flow  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.inventory_links_stats_flow_with_http_info(linkid, startdate, enddate, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str linkid: Unique identifier representing a specific link (required)
+        :param str startdate: Start date for statistics query (required)
+        :param str enddate: End date for statistics query (required)
+        :return: list[InlineResponse20019]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['linkid', 'startdate', 'enddate']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method inventory_links_stats_flow" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'linkid' is set
+        if ('linkid' not in local_var_params or
+                local_var_params['linkid'] is None):
+            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_stats_flow`")  # noqa: E501
+        # verify the required parameter 'startdate' is set
+        if ('startdate' not in local_var_params or
+                local_var_params['startdate'] is None):
+            raise ValueError("Missing the required parameter `startdate` when calling `inventory_links_stats_flow`")  # noqa: E501
+        # verify the required parameter 'enddate' is set
+        if ('enddate' not in local_var_params or
+                local_var_params['enddate'] is None):
+            raise ValueError("Missing the required parameter `enddate` when calling `inventory_links_stats_flow`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'linkid' in local_var_params:
+            path_params['linkid'] = local_var_params['linkid']  # noqa: E501
+        if 'startdate' in local_var_params:
+            path_params['startdate'] = local_var_params['startdate']  # noqa: E501
+        if 'enddate' in local_var_params:
+            path_params['enddate'] = local_var_params['enddate']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['oAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/1.0.0/inventory/links-stats/flow/{linkid}/{startdate}/{enddate}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -510,8 +515,8 @@ class LinksApi(object):
             files=local_var_files,
             response_type='list[InlineResponse20019]',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)

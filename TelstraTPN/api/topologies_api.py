@@ -33,12 +33,12 @@ class TopologiesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def endpoints_endpointuuid_assign_topology_tag_post(self, endpointuuid, **kwargs):  # noqa: E501
+    def endpoints_assign_topology_tag(self, endpointuuid, **kwargs):  # noqa: E501
         """Assign an Endpoint to a Topology  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoints_endpointuuid_assign_topology_tag_post(endpointuuid, async=True)
+        >>> thread = api.endpoints_assign_topology_tag(endpointuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -50,17 +50,17 @@ class TopologiesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.endpoints_endpointuuid_assign_topology_tag_post_with_http_info(endpointuuid, **kwargs)  # noqa: E501
+            return self.endpoints_assign_topology_tag_with_http_info(endpointuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.endpoints_endpointuuid_assign_topology_tag_post_with_http_info(endpointuuid, **kwargs)  # noqa: E501
+            (data) = self.endpoints_assign_topology_tag_with_http_info(endpointuuid, **kwargs)  # noqa: E501
             return data
 
-    def endpoints_endpointuuid_assign_topology_tag_post_with_http_info(self, endpointuuid, **kwargs):  # noqa: E501
+    def endpoints_assign_topology_tag_with_http_info(self, endpointuuid, **kwargs):  # noqa: E501
         """Assign an Endpoint to a Topology  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoints_endpointuuid_assign_topology_tag_post_with_http_info(endpointuuid, async=True)
+        >>> thread = api.endpoints_assign_topology_tag_with_http_info(endpointuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -71,31 +71,32 @@ class TopologiesApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['endpointuuid', 'assigntopotagrequest']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method endpoints_endpointuuid_assign_topology_tag_post" % key
+                    " to method endpoints_assign_topology_tag" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'endpointuuid' is set
-        if ('endpointuuid' not in params or
-                params['endpointuuid'] is None):
-            raise ValueError("Missing the required parameter `endpointuuid` when calling `endpoints_endpointuuid_assign_topology_tag_post`")  # noqa: E501
+        if ('endpointuuid' not in local_var_params or
+                local_var_params['endpointuuid'] is None):
+            raise ValueError("Missing the required parameter `endpointuuid` when calling `endpoints_assign_topology_tag`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'endpointuuid' in params:
-            path_params['endpointuuid'] = params['endpointuuid']  # noqa: E501
+        if 'endpointuuid' in local_var_params:
+            path_params['endpointuuid'] = local_var_params['endpointuuid']  # noqa: E501
 
         query_params = []
 
@@ -105,8 +106,8 @@ class TopologiesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'assigntopotagrequest' in params:
-            body_params = params['assigntopotagrequest']
+        if 'assigntopotagrequest' in local_var_params:
+            body_params = local_var_params['assigntopotagrequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -119,7 +120,7 @@ class TopologiesApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/endpoints/{endpointuuid}/assign_topology_tag/', 'POST',
+            '/eis/1.0.0/endpoints/{endpointuuid}/assign_topology_tag', 'POST',
             path_params,
             query_params,
             header_params,
@@ -128,116 +129,19 @@ class TopologiesApi(object):
             files=local_var_files,
             response_type='SuccessFragment',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete(self, topotaguuid, endpointuuid, **kwargs):  # noqa: E501
-        """Remove Endpoint from a Topology  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete(topotaguuid, endpointuuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str topotaguuid: Unique identifier representing a specific topology tag (required)
-        :param str endpointuuid: Unique identifier representing a specific endpoint (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete_with_http_info(topotaguuid, endpointuuid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete_with_http_info(topotaguuid, endpointuuid, **kwargs)  # noqa: E501
-            return data
-
-    def endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete_with_http_info(self, topotaguuid, endpointuuid, **kwargs):  # noqa: E501
-        """Remove Endpoint from a Topology  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete_with_http_info(topotaguuid, endpointuuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str topotaguuid: Unique identifier representing a specific topology tag (required)
-        :param str endpointuuid: Unique identifier representing a specific endpoint (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['topotaguuid', 'endpointuuid']  # noqa: E501
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'topotaguuid' is set
-        if ('topotaguuid' not in params or
-                params['topotaguuid'] is None):
-            raise ValueError("Missing the required parameter `topotaguuid` when calling `endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete`")  # noqa: E501
-        # verify the required parameter 'endpointuuid' is set
-        if ('endpointuuid' not in params or
-                params['endpointuuid'] is None):
-            raise ValueError("Missing the required parameter `endpointuuid` when calling `endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'topotaguuid' in params:
-            path_params['topotaguuid'] = params['topotaguuid']  # noqa: E501
-        if 'endpointuuid' in params:
-            path_params['endpointuuid'] = params['endpointuuid']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['oAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/endpoints/topology_tag_uuid/{topotaguuid}/endpoint/{endpointuuid}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def endpoints_topology_tag_uuid_topotaguuid_get(self, topotaguuid, **kwargs):  # noqa: E501
+    def endpoints_topology_tag_uuid(self, topotaguuid, **kwargs):  # noqa: E501
         """List Endpoints for Topology  # noqa: E501
 
         List all Endpoints associated with the topology tag.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoints_topology_tag_uuid_topotaguuid_get(topotaguuid, async=True)
+        >>> thread = api.endpoints_topology_tag_uuid(topotaguuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -248,18 +152,18 @@ class TopologiesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.endpoints_topology_tag_uuid_topotaguuid_get_with_http_info(topotaguuid, **kwargs)  # noqa: E501
+            return self.endpoints_topology_tag_uuid_with_http_info(topotaguuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.endpoints_topology_tag_uuid_topotaguuid_get_with_http_info(topotaguuid, **kwargs)  # noqa: E501
+            (data) = self.endpoints_topology_tag_uuid_with_http_info(topotaguuid, **kwargs)  # noqa: E501
             return data
 
-    def endpoints_topology_tag_uuid_topotaguuid_get_with_http_info(self, topotaguuid, **kwargs):  # noqa: E501
+    def endpoints_topology_tag_uuid_with_http_info(self, topotaguuid, **kwargs):  # noqa: E501
         """List Endpoints for Topology  # noqa: E501
 
         List all Endpoints associated with the topology tag.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.endpoints_topology_tag_uuid_topotaguuid_get_with_http_info(topotaguuid, async=True)
+        >>> thread = api.endpoints_topology_tag_uuid_with_http_info(topotaguuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -268,6 +172,8 @@ class TopologiesApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['topotaguuid']  # noqa: E501
         all_params.append('async')
@@ -275,25 +181,24 @@ class TopologiesApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method endpoints_topology_tag_uuid_topotaguuid_get" % key
+                    " to method endpoints_topology_tag_uuid" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'topotaguuid' is set
-        if ('topotaguuid' not in params or
-                params['topotaguuid'] is None):
-            raise ValueError("Missing the required parameter `topotaguuid` when calling `endpoints_topology_tag_uuid_topotaguuid_get`")  # noqa: E501
+        if ('topotaguuid' not in local_var_params or
+                local_var_params['topotaguuid'] is None):
+            raise ValueError("Missing the required parameter `topotaguuid` when calling `endpoints_topology_tag_uuid`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'topotaguuid' in params:
-            path_params['topotaguuid'] = params['topotaguuid']  # noqa: E501
+        if 'topotaguuid' in local_var_params:
+            path_params['topotaguuid'] = local_var_params['topotaguuid']  # noqa: E501
 
         query_params = []
 
@@ -311,7 +216,7 @@ class TopologiesApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/endpoints/topology_tag_uuid/{topotaguuid}/', 'GET',
+            '/eis/1.0.0/endpoints/topology_tag_uuid/{topotaguuid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -320,10 +225,108 @@ class TopologiesApi(object):
             files=local_var_files,
             response_type='InlineResponse20014',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def endpoints_topology_tag_uuid_endpoint(self, topotaguuid, endpointuuid, **kwargs):  # noqa: E501
+        """Remove Endpoint from a Topology  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.endpoints_topology_tag_uuid_endpoint(topotaguuid, endpointuuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str topotaguuid: Unique identifier representing a specific topology tag (required)
+        :param str endpointuuid: Unique identifier representing a specific endpoint (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.endpoints_topology_tag_uuid_endpoint_with_http_info(topotaguuid, endpointuuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.endpoints_topology_tag_uuid_endpoint_with_http_info(topotaguuid, endpointuuid, **kwargs)  # noqa: E501
+            return data
+
+    def endpoints_topology_tag_uuid_endpoint_with_http_info(self, topotaguuid, endpointuuid, **kwargs):  # noqa: E501
+        """Remove Endpoint from a Topology  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.endpoints_topology_tag_uuid_endpoint_with_http_info(topotaguuid, endpointuuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str topotaguuid: Unique identifier representing a specific topology tag (required)
+        :param str endpointuuid: Unique identifier representing a specific endpoint (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['topotaguuid', 'endpointuuid']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method endpoints_topology_tag_uuid_endpoint" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'topotaguuid' is set
+        if ('topotaguuid' not in local_var_params or
+                local_var_params['topotaguuid'] is None):
+            raise ValueError("Missing the required parameter `topotaguuid` when calling `endpoints_topology_tag_uuid_endpoint`")  # noqa: E501
+        # verify the required parameter 'endpointuuid' is set
+        if ('endpointuuid' not in local_var_params or
+                local_var_params['endpointuuid'] is None):
+            raise ValueError("Missing the required parameter `endpointuuid` when calling `endpoints_topology_tag_uuid_endpoint`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'topotaguuid' in local_var_params:
+            path_params['topotaguuid'] = local_var_params['topotaguuid']  # noqa: E501
+        if 'endpointuuid' in local_var_params:
+            path_params['endpointuuid'] = local_var_params['endpointuuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['oAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/eis/1.0.0/endpoints/topology_tag_uuid/{topotaguuid}/endpoint/{endpointuuid}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def topology_tag_get(self, **kwargs):  # noqa: E501
@@ -360,21 +363,22 @@ class TopologiesApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = []  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method topology_tag_get" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -396,7 +400,7 @@ class TopologiesApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/topology_tag/', 'GET',
+            '/ttms/1.0.0/topology_tag', 'GET',
             path_params,
             query_params,
             header_params,
@@ -405,10 +409,106 @@ class TopologiesApi(object):
             files=local_var_files,
             response_type='list[Topology]',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def topology_tag_objects(self, topotaguuid, **kwargs):  # noqa: E501
+        """List objects for Topology  # noqa: E501
+
+        List all objects (Endpoints, Links, VPorts, etc.) associated with the topology tag.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.topology_tag_objects(topotaguuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str topotaguuid: Unique identifier representing a specific topology tag (required)
+        :return: InlineResponse20013
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.topology_tag_objects_with_http_info(topotaguuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.topology_tag_objects_with_http_info(topotaguuid, **kwargs)  # noqa: E501
+            return data
+
+    def topology_tag_objects_with_http_info(self, topotaguuid, **kwargs):  # noqa: E501
+        """List objects for Topology  # noqa: E501
+
+        List all objects (Endpoints, Links, VPorts, etc.) associated with the topology tag.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.topology_tag_objects_with_http_info(topotaguuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str topotaguuid: Unique identifier representing a specific topology tag (required)
+        :return: InlineResponse20013
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['topotaguuid']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method topology_tag_objects" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'topotaguuid' is set
+        if ('topotaguuid' not in local_var_params or
+                local_var_params['topotaguuid'] is None):
+            raise ValueError("Missing the required parameter `topotaguuid` when calling `topology_tag_objects`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'topotaguuid' in local_var_params:
+            path_params['topotaguuid'] = local_var_params['topotaguuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['oAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ttms/1.0.0/topology_tag/{topotaguuid}/objects/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20013',  # noqa: E501
+            auth_settings=auth_settings,
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
     def topology_tag_post(self, **kwargs):  # noqa: E501
@@ -447,21 +547,22 @@ class TopologiesApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['topotagcreaterequest']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
                     " to method topology_tag_post" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -475,8 +576,8 @@ class TopologiesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'topotagcreaterequest' in params:
-            body_params = params['topotagcreaterequest']
+        if 'topotagcreaterequest' in local_var_params:
+            body_params = local_var_params['topotagcreaterequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -489,7 +590,7 @@ class TopologiesApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/topology_tag/', 'POST',
+            '/ttms/1.0.0/topology_tag', 'POST',
             path_params,
             query_params,
             header_params,
@@ -498,18 +599,18 @@ class TopologiesApi(object):
             files=local_var_files,
             response_type='Topology',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def topology_tag_topotaguuid_delete(self, topotaguuid, **kwargs):  # noqa: E501
+    def topology_tag_uuid_delete(self, topotaguuid, **kwargs):  # noqa: E501
         """Delete a topology tag  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.topology_tag_topotaguuid_delete(topotaguuid, async=True)
+        >>> thread = api.topology_tag_uuid_delete(topotaguuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -520,17 +621,17 @@ class TopologiesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.topology_tag_topotaguuid_delete_with_http_info(topotaguuid, **kwargs)  # noqa: E501
+            return self.topology_tag_uuid_delete_with_http_info(topotaguuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.topology_tag_topotaguuid_delete_with_http_info(topotaguuid, **kwargs)  # noqa: E501
+            (data) = self.topology_tag_uuid_delete_with_http_info(topotaguuid, **kwargs)  # noqa: E501
             return data
 
-    def topology_tag_topotaguuid_delete_with_http_info(self, topotaguuid, **kwargs):  # noqa: E501
+    def topology_tag_uuid_delete_with_http_info(self, topotaguuid, **kwargs):  # noqa: E501
         """Delete a topology tag  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.topology_tag_topotaguuid_delete_with_http_info(topotaguuid, async=True)
+        >>> thread = api.topology_tag_uuid_delete_with_http_info(topotaguuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -540,31 +641,32 @@ class TopologiesApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['topotaguuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method topology_tag_topotaguuid_delete" % key
+                    " to method topology_tag_uuid_delete" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'topotaguuid' is set
-        if ('topotaguuid' not in params or
-                params['topotaguuid'] is None):
-            raise ValueError("Missing the required parameter `topotaguuid` when calling `topology_tag_topotaguuid_delete`")  # noqa: E501
+        if ('topotaguuid' not in local_var_params or
+                local_var_params['topotaguuid'] is None):
+            raise ValueError("Missing the required parameter `topotaguuid` when calling `topology_tag_uuid_delete`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'topotaguuid' in params:
-            path_params['topotaguuid'] = params['topotaguuid']  # noqa: E501
+        if 'topotaguuid' in local_var_params:
+            path_params['topotaguuid'] = local_var_params['topotaguuid']  # noqa: E501
 
         query_params = []
 
@@ -578,7 +680,7 @@ class TopologiesApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/topology_tag/{topotaguuid}/', 'DELETE',
+            '/ttms/1.0.0/topology_tag/{topotaguuid}/', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -587,18 +689,18 @@ class TopologiesApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def topology_tag_topotaguuid_get(self, topotaguuid, **kwargs):  # noqa: E501
+    def topology_tag_uuid_get(self, topotaguuid, **kwargs):  # noqa: E501
         """Get information about the specified topology tag  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.topology_tag_topotaguuid_get(topotaguuid, async=True)
+        >>> thread = api.topology_tag_uuid_get(topotaguuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -609,17 +711,17 @@ class TopologiesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.topology_tag_topotaguuid_get_with_http_info(topotaguuid, **kwargs)  # noqa: E501
+            return self.topology_tag_uuid_get_with_http_info(topotaguuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.topology_tag_topotaguuid_get_with_http_info(topotaguuid, **kwargs)  # noqa: E501
+            (data) = self.topology_tag_uuid_get_with_http_info(topotaguuid, **kwargs)  # noqa: E501
             return data
 
-    def topology_tag_topotaguuid_get_with_http_info(self, topotaguuid, **kwargs):  # noqa: E501
+    def topology_tag_uuid_get_with_http_info(self, topotaguuid, **kwargs):  # noqa: E501
         """Get information about the specified topology tag  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.topology_tag_topotaguuid_get_with_http_info(topotaguuid, async=True)
+        >>> thread = api.topology_tag_uuid_get_with_http_info(topotaguuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -629,31 +731,32 @@ class TopologiesApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['topotaguuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method topology_tag_topotaguuid_get" % key
+                    " to method topology_tag_uuid_get" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'topotaguuid' is set
-        if ('topotaguuid' not in params or
-                params['topotaguuid'] is None):
-            raise ValueError("Missing the required parameter `topotaguuid` when calling `topology_tag_topotaguuid_get`")  # noqa: E501
+        if ('topotaguuid' not in local_var_params or
+                local_var_params['topotaguuid'] is None):
+            raise ValueError("Missing the required parameter `topotaguuid` when calling `topology_tag_uuid_get`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'topotaguuid' in params:
-            path_params['topotaguuid'] = params['topotaguuid']  # noqa: E501
+        if 'topotaguuid' in local_var_params:
+            path_params['topotaguuid'] = local_var_params['topotaguuid']  # noqa: E501
 
         query_params = []
 
@@ -671,7 +774,7 @@ class TopologiesApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/topology_tag/{topotaguuid}/', 'GET',
+            '/ttms/1.0.0/topology_tag/{topotaguuid}/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -680,113 +783,18 @@ class TopologiesApi(object):
             files=local_var_files,
             response_type='Topology',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def topology_tag_topotaguuid_objects_get(self, topotaguuid, **kwargs):  # noqa: E501
-        """List objects for Topology  # noqa: E501
-
-        List all objects (Endpoints, Links, VPorts, etc.) associated with the topology tag.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.topology_tag_topotaguuid_objects_get(topotaguuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str topotaguuid: Unique identifier representing a specific topology tag (required)
-        :return: InlineResponse20013
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.topology_tag_topotaguuid_objects_get_with_http_info(topotaguuid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.topology_tag_topotaguuid_objects_get_with_http_info(topotaguuid, **kwargs)  # noqa: E501
-            return data
-
-    def topology_tag_topotaguuid_objects_get_with_http_info(self, topotaguuid, **kwargs):  # noqa: E501
-        """List objects for Topology  # noqa: E501
-
-        List all objects (Endpoints, Links, VPorts, etc.) associated with the topology tag.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.topology_tag_topotaguuid_objects_get_with_http_info(topotaguuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str topotaguuid: Unique identifier representing a specific topology tag (required)
-        :return: InlineResponse20013
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['topotaguuid']  # noqa: E501
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method topology_tag_topotaguuid_objects_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'topotaguuid' is set
-        if ('topotaguuid' not in params or
-                params['topotaguuid'] is None):
-            raise ValueError("Missing the required parameter `topotaguuid` when calling `topology_tag_topotaguuid_objects_get`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'topotaguuid' in params:
-            path_params['topotaguuid'] = params['topotaguuid']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['oAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/topology_tag/{topotaguuid}/objects/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20013',  # noqa: E501
-            auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def topology_tag_topotaguuid_put(self, topotaguuid, **kwargs):  # noqa: E501
+    def topology_tag_uuid_put(self, topotaguuid, **kwargs):  # noqa: E501
         """Update a topology tag&#39;s name and/or description  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.topology_tag_topotaguuid_put(topotaguuid, async=True)
+        >>> thread = api.topology_tag_uuid_put(topotaguuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -798,17 +806,17 @@ class TopologiesApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.topology_tag_topotaguuid_put_with_http_info(topotaguuid, **kwargs)  # noqa: E501
+            return self.topology_tag_uuid_put_with_http_info(topotaguuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.topology_tag_topotaguuid_put_with_http_info(topotaguuid, **kwargs)  # noqa: E501
+            (data) = self.topology_tag_uuid_put_with_http_info(topotaguuid, **kwargs)  # noqa: E501
             return data
 
-    def topology_tag_topotaguuid_put_with_http_info(self, topotaguuid, **kwargs):  # noqa: E501
+    def topology_tag_uuid_put_with_http_info(self, topotaguuid, **kwargs):  # noqa: E501
         """Update a topology tag&#39;s name and/or description  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.topology_tag_topotaguuid_put_with_http_info(topotaguuid, async=True)
+        >>> thread = api.topology_tag_uuid_put_with_http_info(topotaguuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -818,6 +826,8 @@ class TopologiesApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['topotaguuid', 'topotagupdateresponse']  # noqa: E501
         all_params.append('async')
@@ -825,25 +835,24 @@ class TopologiesApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method topology_tag_topotaguuid_put" % key
+                    " to method topology_tag_uuid_put" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'topotaguuid' is set
-        if ('topotaguuid' not in params or
-                params['topotaguuid'] is None):
-            raise ValueError("Missing the required parameter `topotaguuid` when calling `topology_tag_topotaguuid_put`")  # noqa: E501
+        if ('topotaguuid' not in local_var_params or
+                local_var_params['topotaguuid'] is None):
+            raise ValueError("Missing the required parameter `topotaguuid` when calling `topology_tag_uuid_put`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'topotaguuid' in params:
-            path_params['topotaguuid'] = params['topotaguuid']  # noqa: E501
+        if 'topotaguuid' in local_var_params:
+            path_params['topotaguuid'] = local_var_params['topotaguuid']  # noqa: E501
 
         query_params = []
 
@@ -853,8 +862,8 @@ class TopologiesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'topotagupdateresponse' in params:
-            body_params = params['topotagupdateresponse']
+        if 'topotagupdateresponse' in local_var_params:
+            body_params = local_var_params['topotagupdateresponse']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -867,7 +876,7 @@ class TopologiesApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/topology_tag/{topotaguuid}/', 'PUT',
+            '/ttms/1.0.0/topology_tag/{topotaguuid}/', 'PUT',
             path_params,
             query_params,
             header_params,
@@ -876,8 +885,8 @@ class TopologiesApi(object):
             files=local_var_files,
             response_type='Topology',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)

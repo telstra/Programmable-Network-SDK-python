@@ -107,6 +107,7 @@ class Contract(object):
     def contractid(self):
         """Gets the contractid of this Contract.  # noqa: E501
 
+        Identifier of a contract  # noqa: E501
 
         :return: The contractid of this Contract.  # noqa: E501
         :rtype: str
@@ -117,6 +118,7 @@ class Contract(object):
     def contractid(self, contractid):
         """Sets the contractid of this Contract.
 
+        Identifier of a contract  # noqa: E501
 
         :param contractid: The contractid of this Contract.  # noqa: E501
         :type: str
@@ -128,6 +130,7 @@ class Contract(object):
     def duration(self):
         """Gets the duration of this Contract.  # noqa: E501
 
+        Duration of contract in minutes  # noqa: E501
 
         :return: The duration of this Contract.  # noqa: E501
         :rtype: int
@@ -138,10 +141,13 @@ class Contract(object):
     def duration(self, duration):
         """Sets the duration of this Contract.
 
+        Duration of contract in minutes  # noqa: E501
 
         :param duration: The duration of this Contract.  # noqa: E501
         :type: int
         """
+        if duration is not None and duration < 3600:  # noqa: E501
+            raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `3600`")  # noqa: E501
 
         self._duration = duration
 
@@ -149,6 +155,7 @@ class Contract(object):
     def bandwidth(self):
         """Gets the bandwidth of this Contract.  # noqa: E501
 
+        Bandwidth in kB/s  # noqa: E501
 
         :return: The bandwidth of this Contract.  # noqa: E501
         :rtype: int
@@ -159,10 +166,15 @@ class Contract(object):
     def bandwidth(self, bandwidth):
         """Sets the bandwidth of this Contract.
 
+        Bandwidth in kB/s  # noqa: E501
 
         :param bandwidth: The bandwidth of this Contract.  # noqa: E501
         :type: int
         """
+        if bandwidth is not None and bandwidth > 10000000:  # noqa: E501
+            raise ValueError("Invalid value for `bandwidth`, must be a value less than or equal to `10000000`")  # noqa: E501
+        if bandwidth is not None and bandwidth < 1000:  # noqa: E501
+            raise ValueError("Invalid value for `bandwidth`, must be a value greater than or equal to `1000`")  # noqa: E501
 
         self._bandwidth = bandwidth
 
@@ -296,6 +308,7 @@ class Contract(object):
     def renewal_option(self):
         """Gets the renewal_option of this Contract.  # noqa: E501
 
+        \"Renewal Option: 0=Auto Disconnect, 1=Auto Renew, 2=Pay per hour\"  # noqa: E501
 
         :return: The renewal_option of this Contract.  # noqa: E501
         :rtype: int
@@ -306,6 +319,7 @@ class Contract(object):
     def renewal_option(self, renewal_option):
         """Sets the renewal_option of this Contract.
 
+        \"Renewal Option: 0=Auto Disconnect, 1=Auto Renew, 2=Pay per hour\"  # noqa: E501
 
         :param renewal_option: The renewal_option of this Contract.  # noqa: E501
         :type: int

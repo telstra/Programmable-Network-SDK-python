@@ -52,6 +52,7 @@ class Body(object):
     def renewal_option(self):
         """Gets the renewal_option of this Body.  # noqa: E501
 
+        \"Renewal Option: 0=Auto Disconnect, 1=Auto Renew, 2=Pay per hour\"  # noqa: E501
 
         :return: The renewal_option of this Body.  # noqa: E501
         :rtype: int
@@ -62,6 +63,7 @@ class Body(object):
     def renewal_option(self, renewal_option):
         """Sets the renewal_option of this Body.
 
+        \"Renewal Option: 0=Auto Disconnect, 1=Auto Renew, 2=Pay per hour\"  # noqa: E501
 
         :param renewal_option: The renewal_option of this Body.  # noqa: E501
         :type: int

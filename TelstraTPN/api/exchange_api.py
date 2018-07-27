@@ -33,12 +33,12 @@ class ExchangeApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def account_profile_exchange_get(self, **kwargs):  # noqa: E501
+    def account_profile_exchange(self, **kwargs):  # noqa: E501
         """Get the current account&#39;s Exchange profile  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.account_profile_exchange_get(async=True)
+        >>> thread = api.account_profile_exchange(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -48,17 +48,17 @@ class ExchangeApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.account_profile_exchange_get_with_http_info(**kwargs)  # noqa: E501
+            return self.account_profile_exchange_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.account_profile_exchange_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.account_profile_exchange_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def account_profile_exchange_get_with_http_info(self, **kwargs):  # noqa: E501
+    def account_profile_exchange_with_http_info(self, **kwargs):  # noqa: E501
         """Get the current account&#39;s Exchange profile  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.account_profile_exchange_get_with_http_info(async=True)
+        >>> thread = api.account_profile_exchange_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -67,21 +67,22 @@ class ExchangeApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = []  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method account_profile_exchange_get" % key
+                    " to method account_profile_exchange" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -103,7 +104,7 @@ class ExchangeApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/account/profile/exchange/', 'GET',
+            '/1.0.0/account/profile/exchange', 'GET',
             path_params,
             query_params,
             header_params,
@@ -112,113 +113,18 @@ class ExchangeApi(object):
             files=local_var_files,
             response_type='InlineResponse20012',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def exchange_exprovuuid_get(self, exprovuuid, **kwargs):  # noqa: E501
-        """Exchange provider details  # noqa: E501
-
-        Get information about the specified Exchange provider  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.exchange_exprovuuid_get(exprovuuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str exprovuuid: Unique identifier representing a specific exchange provider (required)
-        :return: ExchangeProvider
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.exchange_exprovuuid_get_with_http_info(exprovuuid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.exchange_exprovuuid_get_with_http_info(exprovuuid, **kwargs)  # noqa: E501
-            return data
-
-    def exchange_exprovuuid_get_with_http_info(self, exprovuuid, **kwargs):  # noqa: E501
-        """Exchange provider details  # noqa: E501
-
-        Get information about the specified Exchange provider  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.exchange_exprovuuid_get_with_http_info(exprovuuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str exprovuuid: Unique identifier representing a specific exchange provider (required)
-        :return: ExchangeProvider
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['exprovuuid']  # noqa: E501
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method exchange_exprovuuid_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'exprovuuid' is set
-        if ('exprovuuid' not in params or
-                params['exprovuuid'] is None):
-            raise ValueError("Missing the required parameter `exprovuuid` when calling `exchange_exprovuuid_get`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'exprovuuid' in params:
-            path_params['exprovuuid'] = params['exprovuuid']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['oAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/exchange/{exprovuuid}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ExchangeProvider',  # noqa: E501
-            auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def exchange_get(self, **kwargs):  # noqa: E501
+    def exchange(self, **kwargs):  # noqa: E501
         """List all Exchange providers, with POPs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.exchange_get(async=True)
+        >>> thread = api.exchange(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -228,17 +134,17 @@ class ExchangeApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.exchange_get_with_http_info(**kwargs)  # noqa: E501
+            return self.exchange_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.exchange_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.exchange_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def exchange_get_with_http_info(self, **kwargs):  # noqa: E501
+    def exchange_with_http_info(self, **kwargs):  # noqa: E501
         """List all Exchange providers, with POPs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.exchange_get_with_http_info(async=True)
+        >>> thread = api.exchange_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -246,6 +152,8 @@ class ExchangeApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = []  # noqa: E501
         all_params.append('async')
@@ -253,15 +161,14 @@ class ExchangeApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method exchange_get" % key
+                    " to method exchange" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -283,7 +190,7 @@ class ExchangeApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/exchange/', 'GET',
+            '/1.0.0/exchange', 'GET',
             path_params,
             query_params,
             header_params,
@@ -292,18 +199,114 @@ class ExchangeApi(object):
             files=local_var_files,
             response_type='list[ExchangeProvider]',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def visitcard_get(self, **kwargs):  # noqa: E501
+    def exchange_exprovuuid(self, exprovuuid, **kwargs):  # noqa: E501
+        """Exchange provider details  # noqa: E501
+
+        Get information about the specified Exchange provider  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.exchange_exprovuuid(exprovuuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str exprovuuid: Unique identifier representing a specific exchange provider (required)
+        :return: ExchangeProvider
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.exchange_exprovuuid_with_http_info(exprovuuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.exchange_exprovuuid_with_http_info(exprovuuid, **kwargs)  # noqa: E501
+            return data
+
+    def exchange_exprovuuid_with_http_info(self, exprovuuid, **kwargs):  # noqa: E501
+        """Exchange provider details  # noqa: E501
+
+        Get information about the specified Exchange provider  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.exchange_exprovuuid_with_http_info(exprovuuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str exprovuuid: Unique identifier representing a specific exchange provider (required)
+        :return: ExchangeProvider
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['exprovuuid']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method exchange_exprovuuid" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'exprovuuid' is set
+        if ('exprovuuid' not in local_var_params or
+                local_var_params['exprovuuid'] is None):
+            raise ValueError("Missing the required parameter `exprovuuid` when calling `exchange_exprovuuid`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'exprovuuid' in local_var_params:
+            path_params['exprovuuid'] = local_var_params['exprovuuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['oAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/1.0.0/exchange/{exprovuuid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ExchangeProvider',  # noqa: E501
+            auth_settings=auth_settings,
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def visitcard(self, **kwargs):  # noqa: E501
         """Get list of Visit Cards  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.visitcard_get(async=True)
+        >>> thread = api.visitcard(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -313,17 +316,17 @@ class ExchangeApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.visitcard_get_with_http_info(**kwargs)  # noqa: E501
+            return self.visitcard_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.visitcard_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.visitcard_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def visitcard_get_with_http_info(self, **kwargs):  # noqa: E501
+    def visitcard_with_http_info(self, **kwargs):  # noqa: E501
         """Get list of Visit Cards  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.visitcard_get_with_http_info(async=True)
+        >>> thread = api.visitcard_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -332,21 +335,22 @@ class ExchangeApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = []  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method visitcard_get" % key
+                    " to method visitcard" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -368,7 +372,7 @@ class ExchangeApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/visitcard/', 'GET',
+            '/1.0.0/visitcard', 'GET',
             path_params,
             query_params,
             header_params,
@@ -377,18 +381,18 @@ class ExchangeApi(object):
             files=local_var_files,
             response_type='list[Visitcard]',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def visitcard_visitcarduuid_get(self, visitcarduuid, **kwargs):  # noqa: E501
+    def visitcard_uuid_get(self, visitcarduuid, **kwargs):  # noqa: E501
         """View details of the specified Visit Card  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.visitcard_visitcarduuid_get(visitcarduuid, async=True)
+        >>> thread = api.visitcard_uuid_get(visitcarduuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -399,17 +403,17 @@ class ExchangeApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.visitcard_visitcarduuid_get_with_http_info(visitcarduuid, **kwargs)  # noqa: E501
+            return self.visitcard_uuid_get_with_http_info(visitcarduuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.visitcard_visitcarduuid_get_with_http_info(visitcarduuid, **kwargs)  # noqa: E501
+            (data) = self.visitcard_uuid_get_with_http_info(visitcarduuid, **kwargs)  # noqa: E501
             return data
 
-    def visitcard_visitcarduuid_get_with_http_info(self, visitcarduuid, **kwargs):  # noqa: E501
+    def visitcard_uuid_get_with_http_info(self, visitcarduuid, **kwargs):  # noqa: E501
         """View details of the specified Visit Card  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.visitcard_visitcarduuid_get_with_http_info(visitcarduuid, async=True)
+        >>> thread = api.visitcard_uuid_get_with_http_info(visitcarduuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -419,31 +423,32 @@ class ExchangeApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['visitcarduuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method visitcard_visitcarduuid_get" % key
+                    " to method visitcard_uuid_get" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'visitcarduuid' is set
-        if ('visitcarduuid' not in params or
-                params['visitcarduuid'] is None):
-            raise ValueError("Missing the required parameter `visitcarduuid` when calling `visitcard_visitcarduuid_get`")  # noqa: E501
+        if ('visitcarduuid' not in local_var_params or
+                local_var_params['visitcarduuid'] is None):
+            raise ValueError("Missing the required parameter `visitcarduuid` when calling `visitcard_uuid_get`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'visitcarduuid' in params:
-            path_params['visitcarduuid'] = params['visitcarduuid']  # noqa: E501
+        if 'visitcarduuid' in local_var_params:
+            path_params['visitcarduuid'] = local_var_params['visitcarduuid']  # noqa: E501
 
         query_params = []
 
@@ -461,7 +466,7 @@ class ExchangeApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/visitcard/{visitcarduuid}/', 'GET',
+            '/1.0.0/visitcard/{visitcarduuid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -470,49 +475,51 @@ class ExchangeApi(object):
             files=local_var_files,
             response_type='Visitcard',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def visitcard_visitcarduuid_put(self, visitcarduuid, **kwargs):  # noqa: E501
+    def visitcard_uuid_put(self, visitcarduuid, **kwargs):  # noqa: E501
         """Update details of the specified Visit Card  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.visitcard_visitcarduuid_put(visitcarduuid, async=True)
+        >>> thread = api.visitcard_uuid_put(visitcarduuid, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str visitcarduuid: Unique identifier representing a specific exchange visit card (provider description) (required)
-        :param Visitcard unknown_base_type:
+        :param UNKNOWN_BASE_TYPE unknown_base_type:
         :return: Visitcard
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.visitcard_visitcarduuid_put_with_http_info(visitcarduuid, **kwargs)  # noqa: E501
+            return self.visitcard_uuid_put_with_http_info(visitcarduuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.visitcard_visitcarduuid_put_with_http_info(visitcarduuid, **kwargs)  # noqa: E501
+            (data) = self.visitcard_uuid_put_with_http_info(visitcarduuid, **kwargs)  # noqa: E501
             return data
 
-    def visitcard_visitcarduuid_put_with_http_info(self, visitcarduuid, **kwargs):  # noqa: E501
+    def visitcard_uuid_put_with_http_info(self, visitcarduuid, **kwargs):  # noqa: E501
         """Update details of the specified Visit Card  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.visitcard_visitcarduuid_put_with_http_info(visitcarduuid, async=True)
+        >>> thread = api.visitcard_uuid_put_with_http_info(visitcarduuid, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str visitcarduuid: Unique identifier representing a specific exchange visit card (provider description) (required)
-        :param Visitcard unknown_base_type:
+        :param UNKNOWN_BASE_TYPE unknown_base_type:
         :return: Visitcard
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['visitcarduuid', 'unknown_base_type']  # noqa: E501
         all_params.append('async')
@@ -520,25 +527,24 @@ class ExchangeApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method visitcard_visitcarduuid_put" % key
+                    " to method visitcard_uuid_put" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'visitcarduuid' is set
-        if ('visitcarduuid' not in params or
-                params['visitcarduuid'] is None):
-            raise ValueError("Missing the required parameter `visitcarduuid` when calling `visitcard_visitcarduuid_put`")  # noqa: E501
+        if ('visitcarduuid' not in local_var_params or
+                local_var_params['visitcarduuid'] is None):
+            raise ValueError("Missing the required parameter `visitcarduuid` when calling `visitcard_uuid_put`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'visitcarduuid' in params:
-            path_params['visitcarduuid'] = params['visitcarduuid']  # noqa: E501
+        if 'visitcarduuid' in local_var_params:
+            path_params['visitcarduuid'] = local_var_params['visitcarduuid']  # noqa: E501
 
         query_params = []
 
@@ -548,8 +554,8 @@ class ExchangeApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'unknown_base_type' in params:
-            body_params = params['unknown_base_type']
+        if 'unknown_base_type' in local_var_params:
+            body_params = local_var_params['unknown_base_type']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -562,7 +568,7 @@ class ExchangeApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/visitcard/{visitcarduuid}/', 'PUT',
+            '/1.0.0/visitcard/{visitcarduuid}', 'PUT',
             path_params,
             query_params,
             header_params,
@@ -571,8 +577,8 @@ class ExchangeApi(object):
             files=local_var_files,
             response_type='Visitcard',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)

@@ -47,7 +47,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     def __init__(self):
         """Constructor"""
         # Default Base url
-        self.host = "https://penapi.pacnetconnect.com/1.0.0"
+        self.host = "https://penapi.pacnetconnect.com"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -134,17 +134,6 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
             self.logger_file_handler.setFormatter(self.logger_formatter)
             for _, logger in six.iteritems(self.logger):
                 logger.addHandler(self.logger_file_handler)
-                if self.logger_stream_handler:
-                    logger.removeHandler(self.logger_stream_handler)
-        else:
-            # If not set logging file,
-            # then add stream handler and remove file handler.
-            self.logger_stream_handler = logging.StreamHandler()
-            self.logger_stream_handler.setFormatter(self.logger_formatter)
-            for _, logger in six.iteritems(self.logger):
-                logger.addHandler(self.logger_stream_handler)
-                if self.logger_file_handler:
-                    logger.removeHandler(self.logger_file_handler)
 
     @property
     def debug(self):

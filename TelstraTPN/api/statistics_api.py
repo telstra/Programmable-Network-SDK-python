@@ -33,13 +33,13 @@ class StatisticsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
+    def inventory_links_stats_endpoint(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
         """Get statistics for endpoint  # noqa: E501
 
         Get statistics related to the specified endpoint  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get(endpointuuid, startdate, enddate, async=True)
+        >>> thread = api.inventory_links_stats_endpoint(endpointuuid, startdate, enddate, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -52,18 +52,18 @@ class StatisticsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
+            return self.inventory_links_stats_endpoint_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
+            (data) = self.inventory_links_stats_endpoint_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
             return data
 
-    def inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get_with_http_info(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
+    def inventory_links_stats_endpoint_with_http_info(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
         """Get statistics for endpoint  # noqa: E501
 
         Get statistics related to the specified endpoint  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get_with_http_info(endpointuuid, startdate, enddate, async=True)
+        >>> thread = api.inventory_links_stats_endpoint_with_http_info(endpointuuid, startdate, enddate, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -75,43 +75,44 @@ class StatisticsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['endpointuuid', 'startdate', 'enddate']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get" % key
+                    " to method inventory_links_stats_endpoint" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'endpointuuid' is set
-        if ('endpointuuid' not in params or
-                params['endpointuuid'] is None):
-            raise ValueError("Missing the required parameter `endpointuuid` when calling `inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get`")  # noqa: E501
+        if ('endpointuuid' not in local_var_params or
+                local_var_params['endpointuuid'] is None):
+            raise ValueError("Missing the required parameter `endpointuuid` when calling `inventory_links_stats_endpoint`")  # noqa: E501
         # verify the required parameter 'startdate' is set
-        if ('startdate' not in params or
-                params['startdate'] is None):
-            raise ValueError("Missing the required parameter `startdate` when calling `inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get`")  # noqa: E501
+        if ('startdate' not in local_var_params or
+                local_var_params['startdate'] is None):
+            raise ValueError("Missing the required parameter `startdate` when calling `inventory_links_stats_endpoint`")  # noqa: E501
         # verify the required parameter 'enddate' is set
-        if ('enddate' not in params or
-                params['enddate'] is None):
-            raise ValueError("Missing the required parameter `enddate` when calling `inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get`")  # noqa: E501
+        if ('enddate' not in local_var_params or
+                local_var_params['enddate'] is None):
+            raise ValueError("Missing the required parameter `enddate` when calling `inventory_links_stats_endpoint`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'endpointuuid' in params:
-            path_params['endpointuuid'] = params['endpointuuid']  # noqa: E501
-        if 'startdate' in params:
-            path_params['startdate'] = params['startdate']  # noqa: E501
-        if 'enddate' in params:
-            path_params['enddate'] = params['enddate']  # noqa: E501
+        if 'endpointuuid' in local_var_params:
+            path_params['endpointuuid'] = local_var_params['endpointuuid']  # noqa: E501
+        if 'startdate' in local_var_params:
+            path_params['startdate'] = local_var_params['startdate']  # noqa: E501
+        if 'enddate' in local_var_params:
+            path_params['enddate'] = local_var_params['enddate']  # noqa: E501
 
         query_params = []
 
@@ -129,7 +130,7 @@ class StatisticsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/links-stats/endpoint/{endpointuuid}/{startdate}/{enddate}/', 'GET',
+            '/1.0.0/inventory/links-stats/endpoint/{endpointuuid}/{startdate}/{enddate}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -138,19 +139,19 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='list[InlineResponse20018]',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
+    def inventory_links_stats_endpointstate(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
         """Get state statistics for endpoint  # noqa: E501
 
         Get statistics related to the state of the specified endpoint  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get(endpointuuid, startdate, enddate, async=True)
+        >>> thread = api.inventory_links_stats_endpointstate(endpointuuid, startdate, enddate, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -163,18 +164,18 @@ class StatisticsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
+            return self.inventory_links_stats_endpointstate_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
+            (data) = self.inventory_links_stats_endpointstate_with_http_info(endpointuuid, startdate, enddate, **kwargs)  # noqa: E501
             return data
 
-    def inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get_with_http_info(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
+    def inventory_links_stats_endpointstate_with_http_info(self, endpointuuid, startdate, enddate, **kwargs):  # noqa: E501
         """Get state statistics for endpoint  # noqa: E501
 
         Get statistics related to the state of the specified endpoint  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get_with_http_info(endpointuuid, startdate, enddate, async=True)
+        >>> thread = api.inventory_links_stats_endpointstate_with_http_info(endpointuuid, startdate, enddate, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -186,43 +187,44 @@ class StatisticsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['endpointuuid', 'startdate', 'enddate']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get" % key
+                    " to method inventory_links_stats_endpointstate" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'endpointuuid' is set
-        if ('endpointuuid' not in params or
-                params['endpointuuid'] is None):
-            raise ValueError("Missing the required parameter `endpointuuid` when calling `inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get`")  # noqa: E501
+        if ('endpointuuid' not in local_var_params or
+                local_var_params['endpointuuid'] is None):
+            raise ValueError("Missing the required parameter `endpointuuid` when calling `inventory_links_stats_endpointstate`")  # noqa: E501
         # verify the required parameter 'startdate' is set
-        if ('startdate' not in params or
-                params['startdate'] is None):
-            raise ValueError("Missing the required parameter `startdate` when calling `inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get`")  # noqa: E501
+        if ('startdate' not in local_var_params or
+                local_var_params['startdate'] is None):
+            raise ValueError("Missing the required parameter `startdate` when calling `inventory_links_stats_endpointstate`")  # noqa: E501
         # verify the required parameter 'enddate' is set
-        if ('enddate' not in params or
-                params['enddate'] is None):
-            raise ValueError("Missing the required parameter `enddate` when calling `inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get`")  # noqa: E501
+        if ('enddate' not in local_var_params or
+                local_var_params['enddate'] is None):
+            raise ValueError("Missing the required parameter `enddate` when calling `inventory_links_stats_endpointstate`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'endpointuuid' in params:
-            path_params['endpointuuid'] = params['endpointuuid']  # noqa: E501
-        if 'startdate' in params:
-            path_params['startdate'] = params['startdate']  # noqa: E501
-        if 'enddate' in params:
-            path_params['enddate'] = params['enddate']  # noqa: E501
+        if 'endpointuuid' in local_var_params:
+            path_params['endpointuuid'] = local_var_params['endpointuuid']  # noqa: E501
+        if 'startdate' in local_var_params:
+            path_params['startdate'] = local_var_params['startdate']  # noqa: E501
+        if 'enddate' in local_var_params:
+            path_params['enddate'] = local_var_params['enddate']  # noqa: E501
 
         query_params = []
 
@@ -240,7 +242,7 @@ class StatisticsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/links-stats/endpointstate/{endpointuuid}/{startdate}/{enddate}/', 'GET',
+            '/1.0.0/inventory/links-stats/endpointstate/{endpointuuid}/{startdate}/{enddate}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -249,19 +251,19 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='list[InlineResponse20020]',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_links_stats_flow_linkid_startdate_enddate_get(self, linkid, startdate, enddate, **kwargs):  # noqa: E501
+    def inventory_links_stats_flow(self, linkid, startdate, enddate, **kwargs):  # noqa: E501
         """Get statistics for flow  # noqa: E501
 
         Get statistics related to the specified flow  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_stats_flow_linkid_startdate_enddate_get(linkid, startdate, enddate, async=True)
+        >>> thread = api.inventory_links_stats_flow(linkid, startdate, enddate, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -274,18 +276,18 @@ class StatisticsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_links_stats_flow_linkid_startdate_enddate_get_with_http_info(linkid, startdate, enddate, **kwargs)  # noqa: E501
+            return self.inventory_links_stats_flow_with_http_info(linkid, startdate, enddate, **kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_links_stats_flow_linkid_startdate_enddate_get_with_http_info(linkid, startdate, enddate, **kwargs)  # noqa: E501
+            (data) = self.inventory_links_stats_flow_with_http_info(linkid, startdate, enddate, **kwargs)  # noqa: E501
             return data
 
-    def inventory_links_stats_flow_linkid_startdate_enddate_get_with_http_info(self, linkid, startdate, enddate, **kwargs):  # noqa: E501
+    def inventory_links_stats_flow_with_http_info(self, linkid, startdate, enddate, **kwargs):  # noqa: E501
         """Get statistics for flow  # noqa: E501
 
         Get statistics related to the specified flow  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_stats_flow_linkid_startdate_enddate_get_with_http_info(linkid, startdate, enddate, async=True)
+        >>> thread = api.inventory_links_stats_flow_with_http_info(linkid, startdate, enddate, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -297,43 +299,44 @@ class StatisticsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['linkid', 'startdate', 'enddate']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_links_stats_flow_linkid_startdate_enddate_get" % key
+                    " to method inventory_links_stats_flow" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'linkid' is set
-        if ('linkid' not in params or
-                params['linkid'] is None):
-            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_stats_flow_linkid_startdate_enddate_get`")  # noqa: E501
+        if ('linkid' not in local_var_params or
+                local_var_params['linkid'] is None):
+            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_stats_flow`")  # noqa: E501
         # verify the required parameter 'startdate' is set
-        if ('startdate' not in params or
-                params['startdate'] is None):
-            raise ValueError("Missing the required parameter `startdate` when calling `inventory_links_stats_flow_linkid_startdate_enddate_get`")  # noqa: E501
+        if ('startdate' not in local_var_params or
+                local_var_params['startdate'] is None):
+            raise ValueError("Missing the required parameter `startdate` when calling `inventory_links_stats_flow`")  # noqa: E501
         # verify the required parameter 'enddate' is set
-        if ('enddate' not in params or
-                params['enddate'] is None):
-            raise ValueError("Missing the required parameter `enddate` when calling `inventory_links_stats_flow_linkid_startdate_enddate_get`")  # noqa: E501
+        if ('enddate' not in local_var_params or
+                local_var_params['enddate'] is None):
+            raise ValueError("Missing the required parameter `enddate` when calling `inventory_links_stats_flow`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'linkid' in params:
-            path_params['linkid'] = params['linkid']  # noqa: E501
-        if 'startdate' in params:
-            path_params['startdate'] = params['startdate']  # noqa: E501
-        if 'enddate' in params:
-            path_params['enddate'] = params['enddate']  # noqa: E501
+        if 'linkid' in local_var_params:
+            path_params['linkid'] = local_var_params['linkid']  # noqa: E501
+        if 'startdate' in local_var_params:
+            path_params['startdate'] = local_var_params['startdate']  # noqa: E501
+        if 'enddate' in local_var_params:
+            path_params['enddate'] = local_var_params['enddate']  # noqa: E501
 
         query_params = []
 
@@ -351,7 +354,7 @@ class StatisticsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/links-stats/flow/{linkid}/{startdate}/{enddate}/', 'GET',
+            '/1.0.0/inventory/links-stats/flow/{linkid}/{startdate}/{enddate}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -360,8 +363,8 @@ class StatisticsApi(object):
             files=local_var_files,
             response_type='list[InlineResponse20019]',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)

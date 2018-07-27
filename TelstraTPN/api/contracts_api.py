@@ -33,12 +33,114 @@ class ContractsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def inventory_links_linkid_contract_contractid_get(self, linkid, contractid, **kwargs):  # noqa: E501
+    def inventory_links_contract(self, linkid, **kwargs):  # noqa: E501
+        """Create new Contract on specified link  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.inventory_links_contract(linkid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str linkid: Unique identifier representing a specific link (required)
+        :param Createcontractrequest createcontractrequest:
+        :return: SuccessFragment
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.inventory_links_contract_with_http_info(linkid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.inventory_links_contract_with_http_info(linkid, **kwargs)  # noqa: E501
+            return data
+
+    def inventory_links_contract_with_http_info(self, linkid, **kwargs):  # noqa: E501
+        """Create new Contract on specified link  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.inventory_links_contract_with_http_info(linkid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str linkid: Unique identifier representing a specific link (required)
+        :param Createcontractrequest createcontractrequest:
+        :return: SuccessFragment
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['linkid', 'createcontractrequest']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method inventory_links_contract" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'linkid' is set
+        if ('linkid' not in local_var_params or
+                local_var_params['linkid'] is None):
+            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_contract`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'linkid' in local_var_params:
+            path_params['linkid'] = local_var_params['linkid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'createcontractrequest' in local_var_params:
+            body_params = local_var_params['createcontractrequest']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['oAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/1.0.0/inventory/links/{linkid}/contract', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SuccessFragment',  # noqa: E501
+            auth_settings=auth_settings,
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def inventory_links_contract_get(self, linkid, contractid, **kwargs):  # noqa: E501
         """Get active Contract by ContractID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_linkid_contract_contractid_get(linkid, contractid, async=True)
+        >>> thread = api.inventory_links_contract_get(linkid, contractid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -50,17 +152,17 @@ class ContractsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_links_linkid_contract_contractid_get_with_http_info(linkid, contractid, **kwargs)  # noqa: E501
+            return self.inventory_links_contract_get_with_http_info(linkid, contractid, **kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_links_linkid_contract_contractid_get_with_http_info(linkid, contractid, **kwargs)  # noqa: E501
+            (data) = self.inventory_links_contract_get_with_http_info(linkid, contractid, **kwargs)  # noqa: E501
             return data
 
-    def inventory_links_linkid_contract_contractid_get_with_http_info(self, linkid, contractid, **kwargs):  # noqa: E501
+    def inventory_links_contract_get_with_http_info(self, linkid, contractid, **kwargs):  # noqa: E501
         """Get active Contract by ContractID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_linkid_contract_contractid_get_with_http_info(linkid, contractid, async=True)
+        >>> thread = api.inventory_links_contract_get_with_http_info(linkid, contractid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -71,37 +173,38 @@ class ContractsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['linkid', 'contractid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_links_linkid_contract_contractid_get" % key
+                    " to method inventory_links_contract_get" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'linkid' is set
-        if ('linkid' not in params or
-                params['linkid'] is None):
-            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_linkid_contract_contractid_get`")  # noqa: E501
+        if ('linkid' not in local_var_params or
+                local_var_params['linkid'] is None):
+            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_contract_get`")  # noqa: E501
         # verify the required parameter 'contractid' is set
-        if ('contractid' not in params or
-                params['contractid'] is None):
-            raise ValueError("Missing the required parameter `contractid` when calling `inventory_links_linkid_contract_contractid_get`")  # noqa: E501
+        if ('contractid' not in local_var_params or
+                local_var_params['contractid'] is None):
+            raise ValueError("Missing the required parameter `contractid` when calling `inventory_links_contract_get`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'linkid' in params:
-            path_params['linkid'] = params['linkid']  # noqa: E501
-        if 'contractid' in params:
-            path_params['contractid'] = params['contractid']  # noqa: E501
+        if 'linkid' in local_var_params:
+            path_params['linkid'] = local_var_params['linkid']  # noqa: E501
+        if 'contractid' in local_var_params:
+            path_params['contractid'] = local_var_params['contractid']  # noqa: E501
 
         query_params = []
 
@@ -119,7 +222,7 @@ class ContractsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/links/{linkid}/contract/{contractid}/', 'GET',
+            '/1.0.0/inventory/links/{linkid}/contract/{contractid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -128,18 +231,18 @@ class ContractsApi(object):
             files=local_var_files,
             response_type='InlineResponse2006',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_links_linkid_contract_contractid_put(self, linkid, contractid, **kwargs):  # noqa: E501
+    def inventory_links_contract_put(self, linkid, contractid, **kwargs):  # noqa: E501
         """Update active Contract by ContractID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_linkid_contract_contractid_put(linkid, contractid, async=True)
+        >>> thread = api.inventory_links_contract_put(linkid, contractid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -152,17 +255,17 @@ class ContractsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_links_linkid_contract_contractid_put_with_http_info(linkid, contractid, **kwargs)  # noqa: E501
+            return self.inventory_links_contract_put_with_http_info(linkid, contractid, **kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_links_linkid_contract_contractid_put_with_http_info(linkid, contractid, **kwargs)  # noqa: E501
+            (data) = self.inventory_links_contract_put_with_http_info(linkid, contractid, **kwargs)  # noqa: E501
             return data
 
-    def inventory_links_linkid_contract_contractid_put_with_http_info(self, linkid, contractid, **kwargs):  # noqa: E501
+    def inventory_links_contract_put_with_http_info(self, linkid, contractid, **kwargs):  # noqa: E501
         """Update active Contract by ContractID  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_linkid_contract_contractid_put_with_http_info(linkid, contractid, async=True)
+        >>> thread = api.inventory_links_contract_put_with_http_info(linkid, contractid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -173,6 +276,8 @@ class ContractsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['linkid', 'contractid', 'body']  # noqa: E501
         all_params.append('async')
@@ -180,31 +285,30 @@ class ContractsApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_links_linkid_contract_contractid_put" % key
+                    " to method inventory_links_contract_put" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'linkid' is set
-        if ('linkid' not in params or
-                params['linkid'] is None):
-            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_linkid_contract_contractid_put`")  # noqa: E501
+        if ('linkid' not in local_var_params or
+                local_var_params['linkid'] is None):
+            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_contract_put`")  # noqa: E501
         # verify the required parameter 'contractid' is set
-        if ('contractid' not in params or
-                params['contractid'] is None):
-            raise ValueError("Missing the required parameter `contractid` when calling `inventory_links_linkid_contract_contractid_put`")  # noqa: E501
+        if ('contractid' not in local_var_params or
+                local_var_params['contractid'] is None):
+            raise ValueError("Missing the required parameter `contractid` when calling `inventory_links_contract_put`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'linkid' in params:
-            path_params['linkid'] = params['linkid']  # noqa: E501
-        if 'contractid' in params:
-            path_params['contractid'] = params['contractid']  # noqa: E501
+        if 'linkid' in local_var_params:
+            path_params['linkid'] = local_var_params['linkid']  # noqa: E501
+        if 'contractid' in local_var_params:
+            path_params['contractid'] = local_var_params['contractid']  # noqa: E501
 
         query_params = []
 
@@ -214,8 +318,8 @@ class ContractsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -228,7 +332,7 @@ class ContractsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/links/{linkid}/contract/{contractid}/', 'PUT',
+            '/1.0.0/inventory/links/{linkid}/contract/{contractid}', 'PUT',
             path_params,
             query_params,
             header_params,
@@ -237,109 +341,8 @@ class ContractsApi(object):
             files=local_var_files,
             response_type='SuccessFragment',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def inventory_links_linkid_contract_post(self, linkid, **kwargs):  # noqa: E501
-        """Create new Contract on specified link  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_linkid_contract_post(linkid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str linkid: Unique identifier representing a specific link (required)
-        :param Createcontractrequest createcontractrequest:
-        :return: SuccessFragment
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.inventory_links_linkid_contract_post_with_http_info(linkid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.inventory_links_linkid_contract_post_with_http_info(linkid, **kwargs)  # noqa: E501
-            return data
-
-    def inventory_links_linkid_contract_post_with_http_info(self, linkid, **kwargs):  # noqa: E501
-        """Create new Contract on specified link  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_links_linkid_contract_post_with_http_info(linkid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str linkid: Unique identifier representing a specific link (required)
-        :param Createcontractrequest createcontractrequest:
-        :return: SuccessFragment
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['linkid', 'createcontractrequest']  # noqa: E501
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method inventory_links_linkid_contract_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'linkid' is set
-        if ('linkid' not in params or
-                params['linkid'] is None):
-            raise ValueError("Missing the required parameter `linkid` when calling `inventory_links_linkid_contract_post`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'linkid' in params:
-            path_params['linkid'] = params['linkid']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'createcontractrequest' in params:
-            body_params = params['createcontractrequest']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['oAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/inventory/links/{linkid}/contract/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='SuccessFragment',  # noqa: E501
-            auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)

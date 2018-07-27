@@ -57,6 +57,7 @@ class InlineResponse20013Links(object):
     def linkid(self):
         """Gets the linkid of this InlineResponse20013Links.  # noqa: E501
 
+        Identifier of a link  # noqa: E501
 
         :return: The linkid of this InlineResponse20013Links.  # noqa: E501
         :rtype: str
@@ -67,6 +68,7 @@ class InlineResponse20013Links(object):
     def linkid(self, linkid):
         """Sets the linkid of this InlineResponse20013Links.
 
+        Identifier of a link  # noqa: E501
 
         :param linkid: The linkid of this InlineResponse20013Links.  # noqa: E501
         :type: str

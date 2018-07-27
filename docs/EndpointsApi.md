@@ -1,26 +1,26 @@
 # TelstraTPN.EndpointsApi
 
-All URIs are relative to *https://penapi.pacnetconnect.com/1.0.0*
+All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**endpoint_endpointuuid_endpointuuid_get**](EndpointsApi.md#endpoint_endpointuuid_endpointuuid_get) | **GET** /endpoint/endpointuuid/{endpointuuid}/ | Get Endpoint name and status
-[**endpoint_endpointuuid_endpointuuid_put**](EndpointsApi.md#endpoint_endpointuuid_endpointuuid_put) | **PUT** /endpoint/endpointuuid/{endpointuuid}/ | Update Endpoint name
-[**endpoints_endpointuuid_assign_topology_tag_post**](EndpointsApi.md#endpoints_endpointuuid_assign_topology_tag_post) | **POST** /endpoints/{endpointuuid}/assign_topology_tag/ | Assign an Endpoint to a Topology
-[**endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete**](EndpointsApi.md#endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete) | **DELETE** /endpoints/topology_tag_uuid/{topotaguuid}/endpoint/{endpointuuid}/ | Remove Endpoint from a Topology
-[**endpoints_topology_tag_uuid_topotaguuid_get**](EndpointsApi.md#endpoints_topology_tag_uuid_topotaguuid_get) | **GET** /endpoints/topology_tag_uuid/{topotaguuid}/ | List Endpoints for Topology
-[**inventory_endpoint_endpointuuid_get**](EndpointsApi.md#inventory_endpoint_endpointuuid_get) | **GET** /inventory/endpoint/{endpointuuid}/ | Get information about the specified endpoint
-[**inventory_endpoints_customeruuid_customeruuid_get**](EndpointsApi.md#inventory_endpoints_customeruuid_customeruuid_get) | **GET** /inventory/endpoints/customeruuid/{customeruuid}/ | Get list of endpoints for a customer
-[**inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get**](EndpointsApi.md#inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get) | **GET** /inventory/links-stats/endpoint/{endpointuuid}/{startdate}/{enddate}/ | Get statistics for endpoint
-[**inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get**](EndpointsApi.md#inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get) | **GET** /inventory/links-stats/endpointstate/{endpointuuid}/{startdate}/{enddate}/ | Get state statistics for endpoint
-[**inventory_regularendpoint_post**](EndpointsApi.md#inventory_regularendpoint_post) | **POST** /inventory/regularendpoint/ | Create Physical (Port) Endpoint
-[**inventory_regularvport_post**](EndpointsApi.md#inventory_regularvport_post) | **POST** /inventory/regularvport/ | Create VPort for physical endpoint
-[**inventory_vnfendpoint_post**](EndpointsApi.md#inventory_vnfendpoint_post) | **POST** /inventory/vnfendpoint/ | Instantiate Virtual Network Function
-[**vnfendpoint_vnfuuid_vnfuuid_get**](EndpointsApi.md#vnfendpoint_vnfuuid_vnfuuid_get) | **GET** /vnfendpoint/vnfuuid/{vnfuuid}/ | Get details of a specific VNF
+[**endpoint_endpointuuid_get**](EndpointsApi.md#endpoint_endpointuuid_get) | **GET** /eis/1.0.0/endpoint/endpointuuid/{endpointuuid} | Get Endpoint name and status
+[**endpoint_endpointuuid_put**](EndpointsApi.md#endpoint_endpointuuid_put) | **PUT** /eis/1.0.0/endpoint/endpointuuid/{endpointuuid} | Update Endpoint name
+[**endpoints_assign_topology_tag**](EndpointsApi.md#endpoints_assign_topology_tag) | **POST** /eis/1.0.0/endpoints/{endpointuuid}/assign_topology_tag | Assign an Endpoint to a Topology
+[**endpoints_topology_tag_uuid**](EndpointsApi.md#endpoints_topology_tag_uuid) | **GET** /eis/1.0.0/endpoints/topology_tag_uuid/{topotaguuid} | List Endpoints for Topology
+[**endpoints_topology_tag_uuid_endpoint**](EndpointsApi.md#endpoints_topology_tag_uuid_endpoint) | **DELETE** /eis/1.0.0/endpoints/topology_tag_uuid/{topotaguuid}/endpoint/{endpointuuid} | Remove Endpoint from a Topology
+[**inventory_endpoint**](EndpointsApi.md#inventory_endpoint) | **GET** /1.0.0/inventory/endpoint/{endpointuuid} | Get information about the specified endpoint
+[**inventory_endpoints_customeruuid**](EndpointsApi.md#inventory_endpoints_customeruuid) | **GET** /1.0.0/inventory/endpoints/customeruuid/{customeruuid} | Get list of endpoints for a customer
+[**inventory_links_stats_endpoint**](EndpointsApi.md#inventory_links_stats_endpoint) | **GET** /1.0.0/inventory/links-stats/endpoint/{endpointuuid}/{startdate}/{enddate} | Get statistics for endpoint
+[**inventory_links_stats_endpointstate**](EndpointsApi.md#inventory_links_stats_endpointstate) | **GET** /1.0.0/inventory/links-stats/endpointstate/{endpointuuid}/{startdate}/{enddate} | Get state statistics for endpoint
+[**inventory_regularendpoint**](EndpointsApi.md#inventory_regularendpoint) | **POST** /1.0.0/inventory/regularendpoint | Create Physical (Port) Endpoint
+[**inventory_regularvport**](EndpointsApi.md#inventory_regularvport) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
+[**inventory_vnfendpoint**](EndpointsApi.md#inventory_vnfendpoint) | **POST** /1.0.0/inventory/vnfendpoint | Instantiate Virtual Network Function
+[**vnfendpoint_vnfuuid**](EndpointsApi.md#vnfendpoint_vnfuuid) | **GET** /eis/1.0.0/vnfendpoint/vnfuuid/{vnfuuid} | Get details of a specific VNF
 
 
-# **endpoint_endpointuuid_endpointuuid_get**
-> InlineResponse2004 endpoint_endpointuuid_endpointuuid_get(endpointuuid)
+# **endpoint_endpointuuid_get**
+> InlineResponse2004 endpoint_endpointuuid_get(endpointuuid)
 
 Get Endpoint name and status
 
@@ -42,10 +42,10 @@ endpointuuid = 'endpointuuid_example' # str | Unique identifier representing a s
 
 try:
     # Get Endpoint name and status
-    api_response = api_instance.endpoint_endpointuuid_endpointuuid_get(endpointuuid)
+    api_response = api_instance.endpoint_endpointuuid_get(endpointuuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EndpointsApi->endpoint_endpointuuid_endpointuuid_get: %s\n" % e)
+    print("Exception when calling EndpointsApi->endpoint_endpointuuid_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -69,8 +69,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **endpoint_endpointuuid_endpointuuid_put**
-> SuccessFragment endpoint_endpointuuid_endpointuuid_put(endpointuuid, endpointupdaterequest=endpointupdaterequest)
+# **endpoint_endpointuuid_put**
+> SuccessFragment endpoint_endpointuuid_put(endpointuuid, endpointupdaterequest=endpointupdaterequest)
 
 Update Endpoint name
 
@@ -93,10 +93,10 @@ endpointupdaterequest = TelstraTPN.Endpointupdaterequest() # Endpointupdatereque
 
 try:
     # Update Endpoint name
-    api_response = api_instance.endpoint_endpointuuid_endpointuuid_put(endpointuuid, endpointupdaterequest=endpointupdaterequest)
+    api_response = api_instance.endpoint_endpointuuid_put(endpointuuid, endpointupdaterequest=endpointupdaterequest)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EndpointsApi->endpoint_endpointuuid_endpointuuid_put: %s\n" % e)
+    print("Exception when calling EndpointsApi->endpoint_endpointuuid_put: %s\n" % e)
 ```
 
 ### Parameters
@@ -117,12 +117,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/jsonapplication/xml, 
+ - **Accept**: application/json, application/xml, 
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **endpoints_endpointuuid_assign_topology_tag_post**
-> SuccessFragment endpoints_endpointuuid_assign_topology_tag_post(endpointuuid, assigntopotagrequest=assigntopotagrequest)
+# **endpoints_assign_topology_tag**
+> SuccessFragment endpoints_assign_topology_tag(endpointuuid, assigntopotagrequest=assigntopotagrequest)
 
 Assign an Endpoint to a Topology
 
@@ -145,10 +145,10 @@ assigntopotagrequest = TelstraTPN.Assigntopotagrequest() # Assigntopotagrequest 
 
 try:
     # Assign an Endpoint to a Topology
-    api_response = api_instance.endpoints_endpointuuid_assign_topology_tag_post(endpointuuid, assigntopotagrequest=assigntopotagrequest)
+    api_response = api_instance.endpoints_assign_topology_tag(endpointuuid, assigntopotagrequest=assigntopotagrequest)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EndpointsApi->endpoints_endpointuuid_assign_topology_tag_post: %s\n" % e)
+    print("Exception when calling EndpointsApi->endpoints_assign_topology_tag: %s\n" % e)
 ```
 
 ### Parameters
@@ -173,8 +173,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete**
-> endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete(topotaguuid, endpointuuid)
+# **endpoints_topology_tag_uuid**
+> InlineResponse20014 endpoints_topology_tag_uuid(topotaguuid)
+
+List Endpoints for Topology
+
+List all Endpoints associated with the topology tag.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import TelstraTPN
+from TelstraTPN.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oAuth2
+configuration = TelstraTPN.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = TelstraTPN.EndpointsApi(TelstraTPN.ApiClient(configuration))
+topotaguuid = 'topotaguuid_example' # str | Unique identifier representing a specific topology tag
+
+try:
+    # List Endpoints for Topology
+    api_response = api_instance.endpoints_topology_tag_uuid(topotaguuid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EndpointsApi->endpoints_topology_tag_uuid: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **topotaguuid** | **str**| Unique identifier representing a specific topology tag | 
+
+### Return type
+
+[**InlineResponse20014**](InlineResponse20014.md)
+
+### Authorization
+
+[oAuth2](../README.md#oAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **endpoints_topology_tag_uuid_endpoint**
+> endpoints_topology_tag_uuid_endpoint(topotaguuid, endpointuuid)
 
 Remove Endpoint from a Topology
 
@@ -197,9 +249,9 @@ endpointuuid = 'endpointuuid_example' # str | Unique identifier representing a s
 
 try:
     # Remove Endpoint from a Topology
-    api_instance.endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete(topotaguuid, endpointuuid)
+    api_instance.endpoints_topology_tag_uuid_endpoint(topotaguuid, endpointuuid)
 except ApiException as e:
-    print("Exception when calling EndpointsApi->endpoints_topology_tag_uuid_topotaguuid_endpoint_endpointuuid_delete: %s\n" % e)
+    print("Exception when calling EndpointsApi->endpoints_topology_tag_uuid_endpoint: %s\n" % e)
 ```
 
 ### Parameters
@@ -224,60 +276,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **endpoints_topology_tag_uuid_topotaguuid_get**
-> InlineResponse20014 endpoints_topology_tag_uuid_topotaguuid_get(topotaguuid)
-
-List Endpoints for Topology
-
-List all Endpoints associated with the topology tag.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import TelstraTPN
-from TelstraTPN.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: oAuth2
-configuration = TelstraTPN.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# create an instance of the API class
-api_instance = TelstraTPN.EndpointsApi(TelstraTPN.ApiClient(configuration))
-topotaguuid = 'topotaguuid_example' # str | Unique identifier representing a specific topology tag
-
-try:
-    # List Endpoints for Topology
-    api_response = api_instance.endpoints_topology_tag_uuid_topotaguuid_get(topotaguuid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EndpointsApi->endpoints_topology_tag_uuid_topotaguuid_get: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **topotaguuid** | **str**| Unique identifier representing a specific topology tag | 
-
-### Return type
-
-[**InlineResponse20014**](InlineResponse20014.md)
-
-### Authorization
-
-[oAuth2](../README.md#oAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **inventory_endpoint_endpointuuid_get**
-> InlineResponse2002 inventory_endpoint_endpointuuid_get(endpointuuid)
+# **inventory_endpoint**
+> InlineResponse2002 inventory_endpoint(endpointuuid)
 
 Get information about the specified endpoint
 
@@ -299,10 +299,10 @@ endpointuuid = 'endpointuuid_example' # str | Unique identifier representing a s
 
 try:
     # Get information about the specified endpoint
-    api_response = api_instance.inventory_endpoint_endpointuuid_get(endpointuuid)
+    api_response = api_instance.inventory_endpoint(endpointuuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EndpointsApi->inventory_endpoint_endpointuuid_get: %s\n" % e)
+    print("Exception when calling EndpointsApi->inventory_endpoint: %s\n" % e)
 ```
 
 ### Parameters
@@ -326,8 +326,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_endpoints_customeruuid_customeruuid_get**
-> InlineResponse2001 inventory_endpoints_customeruuid_customeruuid_get(customeruuid)
+# **inventory_endpoints_customeruuid**
+> InlineResponse2001 inventory_endpoints_customeruuid(customeruuid)
 
 Get list of endpoints for a customer
 
@@ -349,10 +349,10 @@ customeruuid = 'customeruuid_example' # str | Unique identifier representing a s
 
 try:
     # Get list of endpoints for a customer
-    api_response = api_instance.inventory_endpoints_customeruuid_customeruuid_get(customeruuid)
+    api_response = api_instance.inventory_endpoints_customeruuid(customeruuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EndpointsApi->inventory_endpoints_customeruuid_customeruuid_get: %s\n" % e)
+    print("Exception when calling EndpointsApi->inventory_endpoints_customeruuid: %s\n" % e)
 ```
 
 ### Parameters
@@ -376,8 +376,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get**
-> list[InlineResponse20018] inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get(endpointuuid, startdate, enddate)
+# **inventory_links_stats_endpoint**
+> list[InlineResponse20018] inventory_links_stats_endpoint(endpointuuid, startdate, enddate)
 
 Get statistics for endpoint
 
@@ -403,10 +403,10 @@ enddate = 'enddate_example' # str | End date for statistics query
 
 try:
     # Get statistics for endpoint
-    api_response = api_instance.inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get(endpointuuid, startdate, enddate)
+    api_response = api_instance.inventory_links_stats_endpoint(endpointuuid, startdate, enddate)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EndpointsApi->inventory_links_stats_endpoint_endpointuuid_startdate_enddate_get: %s\n" % e)
+    print("Exception when calling EndpointsApi->inventory_links_stats_endpoint: %s\n" % e)
 ```
 
 ### Parameters
@@ -432,8 +432,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get**
-> list[InlineResponse20020] inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get(endpointuuid, startdate, enddate)
+# **inventory_links_stats_endpointstate**
+> list[InlineResponse20020] inventory_links_stats_endpointstate(endpointuuid, startdate, enddate)
 
 Get state statistics for endpoint
 
@@ -459,10 +459,10 @@ enddate = 'enddate_example' # str | End date for statistics query
 
 try:
     # Get state statistics for endpoint
-    api_response = api_instance.inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get(endpointuuid, startdate, enddate)
+    api_response = api_instance.inventory_links_stats_endpointstate(endpointuuid, startdate, enddate)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EndpointsApi->inventory_links_stats_endpointstate_endpointuuid_startdate_enddate_get: %s\n" % e)
+    print("Exception when calling EndpointsApi->inventory_links_stats_endpointstate: %s\n" % e)
 ```
 
 ### Parameters
@@ -488,8 +488,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_regularendpoint_post**
-> SuccessFragment inventory_regularendpoint_post(regendpointrequest=regendpointrequest)
+# **inventory_regularendpoint**
+> SuccessFragment inventory_regularendpoint(regendpointrequest=regendpointrequest)
 
 Create Physical (Port) Endpoint
 
@@ -511,10 +511,10 @@ regendpointrequest = TelstraTPN.Regendpointrequest() # Regendpointrequest |  (op
 
 try:
     # Create Physical (Port) Endpoint
-    api_response = api_instance.inventory_regularendpoint_post(regendpointrequest=regendpointrequest)
+    api_response = api_instance.inventory_regularendpoint(regendpointrequest=regendpointrequest)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EndpointsApi->inventory_regularendpoint_post: %s\n" % e)
+    print("Exception when calling EndpointsApi->inventory_regularendpoint: %s\n" % e)
 ```
 
 ### Parameters
@@ -538,8 +538,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_regularvport_post**
-> SuccessFragment inventory_regularvport_post(regvportrequest=regvportrequest)
+# **inventory_regularvport**
+> SuccessFragment inventory_regularvport(regvportrequest=regvportrequest)
 
 Create VPort for physical endpoint
 
@@ -563,10 +563,10 @@ regvportrequest = TelstraTPN.Regvportrequest() # Regvportrequest |  (optional)
 
 try:
     # Create VPort for physical endpoint
-    api_response = api_instance.inventory_regularvport_post(regvportrequest=regvportrequest)
+    api_response = api_instance.inventory_regularvport(regvportrequest=regvportrequest)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EndpointsApi->inventory_regularvport_post: %s\n" % e)
+    print("Exception when calling EndpointsApi->inventory_regularvport: %s\n" % e)
 ```
 
 ### Parameters
@@ -590,8 +590,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_vnfendpoint_post**
-> SuccessFragment inventory_vnfendpoint_post(vnfendpointrequest=vnfendpointrequest)
+# **inventory_vnfendpoint**
+> SuccessFragment inventory_vnfendpoint(vnfendpointrequest=vnfendpointrequest)
 
 Instantiate Virtual Network Function
 
@@ -613,10 +613,10 @@ vnfendpointrequest = TelstraTPN.Vnfendpointrequest() # Vnfendpointrequest |  (op
 
 try:
     # Instantiate Virtual Network Function
-    api_response = api_instance.inventory_vnfendpoint_post(vnfendpointrequest=vnfendpointrequest)
+    api_response = api_instance.inventory_vnfendpoint(vnfendpointrequest=vnfendpointrequest)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EndpointsApi->inventory_vnfendpoint_post: %s\n" % e)
+    print("Exception when calling EndpointsApi->inventory_vnfendpoint: %s\n" % e)
 ```
 
 ### Parameters
@@ -640,8 +640,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **vnfendpoint_vnfuuid_vnfuuid_get**
-> InlineResponse2003 vnfendpoint_vnfuuid_vnfuuid_get(vnfuuid)
+# **vnfendpoint_vnfuuid**
+> InlineResponse2003 vnfendpoint_vnfuuid(vnfuuid)
 
 Get details of a specific VNF
 
@@ -663,10 +663,10 @@ vnfuuid = 'vnfuuid_example' # str | Unique identifier representing a specific vi
 
 try:
     # Get details of a specific VNF
-    api_response = api_instance.vnfendpoint_vnfuuid_vnfuuid_get(vnfuuid)
+    api_response = api_instance.vnfendpoint_vnfuuid(vnfuuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EndpointsApi->vnfendpoint_vnfuuid_vnfuuid_get: %s\n" % e)
+    print("Exception when calling EndpointsApi->vnfendpoint_vnfuuid: %s\n" % e)
 ```
 
 ### Parameters

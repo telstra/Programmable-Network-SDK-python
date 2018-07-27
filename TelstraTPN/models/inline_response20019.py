@@ -34,7 +34,7 @@ class InlineResponse20019(object):
     openapi_types = {
         'dps': 'dict(str, float)',
         'metric': 'str',
-        'tags': 'InventorylinksstatsflowlinkidstartdateenddateTags',
+        'tags': 'object',
         'aggregate_tags': 'list[str]'
     }
 
@@ -111,7 +111,7 @@ class InlineResponse20019(object):
 
 
         :return: The tags of this InlineResponse20019.  # noqa: E501
-        :rtype: InventorylinksstatsflowlinkidstartdateenddateTags
+        :rtype: object
         """
         return self._tags
 
@@ -121,7 +121,7 @@ class InlineResponse20019(object):
 
 
         :param tags: The tags of this InlineResponse20019.  # noqa: E501
-        :type: InventorylinksstatsflowlinkidstartdateenddateTags
+        :type: object
         """
 
         self._tags = tags

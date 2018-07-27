@@ -1,15 +1,15 @@
 # TelstraTPN.CustomersApi
 
-All URIs are relative to *https://penapi.pacnetconnect.com/1.0.0*
+All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**account_customeruuid_get**](CustomersApi.md#account_customeruuid_get) | **GET** /account/{customeruuid}/ | Get account information details
-[**account_customeruuid_user_get**](CustomersApi.md#account_customeruuid_user_get) | **GET** /account/{customeruuid}/user/ | List users
+[**account**](CustomersApi.md#account) | **GET** /1.0.0/account/{customeruuid} | Get account information details
+[**account_user**](CustomersApi.md#account_user) | **GET** /1.0.0/account/{customeruuid}/user | List users
 
 
-# **account_customeruuid_get**
-> InlineResponse20017 account_customeruuid_get(customeruuid)
+# **account**
+> InlineResponse20017 account(customeruuid)
 
 Get account information details
 
@@ -33,10 +33,10 @@ customeruuid = 'customeruuid_example' # str | Unique identifier representing a s
 
 try:
     # Get account information details
-    api_response = api_instance.account_customeruuid_get(customeruuid)
+    api_response = api_instance.account(customeruuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CustomersApi->account_customeruuid_get: %s\n" % e)
+    print("Exception when calling CustomersApi->account: %s\n" % e)
 ```
 
 ### Parameters
@@ -56,12 +56,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/jsonapplication/xml, 
+ - **Accept**: application/json, application/xml, 
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **account_customeruuid_user_get**
-> list[User] account_customeruuid_user_get(customeruuid)
+# **account_user**
+> list[User] account_user(customeruuid)
 
 List users
 
@@ -85,10 +85,10 @@ customeruuid = 'customeruuid_example' # str | Unique identifier representing a s
 
 try:
     # List users
-    api_response = api_instance.account_customeruuid_user_get(customeruuid)
+    api_response = api_instance.account_user(customeruuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling CustomersApi->account_customeruuid_user_get: %s\n" % e)
+    print("Exception when calling CustomersApi->account_user: %s\n" % e)
 ```
 
 ### Parameters

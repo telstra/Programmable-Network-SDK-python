@@ -33,294 +33,13 @@ class VnfsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def backup_backupuuid_delete(self, backupuuid, **kwargs):  # noqa: E501
-        """Delete specified backup  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.backup_backupuuid_delete(backupuuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str backupuuid: Unique identifier representing a specific VNF backup (required)
-        :return: Backup
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.backup_backupuuid_delete_with_http_info(backupuuid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.backup_backupuuid_delete_with_http_info(backupuuid, **kwargs)  # noqa: E501
-            return data
-
-    def backup_backupuuid_delete_with_http_info(self, backupuuid, **kwargs):  # noqa: E501
-        """Delete specified backup  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.backup_backupuuid_delete_with_http_info(backupuuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str backupuuid: Unique identifier representing a specific VNF backup (required)
-        :return: Backup
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['backupuuid']  # noqa: E501
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method backup_backupuuid_delete" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'backupuuid' is set
-        if ('backupuuid' not in params or
-                params['backupuuid'] is None):
-            raise ValueError("Missing the required parameter `backupuuid` when calling `backup_backupuuid_delete`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'backupuuid' in params:
-            path_params['backupuuid'] = params['backupuuid']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['oAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/backup/{backupuuid}/', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='Backup',  # noqa: E501
-            auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def backup_backupuuid_get(self, backupuuid, **kwargs):  # noqa: E501
-        """Get information about the specified backup  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.backup_backupuuid_get(backupuuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str backupuuid: Unique identifier representing a specific VNF backup (required)
-        :return: Backup
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.backup_backupuuid_get_with_http_info(backupuuid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.backup_backupuuid_get_with_http_info(backupuuid, **kwargs)  # noqa: E501
-            return data
-
-    def backup_backupuuid_get_with_http_info(self, backupuuid, **kwargs):  # noqa: E501
-        """Get information about the specified backup  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.backup_backupuuid_get_with_http_info(backupuuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str backupuuid: Unique identifier representing a specific VNF backup (required)
-        :return: Backup
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['backupuuid']  # noqa: E501
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method backup_backupuuid_get" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'backupuuid' is set
-        if ('backupuuid' not in params or
-                params['backupuuid'] is None):
-            raise ValueError("Missing the required parameter `backupuuid` when calling `backup_backupuuid_get`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'backupuuid' in params:
-            path_params['backupuuid'] = params['backupuuid']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['oAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/backup/{backupuuid}/', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='Backup',  # noqa: E501
-            auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def backup_backupuuid_restore_post(self, backupuuid, **kwargs):  # noqa: E501
-        """Restore VNF from backup  # noqa: E501
-
-        Restore VNF from specified backup  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.backup_backupuuid_restore_post(backupuuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str backupuuid: Unique identifier representing a specific VNF backup (required)
-        :return: Backup
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.backup_backupuuid_restore_post_with_http_info(backupuuid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.backup_backupuuid_restore_post_with_http_info(backupuuid, **kwargs)  # noqa: E501
-            return data
-
-    def backup_backupuuid_restore_post_with_http_info(self, backupuuid, **kwargs):  # noqa: E501
-        """Restore VNF from backup  # noqa: E501
-
-        Restore VNF from specified backup  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.backup_backupuuid_restore_post_with_http_info(backupuuid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str backupuuid: Unique identifier representing a specific VNF backup (required)
-        :return: Backup
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['backupuuid']  # noqa: E501
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method backup_backupuuid_restore_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'backupuuid' is set
-        if ('backupuuid' not in params or
-                params['backupuuid'] is None):
-            raise ValueError("Missing the required parameter `backupuuid` when calling `backup_backupuuid_restore_post`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'backupuuid' in params:
-            path_params['backupuuid'] = params['backupuuid']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json''application/xml', ])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['oAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/backup/{backupuuid}/restore/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='Backup',  # noqa: E501
-            auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def backup_post(self, **kwargs):  # noqa: E501
+    def bms_backup(self, **kwargs):  # noqa: E501
         """Create backup of specified VNF  # noqa: E501
 
         'Note: if a second backup creation is attempted while one is already active, an error will be returned indicating that the VNF is invalid. If replace_backup_uuid is provided, this backup is deleted once the new backup is successfully completed'  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.backup_post(async=True)
+        >>> thread = api.bms_backup(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -331,18 +50,18 @@ class VnfsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.backup_post_with_http_info(**kwargs)  # noqa: E501
+            return self.bms_backup_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.backup_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.bms_backup_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def backup_post_with_http_info(self, **kwargs):  # noqa: E501
+    def bms_backup_with_http_info(self, **kwargs):  # noqa: E501
         """Create backup of specified VNF  # noqa: E501
 
         'Note: if a second backup creation is attempted while one is already active, an error will be returned indicating that the VNF is invalid. If replace_backup_uuid is provided, this backup is deleted once the new backup is successfully completed'  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.backup_post_with_http_info(async=True)
+        >>> thread = api.bms_backup_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -351,6 +70,8 @@ class VnfsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['backuprequest']  # noqa: E501
         all_params.append('async')
@@ -358,15 +79,14 @@ class VnfsApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method backup_post" % key
+                    " to method bms_backup" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -380,8 +100,8 @@ class VnfsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'backuprequest' in params:
-            body_params = params['backuprequest']
+        if 'backuprequest' in local_var_params:
+            body_params = local_var_params['backuprequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -394,7 +114,7 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/backup/', 'POST',
+            '/bms/1.0.0/backup', 'POST',
             path_params,
             query_params,
             header_params,
@@ -403,75 +123,74 @@ class VnfsApi(object):
             files=local_var_files,
             response_type='Backup',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def backup_vnf_vnfuuid_delete_post(self, vnfuuid, **kwargs):  # noqa: E501
-        """Delete multiple backups  # noqa: E501
+    def bms_backup_delete(self, backupuuid, **kwargs):  # noqa: E501
+        """Delete specified backup  # noqa: E501
 
-        Delete list of backups associated with specified VNF  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.backup_vnf_vnfuuid_delete_post(vnfuuid, async=True)
+        >>> thread = api.bms_backup_delete(backupuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
-        :param str vnfuuid: Unique identifier representing a specific virtual network function (required)
-        :return: InlineResponse202
+        :param str backupuuid: Unique identifier representing a specific VNF backup (required)
+        :return: Backup
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.backup_vnf_vnfuuid_delete_post_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            return self.bms_backup_delete_with_http_info(backupuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.backup_vnf_vnfuuid_delete_post_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            (data) = self.bms_backup_delete_with_http_info(backupuuid, **kwargs)  # noqa: E501
             return data
 
-    def backup_vnf_vnfuuid_delete_post_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
-        """Delete multiple backups  # noqa: E501
+    def bms_backup_delete_with_http_info(self, backupuuid, **kwargs):  # noqa: E501
+        """Delete specified backup  # noqa: E501
 
-        Delete list of backups associated with specified VNF  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.backup_vnf_vnfuuid_delete_post_with_http_info(vnfuuid, async=True)
+        >>> thread = api.bms_backup_delete_with_http_info(backupuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
-        :param str vnfuuid: Unique identifier representing a specific virtual network function (required)
-        :return: InlineResponse202
+        :param str backupuuid: Unique identifier representing a specific VNF backup (required)
+        :return: Backup
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['vnfuuid']  # noqa: E501
+        local_var_params = locals()
+
+        all_params = ['backupuuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method backup_vnf_vnfuuid_delete_post" % key
+                    " to method bms_backup_delete" % key
                 )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'vnfuuid' is set
-        if ('vnfuuid' not in params or
-                params['vnfuuid'] is None):
-            raise ValueError("Missing the required parameter `vnfuuid` when calling `backup_vnf_vnfuuid_delete_post`")  # noqa: E501
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'backupuuid' is set
+        if ('backupuuid' not in local_var_params or
+                local_var_params['backupuuid'] is None):
+            raise ValueError("Missing the required parameter `backupuuid` when calling `bms_backup_delete`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'vnfuuid' in params:
-            path_params['vnfuuid'] = params['vnfuuid']  # noqa: E501
+        if 'backupuuid' in local_var_params:
+            path_params['backupuuid'] = local_var_params['backupuuid']  # noqa: E501
 
         query_params = []
 
@@ -489,84 +208,83 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/backup/vnf/{vnfuuid}/delete/', 'POST',
+            '/bms/1.0.0/backup/{backupuuid}', 'DELETE',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse202',  # noqa: E501
+            response_type='Backup',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def backup_vnf_vnfuuid_get(self, vnfuuid, **kwargs):  # noqa: E501
-        """List backups  # noqa: E501
+    def bms_backup_get(self, backupuuid, **kwargs):  # noqa: E501
+        """Get information about the specified backup  # noqa: E501
 
-        List available backups for the specified VNF  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.backup_vnf_vnfuuid_get(vnfuuid, async=True)
+        >>> thread = api.bms_backup_get(backupuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
-        :param str vnfuuid: Unique identifier representing a specific virtual network function (required)
-        :return: list[Backup]
+        :param str backupuuid: Unique identifier representing a specific VNF backup (required)
+        :return: Backup
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.backup_vnf_vnfuuid_get_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            return self.bms_backup_get_with_http_info(backupuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.backup_vnf_vnfuuid_get_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            (data) = self.bms_backup_get_with_http_info(backupuuid, **kwargs)  # noqa: E501
             return data
 
-    def backup_vnf_vnfuuid_get_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
-        """List backups  # noqa: E501
+    def bms_backup_get_with_http_info(self, backupuuid, **kwargs):  # noqa: E501
+        """Get information about the specified backup  # noqa: E501
 
-        List available backups for the specified VNF  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.backup_vnf_vnfuuid_get_with_http_info(vnfuuid, async=True)
+        >>> thread = api.bms_backup_get_with_http_info(backupuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
-        :param str vnfuuid: Unique identifier representing a specific virtual network function (required)
-        :return: list[Backup]
+        :param str backupuuid: Unique identifier representing a specific VNF backup (required)
+        :return: Backup
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['vnfuuid']  # noqa: E501
+        local_var_params = locals()
+
+        all_params = ['backupuuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method backup_vnf_vnfuuid_get" % key
+                    " to method bms_backup_get" % key
                 )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'vnfuuid' is set
-        if ('vnfuuid' not in params or
-                params['vnfuuid'] is None):
-            raise ValueError("Missing the required parameter `vnfuuid` when calling `backup_vnf_vnfuuid_get`")  # noqa: E501
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'backupuuid' is set
+        if ('backupuuid' not in local_var_params or
+                local_var_params['backupuuid'] is None):
+            raise ValueError("Missing the required parameter `backupuuid` when calling `bms_backup_get`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'vnfuuid' in params:
-            path_params['vnfuuid'] = params['vnfuuid']  # noqa: E501
+        if 'backupuuid' in local_var_params:
+            path_params['backupuuid'] = local_var_params['backupuuid']  # noqa: E501
 
         query_params = []
 
@@ -584,7 +302,199 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/backup/vnf/{vnfuuid}/', 'GET',
+            '/bms/1.0.0/backup/{backupuuid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Backup',  # noqa: E501
+            auth_settings=auth_settings,
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def bms_backup_restore(self, backupuuid, **kwargs):  # noqa: E501
+        """Restore VNF from backup  # noqa: E501
+
+        Restore VNF from specified backup  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.bms_backup_restore(backupuuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str backupuuid: Unique identifier representing a specific VNF backup (required)
+        :return: Backup
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.bms_backup_restore_with_http_info(backupuuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.bms_backup_restore_with_http_info(backupuuid, **kwargs)  # noqa: E501
+            return data
+
+    def bms_backup_restore_with_http_info(self, backupuuid, **kwargs):  # noqa: E501
+        """Restore VNF from backup  # noqa: E501
+
+        Restore VNF from specified backup  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.bms_backup_restore_with_http_info(backupuuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str backupuuid: Unique identifier representing a specific VNF backup (required)
+        :return: Backup
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['backupuuid']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method bms_backup_restore" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'backupuuid' is set
+        if ('backupuuid' not in local_var_params or
+                local_var_params['backupuuid'] is None):
+            raise ValueError("Missing the required parameter `backupuuid` when calling `bms_backup_restore`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'backupuuid' in local_var_params:
+            path_params['backupuuid'] = local_var_params['backupuuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', ])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['oAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/bms/1.0.0/backup/{backupuuid}/restore', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Backup',  # noqa: E501
+            auth_settings=auth_settings,
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def bms_backup_vnf(self, vnfuuid, **kwargs):  # noqa: E501
+        """List backups  # noqa: E501
+
+        List available backups for the specified VNF  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.bms_backup_vnf(vnfuuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str vnfuuid: Unique identifier representing a specific virtual network function (required)
+        :return: list[Backup]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.bms_backup_vnf_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.bms_backup_vnf_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            return data
+
+    def bms_backup_vnf_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
+        """List backups  # noqa: E501
+
+        List available backups for the specified VNF  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.bms_backup_vnf_with_http_info(vnfuuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str vnfuuid: Unique identifier representing a specific virtual network function (required)
+        :return: list[Backup]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['vnfuuid']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method bms_backup_vnf" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'vnfuuid' is set
+        if ('vnfuuid' not in local_var_params or
+                local_var_params['vnfuuid'] is None):
+            raise ValueError("Missing the required parameter `vnfuuid` when calling `bms_backup_vnf`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'vnfuuid' in local_var_params:
+            path_params['vnfuuid'] = local_var_params['vnfuuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['oAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/bms/1.0.0/backup/vnf/{vnfuuid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -593,18 +503,114 @@ class VnfsApi(object):
             files=local_var_files,
             response_type='list[Backup]',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_vnf_vport_post(self, **kwargs):  # noqa: E501
+    def bms_backup_vnf_delete(self, vnfuuid, **kwargs):  # noqa: E501
+        """Delete multiple backups  # noqa: E501
+
+        Delete list of backups associated with specified VNF  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.bms_backup_vnf_delete(vnfuuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str vnfuuid: Unique identifier representing a specific virtual network function (required)
+        :return: InlineResponse202
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.bms_backup_vnf_delete_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.bms_backup_vnf_delete_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            return data
+
+    def bms_backup_vnf_delete_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
+        """Delete multiple backups  # noqa: E501
+
+        Delete list of backups associated with specified VNF  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.bms_backup_vnf_delete_with_http_info(vnfuuid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str vnfuuid: Unique identifier representing a specific virtual network function (required)
+        :return: InlineResponse202
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['vnfuuid']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method bms_backup_vnf_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'vnfuuid' is set
+        if ('vnfuuid' not in local_var_params or
+                local_var_params['vnfuuid'] is None):
+            raise ValueError("Missing the required parameter `vnfuuid` when calling `bms_backup_vnf_delete`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'vnfuuid' in local_var_params:
+            path_params['vnfuuid'] = local_var_params['vnfuuid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['oAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/bms/1.0.0/backup/vnf/{vnfuuid}/delete', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse202',  # noqa: E501
+            auth_settings=auth_settings,
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def inventory_vnf_vport(self, **kwargs):  # noqa: E501
         """Create VNF VPort  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_vnf_vport_post(async=True)
+        >>> thread = api.inventory_vnf_vport(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -615,17 +621,17 @@ class VnfsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_vnf_vport_post_with_http_info(**kwargs)  # noqa: E501
+            return self.inventory_vnf_vport_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_vnf_vport_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.inventory_vnf_vport_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def inventory_vnf_vport_post_with_http_info(self, **kwargs):  # noqa: E501
+    def inventory_vnf_vport_with_http_info(self, **kwargs):  # noqa: E501
         """Create VNF VPort  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_vnf_vport_post_with_http_info(async=True)
+        >>> thread = api.inventory_vnf_vport_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -635,21 +641,22 @@ class VnfsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['vportrequest']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_vnf_vport_post" % key
+                    " to method inventory_vnf_vport" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -663,8 +670,8 @@ class VnfsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'vportrequest' in params:
-            body_params = params['vportrequest']
+        if 'vportrequest' in local_var_params:
+            body_params = local_var_params['vportrequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -677,7 +684,7 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/vnf/vport/', 'POST',
+            '/1.0.0/inventory/vnf/vport', 'POST',
             path_params,
             query_params,
             header_params,
@@ -686,18 +693,18 @@ class VnfsApi(object):
             files=local_var_files,
             response_type='InlineResponse2008',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def inventory_vnfendpoint_post(self, **kwargs):  # noqa: E501
+    def inventory_vnfendpoint(self, **kwargs):  # noqa: E501
         """Instantiate Virtual Network Function  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_vnfendpoint_post(async=True)
+        >>> thread = api.inventory_vnfendpoint(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -708,17 +715,17 @@ class VnfsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.inventory_vnfendpoint_post_with_http_info(**kwargs)  # noqa: E501
+            return self.inventory_vnfendpoint_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.inventory_vnfendpoint_post_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.inventory_vnfendpoint_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def inventory_vnfendpoint_post_with_http_info(self, **kwargs):  # noqa: E501
+    def inventory_vnfendpoint_with_http_info(self, **kwargs):  # noqa: E501
         """Instantiate Virtual Network Function  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.inventory_vnfendpoint_post_with_http_info(async=True)
+        >>> thread = api.inventory_vnfendpoint_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -728,21 +735,22 @@ class VnfsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['vnfendpointrequest']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method inventory_vnfendpoint_post" % key
+                    " to method inventory_vnfendpoint" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -756,8 +764,8 @@ class VnfsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'vnfendpointrequest' in params:
-            body_params = params['vnfendpointrequest']
+        if 'vnfendpointrequest' in local_var_params:
+            body_params = local_var_params['vnfendpointrequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -770,7 +778,7 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/inventory/vnfendpoint/', 'POST',
+            '/1.0.0/inventory/vnfendpoint', 'POST',
             path_params,
             query_params,
             header_params,
@@ -779,18 +787,18 @@ class VnfsApi(object):
             files=local_var_files,
             response_type='SuccessFragment',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def marketplace_image_get(self, **kwargs):  # noqa: E501
+    def marketplace_image(self, **kwargs):  # noqa: E501
         """List images in the Marketplace  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.marketplace_image_get(async=True)
+        >>> thread = api.marketplace_image(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -800,17 +808,17 @@ class VnfsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.marketplace_image_get_with_http_info(**kwargs)  # noqa: E501
+            return self.marketplace_image_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.marketplace_image_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.marketplace_image_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def marketplace_image_get_with_http_info(self, **kwargs):  # noqa: E501
+    def marketplace_image_with_http_info(self, **kwargs):  # noqa: E501
         """List images in the Marketplace  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.marketplace_image_get_with_http_info(async=True)
+        >>> thread = api.marketplace_image_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -819,21 +827,22 @@ class VnfsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = []  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method marketplace_image_get" % key
+                    " to method marketplace_image" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -855,7 +864,7 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/marketplace/image/', 'GET',
+            '/1.0.0/marketplace/image', 'GET',
             path_params,
             query_params,
             header_params,
@@ -864,122 +873,19 @@ class VnfsApi(object):
             files=local_var_files,
             response_type='InlineResponse2009',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def marketplace_image_imageid_add_to_my_images_post(self, imageid, **kwargs):  # noqa: E501
-        """Add specified image to \&quot;My Images\&quot;  # noqa: E501
-
-        Note that trailing / is required, body must be {}  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.marketplace_image_imageid_add_to_my_images_post(imageid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param int imageid: Identifier representing a specific VNF image (required)
-        :param object unknown_base_type:
-        :return: InlineResponse20010
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.marketplace_image_imageid_add_to_my_images_post_with_http_info(imageid, **kwargs)  # noqa: E501
-        else:
-            (data) = self.marketplace_image_imageid_add_to_my_images_post_with_http_info(imageid, **kwargs)  # noqa: E501
-            return data
-
-    def marketplace_image_imageid_add_to_my_images_post_with_http_info(self, imageid, **kwargs):  # noqa: E501
-        """Add specified image to \&quot;My Images\&quot;  # noqa: E501
-
-        Note that trailing / is required, body must be {}  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.marketplace_image_imageid_add_to_my_images_post_with_http_info(imageid, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param int imageid: Identifier representing a specific VNF image (required)
-        :param object unknown_base_type:
-        :return: InlineResponse20010
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['imageid', 'unknown_base_type']  # noqa: E501
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method marketplace_image_imageid_add_to_my_images_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'imageid' is set
-        if ('imageid' not in params or
-                params['imageid'] is None):
-            raise ValueError("Missing the required parameter `imageid` when calling `marketplace_image_imageid_add_to_my_images_post`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'imageid' in params:
-            path_params['imageid'] = params['imageid']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'unknown_base_type' in params:
-            body_params = params['unknown_base_type']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json''application/xml', ])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['oAuth2']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/marketplace/image/{imageid}/add_to_my_images/', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20010',  # noqa: E501
-            auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def marketplace_image_imageid_get(self, imageid, **kwargs):  # noqa: E501
+    def marketplace_image_0(self, imageid, **kwargs):  # noqa: E501
         """Get information about the specified image  # noqa: E501
 
         Note that trailing / is required  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.marketplace_image_imageid_get(imageid, async=True)
+        >>> thread = api.marketplace_image_0(imageid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -990,18 +896,18 @@ class VnfsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.marketplace_image_imageid_get_with_http_info(imageid, **kwargs)  # noqa: E501
+            return self.marketplace_image_0_with_http_info(imageid, **kwargs)  # noqa: E501
         else:
-            (data) = self.marketplace_image_imageid_get_with_http_info(imageid, **kwargs)  # noqa: E501
+            (data) = self.marketplace_image_0_with_http_info(imageid, **kwargs)  # noqa: E501
             return data
 
-    def marketplace_image_imageid_get_with_http_info(self, imageid, **kwargs):  # noqa: E501
+    def marketplace_image_0_with_http_info(self, imageid, **kwargs):  # noqa: E501
         """Get information about the specified image  # noqa: E501
 
         Note that trailing / is required  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.marketplace_image_imageid_get_with_http_info(imageid, async=True)
+        >>> thread = api.marketplace_image_0_with_http_info(imageid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1010,6 +916,8 @@ class VnfsApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['imageid']  # noqa: E501
         all_params.append('async')
@@ -1017,25 +925,24 @@ class VnfsApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method marketplace_image_imageid_get" % key
+                    " to method marketplace_image_0" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'imageid' is set
-        if ('imageid' not in params or
-                params['imageid'] is None):
-            raise ValueError("Missing the required parameter `imageid` when calling `marketplace_image_imageid_get`")  # noqa: E501
+        if ('imageid' not in local_var_params or
+                local_var_params['imageid'] is None):
+            raise ValueError("Missing the required parameter `imageid` when calling `marketplace_image_0`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'imageid' in params:
-            path_params['imageid'] = params['imageid']  # noqa: E501
+        if 'imageid' in local_var_params:
+            path_params['imageid'] = local_var_params['imageid']  # noqa: E501
 
         query_params = []
 
@@ -1053,7 +960,7 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/marketplace/image/{imageid}/', 'GET',
+            '/1.0.0/marketplace/image/{imageid}/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1062,51 +969,53 @@ class VnfsApi(object):
             files=local_var_files,
             response_type='Image',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def marketplace_image_imageid_remove_from_my_images_post(self, imageid, **kwargs):  # noqa: E501
-        """Remove specified image from \&quot;My Images\&quot;  # noqa: E501
+    def marketplace_image_add(self, imageid, **kwargs):  # noqa: E501
+        """Add specified image to \&quot;My Images\&quot;  # noqa: E501
 
         Note that trailing / is required, body must be {}  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.marketplace_image_imageid_remove_from_my_images_post(imageid, async=True)
+        >>> thread = api.marketplace_image_add(imageid, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param int imageid: Identifier representing a specific VNF image (required)
-        :param object unknown_base_type:
+        :param UNKNOWN_BASE_TYPE unknown_base_type:
         :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.marketplace_image_imageid_remove_from_my_images_post_with_http_info(imageid, **kwargs)  # noqa: E501
+            return self.marketplace_image_add_with_http_info(imageid, **kwargs)  # noqa: E501
         else:
-            (data) = self.marketplace_image_imageid_remove_from_my_images_post_with_http_info(imageid, **kwargs)  # noqa: E501
+            (data) = self.marketplace_image_add_with_http_info(imageid, **kwargs)  # noqa: E501
             return data
 
-    def marketplace_image_imageid_remove_from_my_images_post_with_http_info(self, imageid, **kwargs):  # noqa: E501
-        """Remove specified image from \&quot;My Images\&quot;  # noqa: E501
+    def marketplace_image_add_with_http_info(self, imageid, **kwargs):  # noqa: E501
+        """Add specified image to \&quot;My Images\&quot;  # noqa: E501
 
         Note that trailing / is required, body must be {}  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.marketplace_image_imageid_remove_from_my_images_post_with_http_info(imageid, async=True)
+        >>> thread = api.marketplace_image_add_with_http_info(imageid, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param int imageid: Identifier representing a specific VNF image (required)
-        :param object unknown_base_type:
+        :param UNKNOWN_BASE_TYPE unknown_base_type:
         :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
+
+        local_var_params = locals()
 
         all_params = ['imageid', 'unknown_base_type']  # noqa: E501
         all_params.append('async')
@@ -1114,25 +1023,24 @@ class VnfsApi(object):
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method marketplace_image_imageid_remove_from_my_images_post" % key
+                    " to method marketplace_image_add" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'imageid' is set
-        if ('imageid' not in params or
-                params['imageid'] is None):
-            raise ValueError("Missing the required parameter `imageid` when calling `marketplace_image_imageid_remove_from_my_images_post`")  # noqa: E501
+        if ('imageid' not in local_var_params or
+                local_var_params['imageid'] is None):
+            raise ValueError("Missing the required parameter `imageid` when calling `marketplace_image_add`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'imageid' in params:
-            path_params['imageid'] = params['imageid']  # noqa: E501
+        if 'imageid' in local_var_params:
+            path_params['imageid'] = local_var_params['imageid']  # noqa: E501
 
         query_params = []
 
@@ -1142,11 +1050,11 @@ class VnfsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'unknown_base_type' in params:
-            body_params = params['unknown_base_type']
+        if 'unknown_base_type' in local_var_params:
+            body_params = local_var_params['unknown_base_type']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json''application/xml', ])  # noqa: E501
+            ['application/json', 'application/xml', ])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -1156,7 +1064,7 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/marketplace/image/{imageid}/remove_from_my_images/', 'POST',
+            '/1.0.0/marketplace/image/{imageid}/add_to_my_images/', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1165,19 +1073,19 @@ class VnfsApi(object):
             files=local_var_files,
             response_type='InlineResponse20010',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def marketplace_image_my_images_get(self, **kwargs):  # noqa: E501
+    def marketplace_image_my_images(self, **kwargs):  # noqa: E501
         """List images in \&quot;My Images\&quot;  # noqa: E501
 
         Note that trailing / is required  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.marketplace_image_my_images_get(async=True)
+        >>> thread = api.marketplace_image_my_images(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1187,18 +1095,18 @@ class VnfsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.marketplace_image_my_images_get_with_http_info(**kwargs)  # noqa: E501
+            return self.marketplace_image_my_images_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.marketplace_image_my_images_get_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.marketplace_image_my_images_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def marketplace_image_my_images_get_with_http_info(self, **kwargs):  # noqa: E501
+    def marketplace_image_my_images_with_http_info(self, **kwargs):  # noqa: E501
         """List images in \&quot;My Images\&quot;  # noqa: E501
 
         Note that trailing / is required  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.marketplace_image_my_images_get_with_http_info(async=True)
+        >>> thread = api.marketplace_image_my_images_with_http_info(async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1207,21 +1115,22 @@ class VnfsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = []  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method marketplace_image_my_images_get" % key
+                    " to method marketplace_image_my_images" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
 
         collection_formats = {}
 
@@ -1243,7 +1152,7 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/marketplace/image/my_images/', 'GET',
+            '/1.0.0/marketplace/image/my_images/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1252,19 +1161,123 @@ class VnfsApi(object):
             files=local_var_files,
             response_type='InlineResponse2009',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def vnf_vnfuuid_get(self, vnfuuid, **kwargs):  # noqa: E501
+    def marketplace_image_remove(self, imageid, **kwargs):  # noqa: E501
+        """Remove specified image from \&quot;My Images\&quot;  # noqa: E501
+
+        Note that trailing / is required, body must be {}  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.marketplace_image_remove(imageid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int imageid: Identifier representing a specific VNF image (required)
+        :param UNKNOWN_BASE_TYPE unknown_base_type:
+        :return: InlineResponse20010
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.marketplace_image_remove_with_http_info(imageid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.marketplace_image_remove_with_http_info(imageid, **kwargs)  # noqa: E501
+            return data
+
+    def marketplace_image_remove_with_http_info(self, imageid, **kwargs):  # noqa: E501
+        """Remove specified image from \&quot;My Images\&quot;  # noqa: E501
+
+        Note that trailing / is required, body must be {}  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.marketplace_image_remove_with_http_info(imageid, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param int imageid: Identifier representing a specific VNF image (required)
+        :param UNKNOWN_BASE_TYPE unknown_base_type:
+        :return: InlineResponse20010
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['imageid', 'unknown_base_type']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method marketplace_image_remove" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'imageid' is set
+        if ('imageid' not in local_var_params or
+                local_var_params['imageid'] is None):
+            raise ValueError("Missing the required parameter `imageid` when calling `marketplace_image_remove`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'imageid' in local_var_params:
+            path_params['imageid'] = local_var_params['imageid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'unknown_base_type' in local_var_params:
+            body_params = local_var_params['unknown_base_type']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'application/xml', ])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['oAuth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/1.0.0/marketplace/image/{imageid}/remove_from_my_images/', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20010',  # noqa: E501
+            auth_settings=auth_settings,
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def vnf(self, vnfuuid, **kwargs):  # noqa: E501
         """Get status information about the specified VNF  # noqa: E501
 
         'Possible return values:   ACTIVE,   BUILD,   SHUTOFF,   VERIFY_RESIZE,   PAUSED,   SUSPENDED,   RESCUE,   ERROR,   DELETED,   SOFT_DELETED,   SHELVED,   SHELVED_OFFLOADED'  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.vnf_vnfuuid_get(vnfuuid, async=True)
+        >>> thread = api.vnf(vnfuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1275,18 +1288,18 @@ class VnfsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.vnf_vnfuuid_get_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            return self.vnf_with_http_info(vnfuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.vnf_vnfuuid_get_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            (data) = self.vnf_with_http_info(vnfuuid, **kwargs)  # noqa: E501
             return data
 
-    def vnf_vnfuuid_get_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
+    def vnf_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
         """Get status information about the specified VNF  # noqa: E501
 
         'Possible return values:   ACTIVE,   BUILD,   SHUTOFF,   VERIFY_RESIZE,   PAUSED,   SUSPENDED,   RESCUE,   ERROR,   DELETED,   SOFT_DELETED,   SHELVED,   SHELVED_OFFLOADED'  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.vnf_vnfuuid_get_with_http_info(vnfuuid, async=True)
+        >>> thread = api.vnf_with_http_info(vnfuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1296,31 +1309,32 @@ class VnfsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['vnfuuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method vnf_vnfuuid_get" % key
+                    " to method vnf" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'vnfuuid' is set
-        if ('vnfuuid' not in params or
-                params['vnfuuid'] is None):
-            raise ValueError("Missing the required parameter `vnfuuid` when calling `vnf_vnfuuid_get`")  # noqa: E501
+        if ('vnfuuid' not in local_var_params or
+                local_var_params['vnfuuid'] is None):
+            raise ValueError("Missing the required parameter `vnfuuid` when calling `vnf`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'vnfuuid' in params:
-            path_params['vnfuuid'] = params['vnfuuid']  # noqa: E501
+        if 'vnfuuid' in local_var_params:
+            path_params['vnfuuid'] = local_var_params['vnfuuid']  # noqa: E501
 
         query_params = []
 
@@ -1338,7 +1352,7 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/vnf/{vnfuuid}/', 'GET',
+            '/vnfds/1.0.0/vnf/{vnfuuid}/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1347,19 +1361,19 @@ class VnfsApi(object):
             files=local_var_files,
             response_type='InlineResponse20011',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def vnf_vnfuuid_reboot_post(self, vnfuuid, **kwargs):  # noqa: E501
+    def vnf_reboot(self, vnfuuid, **kwargs):  # noqa: E501
         """Reboot the specified VNF  # noqa: E501
 
         reboot_type is 'warm' or 'cold'  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.vnf_vnfuuid_reboot_post(vnfuuid, async=True)
+        >>> thread = api.vnf_reboot(vnfuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1371,18 +1385,18 @@ class VnfsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.vnf_vnfuuid_reboot_post_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            return self.vnf_reboot_with_http_info(vnfuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.vnf_vnfuuid_reboot_post_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            (data) = self.vnf_reboot_with_http_info(vnfuuid, **kwargs)  # noqa: E501
             return data
 
-    def vnf_vnfuuid_reboot_post_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
+    def vnf_reboot_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
         """Reboot the specified VNF  # noqa: E501
 
         reboot_type is 'warm' or 'cold'  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.vnf_vnfuuid_reboot_post_with_http_info(vnfuuid, async=True)
+        >>> thread = api.vnf_reboot_with_http_info(vnfuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1393,31 +1407,32 @@ class VnfsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['vnfuuid', 'rebootrequest']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method vnf_vnfuuid_reboot_post" % key
+                    " to method vnf_reboot" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'vnfuuid' is set
-        if ('vnfuuid' not in params or
-                params['vnfuuid'] is None):
-            raise ValueError("Missing the required parameter `vnfuuid` when calling `vnf_vnfuuid_reboot_post`")  # noqa: E501
+        if ('vnfuuid' not in local_var_params or
+                local_var_params['vnfuuid'] is None):
+            raise ValueError("Missing the required parameter `vnfuuid` when calling `vnf_reboot`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'vnfuuid' in params:
-            path_params['vnfuuid'] = params['vnfuuid']  # noqa: E501
+        if 'vnfuuid' in local_var_params:
+            path_params['vnfuuid'] = local_var_params['vnfuuid']  # noqa: E501
 
         query_params = []
 
@@ -1427,8 +1442,8 @@ class VnfsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'rebootrequest' in params:
-            body_params = params['rebootrequest']
+        if 'rebootrequest' in local_var_params:
+            body_params = local_var_params['rebootrequest']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'application/xml'])  # noqa: E501
@@ -1441,7 +1456,7 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/vnf/{vnfuuid}/reboot/', 'POST',
+            '/vnfds/1.0.0/vnf/{vnfuuid}/reboot', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1450,19 +1465,19 @@ class VnfsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def vnf_vnfuuid_resume_post(self, vnfuuid, **kwargs):  # noqa: E501
+    def vnf_resume(self, vnfuuid, **kwargs):  # noqa: E501
         """Resume the specified VNF  # noqa: E501
 
         Note that body must be {}  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.vnf_vnfuuid_resume_post(vnfuuid, async=True)
+        >>> thread = api.vnf_resume(vnfuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1473,18 +1488,18 @@ class VnfsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.vnf_vnfuuid_resume_post_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            return self.vnf_resume_with_http_info(vnfuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.vnf_vnfuuid_resume_post_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            (data) = self.vnf_resume_with_http_info(vnfuuid, **kwargs)  # noqa: E501
             return data
 
-    def vnf_vnfuuid_resume_post_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
+    def vnf_resume_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
         """Resume the specified VNF  # noqa: E501
 
         Note that body must be {}  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.vnf_vnfuuid_resume_post_with_http_info(vnfuuid, async=True)
+        >>> thread = api.vnf_resume_with_http_info(vnfuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1494,31 +1509,32 @@ class VnfsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['vnfuuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method vnf_vnfuuid_resume_post" % key
+                    " to method vnf_resume" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'vnfuuid' is set
-        if ('vnfuuid' not in params or
-                params['vnfuuid'] is None):
-            raise ValueError("Missing the required parameter `vnfuuid` when calling `vnf_vnfuuid_resume_post`")  # noqa: E501
+        if ('vnfuuid' not in local_var_params or
+                local_var_params['vnfuuid'] is None):
+            raise ValueError("Missing the required parameter `vnfuuid` when calling `vnf_resume`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'vnfuuid' in params:
-            path_params['vnfuuid'] = params['vnfuuid']  # noqa: E501
+        if 'vnfuuid' in local_var_params:
+            path_params['vnfuuid'] = local_var_params['vnfuuid']  # noqa: E501
 
         query_params = []
 
@@ -1532,7 +1548,7 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/vnf/{vnfuuid}/resume/', 'POST',
+            '/vnfds/1.0.0/vnf/{vnfuuid}/resume', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1541,19 +1557,19 @@ class VnfsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def vnf_vnfuuid_suspend_post(self, vnfuuid, **kwargs):  # noqa: E501
+    def vnf_suspend(self, vnfuuid, **kwargs):  # noqa: E501
         """Suspend the specified VNF  # noqa: E501
 
         Note that body must be {}  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.vnf_vnfuuid_suspend_post(vnfuuid, async=True)
+        >>> thread = api.vnf_suspend(vnfuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1564,18 +1580,18 @@ class VnfsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.vnf_vnfuuid_suspend_post_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            return self.vnf_suspend_with_http_info(vnfuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.vnf_vnfuuid_suspend_post_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            (data) = self.vnf_suspend_with_http_info(vnfuuid, **kwargs)  # noqa: E501
             return data
 
-    def vnf_vnfuuid_suspend_post_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
+    def vnf_suspend_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
         """Suspend the specified VNF  # noqa: E501
 
         Note that body must be {}  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.vnf_vnfuuid_suspend_post_with_http_info(vnfuuid, async=True)
+        >>> thread = api.vnf_suspend_with_http_info(vnfuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1585,31 +1601,32 @@ class VnfsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['vnfuuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method vnf_vnfuuid_suspend_post" % key
+                    " to method vnf_suspend" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'vnfuuid' is set
-        if ('vnfuuid' not in params or
-                params['vnfuuid'] is None):
-            raise ValueError("Missing the required parameter `vnfuuid` when calling `vnf_vnfuuid_suspend_post`")  # noqa: E501
+        if ('vnfuuid' not in local_var_params or
+                local_var_params['vnfuuid'] is None):
+            raise ValueError("Missing the required parameter `vnfuuid` when calling `vnf_suspend`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'vnfuuid' in params:
-            path_params['vnfuuid'] = params['vnfuuid']  # noqa: E501
+        if 'vnfuuid' in local_var_params:
+            path_params['vnfuuid'] = local_var_params['vnfuuid']  # noqa: E501
 
         query_params = []
 
@@ -1623,7 +1640,7 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/vnf/{vnfuuid}/suspend/', 'POST',
+            '/vnfds/1.0.0/vnf/{vnfuuid}/suspend', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1632,18 +1649,18 @@ class VnfsApi(object):
             files=local_var_files,
             response_type=None,  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def vnfendpoint_vnfuuid_vnfuuid_get(self, vnfuuid, **kwargs):  # noqa: E501
+    def vnfendpoint_vnfuuid(self, vnfuuid, **kwargs):  # noqa: E501
         """Get details of a specific VNF  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.vnfendpoint_vnfuuid_vnfuuid_get(vnfuuid, async=True)
+        >>> thread = api.vnfendpoint_vnfuuid(vnfuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1654,17 +1671,17 @@ class VnfsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.vnfendpoint_vnfuuid_vnfuuid_get_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            return self.vnfendpoint_vnfuuid_with_http_info(vnfuuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.vnfendpoint_vnfuuid_vnfuuid_get_with_http_info(vnfuuid, **kwargs)  # noqa: E501
+            (data) = self.vnfendpoint_vnfuuid_with_http_info(vnfuuid, **kwargs)  # noqa: E501
             return data
 
-    def vnfendpoint_vnfuuid_vnfuuid_get_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
+    def vnfendpoint_vnfuuid_with_http_info(self, vnfuuid, **kwargs):  # noqa: E501
         """Get details of a specific VNF  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.vnfendpoint_vnfuuid_vnfuuid_get_with_http_info(vnfuuid, async=True)
+        >>> thread = api.vnfendpoint_vnfuuid_with_http_info(vnfuuid, async=True)
         >>> result = thread.get()
 
         :param async bool
@@ -1674,31 +1691,32 @@ class VnfsApi(object):
                  returns the request thread.
         """
 
+        local_var_params = locals()
+
         all_params = ['vnfuuid']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
 
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
+        for key, val in six.iteritems(local_var_params['kwargs']):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method vnfendpoint_vnfuuid_vnfuuid_get" % key
+                    " to method vnfendpoint_vnfuuid" % key
                 )
-            params[key] = val
-        del params['kwargs']
+            local_var_params[key] = val
+        del local_var_params['kwargs']
         # verify the required parameter 'vnfuuid' is set
-        if ('vnfuuid' not in params or
-                params['vnfuuid'] is None):
-            raise ValueError("Missing the required parameter `vnfuuid` when calling `vnfendpoint_vnfuuid_vnfuuid_get`")  # noqa: E501
+        if ('vnfuuid' not in local_var_params or
+                local_var_params['vnfuuid'] is None):
+            raise ValueError("Missing the required parameter `vnfuuid` when calling `vnfendpoint_vnfuuid`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'vnfuuid' in params:
-            path_params['vnfuuid'] = params['vnfuuid']  # noqa: E501
+        if 'vnfuuid' in local_var_params:
+            path_params['vnfuuid'] = local_var_params['vnfuuid']  # noqa: E501
 
         query_params = []
 
@@ -1716,7 +1734,7 @@ class VnfsApi(object):
         auth_settings = ['oAuth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/vnfendpoint/vnfuuid/{vnfuuid}/', 'GET',
+            '/eis/1.0.0/vnfendpoint/vnfuuid/{vnfuuid}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1725,8 +1743,8 @@ class VnfsApi(object):
             files=local_var_files,
             response_type='InlineResponse2003',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
+            async=local_var_params.get('async'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
