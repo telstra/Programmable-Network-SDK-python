@@ -121,8 +121,8 @@ Class | Method | HTTP request | Description
 *VnfsApi* | [**inventory_vnf_vport**](docs/VnfsApi.md#inventory_vnf_vport) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
 *VnfsApi* | [**inventory_vnfendpoint**](docs/VnfsApi.md#inventory_vnfendpoint) | **POST** /1.0.0/inventory/vnfendpoint | Instantiate Virtual Network Function
 *VnfsApi* | [**marketplace_image**](docs/VnfsApi.md#marketplace_image) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
-*VnfsApi* | [**marketplace_image_0**](docs/VnfsApi.md#marketplace_image_0) | **GET** /1.0.0/marketplace/image/{imageid}/ | Get information about the specified image
 *VnfsApi* | [**marketplace_image_add**](docs/VnfsApi.md#marketplace_image_add) | **POST** /1.0.0/marketplace/image/{imageid}/add_to_my_images/ | Add specified image to \&quot;My Images\&quot;
+*VnfsApi* | [**marketplace_image_imageid**](docs/VnfsApi.md#marketplace_image_imageid) | **GET** /1.0.0/marketplace/image/{imageid}/ | Get information about the specified image
 *VnfsApi* | [**marketplace_image_my_images**](docs/VnfsApi.md#marketplace_image_my_images) | **GET** /1.0.0/marketplace/image/my_images/ | List images in \&quot;My Images\&quot;
 *VnfsApi* | [**marketplace_image_remove**](docs/VnfsApi.md#marketplace_image_remove) | **POST** /1.0.0/marketplace/image/{imageid}/remove_from_my_images/ | Remove specified image from \&quot;My Images\&quot;
 *VnfsApi* | [**vnf**](docs/VnfsApi.md#vnf) | **GET** /vnfds/1.0.0/vnf/{vnfuuid}/ | Get status information about the specified VNF

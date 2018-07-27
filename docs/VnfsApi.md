@@ -13,8 +13,8 @@ Method | HTTP request | Description
 [**inventory_vnf_vport**](VnfsApi.md#inventory_vnf_vport) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
 [**inventory_vnfendpoint**](VnfsApi.md#inventory_vnfendpoint) | **POST** /1.0.0/inventory/vnfendpoint | Instantiate Virtual Network Function
 [**marketplace_image**](VnfsApi.md#marketplace_image) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
-[**marketplace_image_0**](VnfsApi.md#marketplace_image_0) | **GET** /1.0.0/marketplace/image/{imageid}/ | Get information about the specified image
 [**marketplace_image_add**](VnfsApi.md#marketplace_image_add) | **POST** /1.0.0/marketplace/image/{imageid}/add_to_my_images/ | Add specified image to \&quot;My Images\&quot;
+[**marketplace_image_imageid**](VnfsApi.md#marketplace_image_imageid) | **GET** /1.0.0/marketplace/image/{imageid}/ | Get information about the specified image
 [**marketplace_image_my_images**](VnfsApi.md#marketplace_image_my_images) | **GET** /1.0.0/marketplace/image/my_images/ | List images in \&quot;My Images\&quot;
 [**marketplace_image_remove**](VnfsApi.md#marketplace_image_remove) | **POST** /1.0.0/marketplace/image/{imageid}/remove_from_my_images/ | Remove specified image from \&quot;My Images\&quot;
 [**vnf**](VnfsApi.md#vnf) | **GET** /vnfds/1.0.0/vnf/{vnfuuid}/ | Get status information about the specified VNF
@@ -478,58 +478,6 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **marketplace_image_0**
-> Image marketplace_image_0(imageid)
-
-Get information about the specified image
-
-Note that trailing / is required
-
-### Example
-```python
-from __future__ import print_function
-import time
-import TelstraTPN
-from TelstraTPN.rest import ApiException
-from pprint import pprint
-
-# Configure OAuth2 access token for authorization: oAuth2
-configuration = TelstraTPN.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-# create an instance of the API class
-api_instance = TelstraTPN.VnfsApi(TelstraTPN.ApiClient(configuration))
-imageid = 56 # int | Identifier representing a specific VNF image
-
-try:
-    # Get information about the specified image
-    api_response = api_instance.marketplace_image_0(imageid)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling VnfsApi->marketplace_image_0: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **imageid** | **int**| Identifier representing a specific VNF image | 
-
-### Return type
-
-[**Image**](Image.md)
-
-### Authorization
-
-[oAuth2](../README.md#oAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **marketplace_image_add**
 > InlineResponse20010 marketplace_image_add(imageid, unknown_base_type=unknown_base_type)
 
@@ -581,6 +529,58 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json, application/xml, 
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **marketplace_image_imageid**
+> Image marketplace_image_imageid(imageid)
+
+Get information about the specified image
+
+Note that trailing / is required
+
+### Example
+```python
+from __future__ import print_function
+import time
+import TelstraTPN
+from TelstraTPN.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oAuth2
+configuration = TelstraTPN.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = TelstraTPN.VnfsApi(TelstraTPN.ApiClient(configuration))
+imageid = 56 # int | Identifier representing a specific VNF image
+
+try:
+    # Get information about the specified image
+    api_response = api_instance.marketplace_image_imageid(imageid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling VnfsApi->marketplace_image_imageid: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **imageid** | **int**| Identifier representing a specific VNF image | 
+
+### Return type
+
+[**Image**](Image.md)
+
+### Authorization
+
+[oAuth2](../README.md#oAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
