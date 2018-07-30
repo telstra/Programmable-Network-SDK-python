@@ -3,10 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tags** | [**list[VnfTag]**](VnfTag.md) |  | [optional] 
 **brief_description** | **str** |  | [optional] 
 **buyers** | **str** |  | [optional] 
-**classifications** | [**list[Classification]**](Classification.md) |  | [optional] 
+**classifications** | [**list[ImageClassifications]**](ImageClassifications.md) |  | [optional] 
 **comments** | **str** |  | [optional] 
 **create_at** | **int** |  | [optional] 
 **creator** | **str** |  | [optional] 
@@ -15,7 +14,7 @@ Name | Type | Description | Notes
 **flavors** | [**list[Flavor]**](Flavor.md) |  | [optional] 
 **flavors_price** | **str** |  | [optional] 
 **glance_comments** | **str** |  | [optional] 
-**glance_image** | [**GlanceImage**](GlanceImage.md) |  | [optional] 
+**glance_image** | [**ImageGlanceImage**](ImageGlanceImage.md) |  | [optional] 
 **glance_name** | **str** |  | [optional] 
 **glance_properties** | **str** |  | [optional] 
 **id** | **int** |  | [optional] 
@@ -28,14 +27,15 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **os_version** | **str** |  | [optional] 
 **owner** | **str** |  | [optional] 
-**product** | [**Product**](Product.md) |  | [optional] 
+**product** | [**ImageProduct**](ImageProduct.md) |  | [optional] 
 **publish_date** | **str** |  | [optional] 
 **restrict_vnc_console** | **bool** |  | [optional] 
 **status** | **str** |  | [optional] 
 **support_hot_plug** | **bool** |  | [optional] 
+**tags** | [**list[VnfTag]**](VnfTag.md) |  | [optional] 
 **upload_at** | **int** |  | [optional] 
 **vendor_name** | **str** |  | [optional] 
-**zero_day_config_spec** | **str** |  | [optional] 
+**zero_day_config_spec** | [**ImageZeroDayConfigSpec**](ImageZeroDayConfigSpec.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

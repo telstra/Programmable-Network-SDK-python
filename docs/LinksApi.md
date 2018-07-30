@@ -4,16 +4,15 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**inventory_link_post**](LinksApi.md#inventory_link_post) | **POST** /1.0.0/inventory/link | inventorylinkpost
-[**inventory_links_by_linkid_get**](LinksApi.md#inventory_links_by_linkid_get) | **GET** /1.0.0/inventory/links/{linkid} | inventorylinkslinkidget
-[**inventory_links_customer_by_customeruuid_get**](LinksApi.md#inventory_links_customer_by_customeruuid_get) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | inventorylinkscustomercustomeruuidget
-[**inventory_links_history_by_linkid_get**](LinksApi.md#inventory_links_history_by_linkid_get) | **GET** /1.0.0/inventory/links/history/{linkid} | inventorylinkshistorylinkidget
+[**inventory_link**](LinksApi.md#inventory_link) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
+[**inventory_links**](LinksApi.md#inventory_links) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
+[**inventory_links_customer**](LinksApi.md#inventory_links_customer) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
+[**inventory_links_history**](LinksApi.md#inventory_links_history) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
+[**inventory_links_stats_flow**](LinksApi.md#inventory_links_stats_flow) | **GET** /1.0.0/inventory/links-stats/flow/{linkid}/{startdate}/{enddate} | Get statistics for flow
 
 
-# **inventory_link_post**
-> InventorylinkpostResponse inventory_link_post(body=body)
-
-inventorylinkpost
+# **inventory_link**
+> SuccessFragment inventory_link(createlinkrequest=createlinkrequest)
 
 Create Link and initial Contract
 
@@ -25,35 +24,35 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
+# Configure OAuth2 access token for authorization: oAuth2
 configuration = TelstraTPN.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # create an instance of the API class
 api_instance = TelstraTPN.LinksApi(TelstraTPN.ApiClient(configuration))
-body = TelstraTPN.Body() # Body |  (optional)
+createlinkrequest = TelstraTPN.Createlinkrequest() # Createlinkrequest |  (optional)
 
 try:
-    # inventorylinkpost
-    api_response = api_instance.inventory_link_post(body=body)
+    # Create Link and initial Contract
+    api_response = api_instance.inventory_link(createlinkrequest=createlinkrequest)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling LinksApi->inventory_link_post: %s\n" % e)
+    print("Exception when calling LinksApi->inventory_link: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body**](Body.md)|  | [optional] 
+ **createlinkrequest** | [**Createlinkrequest**](Createlinkrequest.md)|  | [optional] 
 
 ### Return type
 
-[**InventorylinkpostResponse**](InventorylinkpostResponse.md)
+[**SuccessFragment**](SuccessFragment.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+[oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
@@ -62,10 +61,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_links_by_linkid_get**
-> InventorylinkslinkidgetResponse inventory_links_by_linkid_get(linkid)
-
-inventorylinkslinkidget
+# **inventory_links**
+> InlineResponse2007 inventory_links(linkid)
 
 Get details of specified link
 
@@ -77,7 +74,7 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
+# Configure OAuth2 access token for authorization: oAuth2
 configuration = TelstraTPN.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -86,11 +83,11 @@ api_instance = TelstraTPN.LinksApi(TelstraTPN.ApiClient(configuration))
 linkid = 'linkid_example' # str | Unique identifier representing a specific link
 
 try:
-    # inventorylinkslinkidget
-    api_response = api_instance.inventory_links_by_linkid_get(linkid)
+    # Get details of specified link
+    api_response = api_instance.inventory_links(linkid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling LinksApi->inventory_links_by_linkid_get: %s\n" % e)
+    print("Exception when calling LinksApi->inventory_links: %s\n" % e)
 ```
 
 ### Parameters
@@ -101,23 +98,21 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InventorylinkslinkidgetResponse**](InventorylinkslinkidgetResponse.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+[oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_links_customer_by_customeruuid_get**
-> list[Link] inventory_links_customer_by_customeruuid_get(customeruuid)
-
-inventorylinkscustomercustomeruuidget
+# **inventory_links_customer**
+> list[Link] inventory_links_customer(customeruuid)
 
 Get active Links
 
@@ -129,7 +124,7 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
+# Configure OAuth2 access token for authorization: oAuth2
 configuration = TelstraTPN.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -138,11 +133,11 @@ api_instance = TelstraTPN.LinksApi(TelstraTPN.ApiClient(configuration))
 customeruuid = 'customeruuid_example' # str | Unique identifier representing a specific customer
 
 try:
-    # inventorylinkscustomercustomeruuidget
-    api_response = api_instance.inventory_links_customer_by_customeruuid_get(customeruuid)
+    # Get active Links
+    api_response = api_instance.inventory_links_customer(customeruuid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling LinksApi->inventory_links_customer_by_customeruuid_get: %s\n" % e)
+    print("Exception when calling LinksApi->inventory_links_customer: %s\n" % e)
 ```
 
 ### Parameters
@@ -157,19 +152,17 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+[oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **inventory_links_history_by_linkid_get**
-> InventorylinkshistorylinkidgetResponse inventory_links_history_by_linkid_get(linkid)
-
-inventorylinkshistorylinkidget
+# **inventory_links_history**
+> InlineResponse2005 inventory_links_history(linkid)
 
 Get Link history
 
@@ -181,7 +174,7 @@ import TelstraTPN
 from TelstraTPN.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: auth
+# Configure OAuth2 access token for authorization: oAuth2
 configuration = TelstraTPN.Configuration()
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
@@ -190,11 +183,11 @@ api_instance = TelstraTPN.LinksApi(TelstraTPN.ApiClient(configuration))
 linkid = 'linkid_example' # str | Unique identifier representing a specific link
 
 try:
-    # inventorylinkshistorylinkidget
-    api_response = api_instance.inventory_links_history_by_linkid_get(linkid)
+    # Get Link history
+    api_response = api_instance.inventory_links_history(linkid)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling LinksApi->inventory_links_history_by_linkid_get: %s\n" % e)
+    print("Exception when calling LinksApi->inventory_links_history: %s\n" % e)
 ```
 
 ### Parameters
@@ -205,15 +198,71 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InventorylinkshistorylinkidgetResponse**](InventorylinkshistorylinkidgetResponse.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+[oAuth2](../README.md#oAuth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **inventory_links_stats_flow**
+> list[InlineResponse20019] inventory_links_stats_flow(linkid, startdate, enddate)
+
+Get statistics for flow
+
+Get statistics related to the specified flow
+
+### Example
+```python
+from __future__ import print_function
+import time
+import TelstraTPN
+from TelstraTPN.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: oAuth2
+configuration = TelstraTPN.Configuration()
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# create an instance of the API class
+api_instance = TelstraTPN.LinksApi(TelstraTPN.ApiClient(configuration))
+linkid = 'linkid_example' # str | Unique identifier representing a specific link
+startdate = 'startdate_example' # str | Start date for statistics query
+enddate = 'enddate_example' # str | End date for statistics query
+
+try:
+    # Get statistics for flow
+    api_response = api_instance.inventory_links_stats_flow(linkid, startdate, enddate)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling LinksApi->inventory_links_stats_flow: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **linkid** | **str**| Unique identifier representing a specific link | 
+ **startdate** | **str**| Start date for statistics query | 
+ **enddate** | **str**| End date for statistics query | 
+
+### Return type
+
+[**list[InlineResponse20019]**](InlineResponse20019.md)
+
+### Authorization
+
+[oAuth2](../README.md#oAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

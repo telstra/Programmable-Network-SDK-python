@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/telstra/Programmable-Network-SDK-python.svg?branch=master)](https://travis-ci.org/telstra/Programmable-Network-SDK-python)
-
 # TelstraTPN
 Telstra Programmable Network is a self-provisioning platform that allows its users to create on-demand connectivity services between multiple end-points and add various network functions to those services. Programmable Network enables to connectivity to a global ecosystem of networking services as well as public and private cloud services. Once you are connected to the platform on one or more POPs (points of presence), you can start creating those services based on the use case that you want to accomplish. The Programmable Network API is available to all customers who have registered to use the Programmable Network. To register, please contact your account representative.
 
-- API version: 2.3.2
-- Package version: 1.0.0
+
+- API version: 2.4.2
+- Package version: 1.0.4
+For more information, please visit [https://dev.telstra.com/content/programmable-network-api](https://dev.telstra.com/content/programmable-network-api)
 
 ## Requirements.
 
@@ -13,14 +13,12 @@ Python 2.7 and 3.4+
 ## Installation & Usage
 ### pip install
 
-If the python package is hosted on Github, you can install directly from Github
 
 ```sh
 pip install git+https://github.com/Telstra/Programmable-Network-SDK-python.git
 ```
 (you may need to run `pip` with root permission: `sudo pip install git+https://github.com/Telstra/Programmable-Network-SDK-python.git`)
 
-Then import the package:
 ```python
 import TelstraTPN 
 ```
@@ -32,9 +30,7 @@ Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
 ```sh
 python setup.py install --user
 ```
-(or `sudo python setup.py install` to install the package for all users)
 
-Then import the package:
 ```python
 import TelstraTPN
 ```
@@ -51,17 +47,18 @@ from TelstraTPN.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = TelstraTPN.AuthenticationApi()
-grant_type = 'password' # str | 
+
+api_instance = TelstraTPN.AuthenticationApi(TelstraTPN.ApiClient(configuration))
+grant_type = 'password' # str |  (default to 'password')
 username = 'username_example' # str | 
 password = 'password_example' # str | 
 
 try:
-    # authgeneratetokenpost
-    api_response = api_instance.auth_generatetoken_post(grant_type, username, password)
+    # Create an authentication token
+    api_response = api_instance.generate_token(grant_type, username, password)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuthenticationApi->auth_generatetoken_post: %s\n" % e)
+    print("Exception when calling AuthenticationApi->generate_token: %s\n" % e)
 
 ```
 
@@ -71,122 +68,163 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthenticationApi* | [**auth_generatetoken_post**](docs/AuthenticationApi.md#auth_generatetoken_post) | **POST** /1.0.0/auth/generatetoken | authgeneratetokenpost
-*AuthenticationApi* | [**auth_validatetoken_get**](docs/AuthenticationApi.md#auth_validatetoken_get) | **GET** /1.0.0/auth/validatetoken | authvalidatetokenget
-*ContractsApi* | [**inventory_links_contract_by_linkid_and_contractid_get**](docs/ContractsApi.md#inventory_links_contract_by_linkid_and_contractid_get) | **GET** /1.0.0/inventory/links/{linkid}/contract/{contractid} | inventorylinksget
-*ContractsApi* | [**inventory_links_contract_by_linkid_and_contractid_put**](docs/ContractsApi.md#inventory_links_contract_by_linkid_and_contractid_put) | **PUT** /1.0.0/inventory/links/{linkid}/contract/{contractid} | inventorylinksput
-*ContractsApi* | [**inventory_links_contract_by_linkid_post**](docs/ContractsApi.md#inventory_links_contract_by_linkid_post) | **POST** /1.0.0/inventory/links/{linkid}/contract | inventorylinkslinkidcontractpost
-*CustomersApi* | [**account_by_customeruuid_get**](docs/CustomersApi.md#account_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid} | accountcustomeruuidget
-*CustomersApi* | [**account_user_by_customeruuid_get**](docs/CustomersApi.md#account_user_by_customeruuid_get) | **GET** /1.0.0/account/{customeruuid}/user | accountcustomeruuiduserget
-*DatacentresApi* | [**inventory_datacenters_get**](docs/DatacentresApi.md#inventory_datacenters_get) | **GET** /1.0.0/inventory/datacenters | inventorydatacentersget
-*EndpointsApi* | [**eis100_endpoint_endpointuuid_by_endpointuuid_put**](docs/EndpointsApi.md#eis100_endpoint_endpointuuid_by_endpointuuid_put) | **PUT** /eis/1.0.0/endpoint/endpointuuid/{endpointuuid} | eisendpointendpointuuidendpointuuidput
-*EndpointsApi* | [**eis100_endpoints_assign_topology_tag_by_endpointuuid_post**](docs/EndpointsApi.md#eis100_endpoints_assign_topology_tag_by_endpointuuid_post) | **POST** /eis/1.0.0/endpoints/{endpointuuid}/assign_topology_tag | eisendpointsendpointuuidassigntopologytagpost
-*EndpointsApi* | [**eis100_endpoints_topology_tag_uuid_by_topotaguuid_get**](docs/EndpointsApi.md#eis100_endpoints_topology_tag_uuid_by_topotaguuid_get) | **GET** /eis/1.0.0/endpoints/topology_tag_uuid/{topotaguuid} | eisendpointstopologytaguuidtopotaguuidget
-*EndpointsApi* | [**eis100_endpoints_topology_tag_uuid_endpoint_by_topotaguuid_and_endpointuuid_delete**](docs/EndpointsApi.md#eis100_endpoints_topology_tag_uuid_endpoint_by_topotaguuid_and_endpointuuid_delete) | **DELETE** /eis/1.0.0/endpoints/topology_tag_uuid/{topotaguuid}/endpoint/{endpointuuid} | eisendpointstopologytaguuiddelete
-*EndpointsApi* | [**inventory_endpoint_by_endpointuuid_get**](docs/EndpointsApi.md#inventory_endpoint_by_endpointuuid_get) | **GET** /1.0.0/inventory/endpoint/{endpointuuid} | inventoryendpointendpointuuidget
-*EndpointsApi* | [**inventory_endpoints_customeruuid_by_customeruuid_get**](docs/EndpointsApi.md#inventory_endpoints_customeruuid_by_customeruuid_get) | **GET** /1.0.0/inventory/endpoints/customeruuid/{customeruuid} | inventoryendpointscustomeruuidcustomeruuidget
-*EndpointsApi* | [**inventory_regularendpoint_post**](docs/EndpointsApi.md#inventory_regularendpoint_post) | **POST** /1.0.0/inventory/regularendpoint | inventoryregularendpointpost
-*EndpointsApi* | [**inventory_vnfendpoint_post**](docs/EndpointsApi.md#inventory_vnfendpoint_post) | **POST** /1.0.0/inventory/vnfendpoint | inventoryvnfendpointpost
-*LinksApi* | [**inventory_link_post**](docs/LinksApi.md#inventory_link_post) | **POST** /1.0.0/inventory/link | inventorylinkpost
-*LinksApi* | [**inventory_links_by_linkid_get**](docs/LinksApi.md#inventory_links_by_linkid_get) | **GET** /1.0.0/inventory/links/{linkid} | inventorylinkslinkidget
-*LinksApi* | [**inventory_links_customer_by_customeruuid_get**](docs/LinksApi.md#inventory_links_customer_by_customeruuid_get) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | inventorylinkscustomercustomeruuidget
-*LinksApi* | [**inventory_links_history_by_linkid_get**](docs/LinksApi.md#inventory_links_history_by_linkid_get) | **GET** /1.0.0/inventory/links/history/{linkid} | inventorylinkshistorylinkidget
-*TopologiesApi* | [**ttms100_topology_tag_by_topotaguuid_delete**](docs/TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_delete) | **DELETE** /ttms/1.0.0/topology_tag/{topotaguuid}/ | ttmstopologytagtopotaguuiddelete
-*TopologiesApi* | [**ttms100_topology_tag_by_topotaguuid_get**](docs/TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/ | ttmstopologytagtopotaguuidget
-*TopologiesApi* | [**ttms100_topology_tag_by_topotaguuid_put**](docs/TopologiesApi.md#ttms100_topology_tag_by_topotaguuid_put) | **PUT** /ttms/1.0.0/topology_tag/{topotaguuid}/ | ttmstopologytagtopotaguuidput
-*TopologiesApi* | [**ttms100_topology_tag_get**](docs/TopologiesApi.md#ttms100_topology_tag_get) | **GET** /ttms/1.0.0/topology_tag | ttmstopologytagget
-*TopologiesApi* | [**ttms100_topology_tag_objects_by_topotaguuid_get**](docs/TopologiesApi.md#ttms100_topology_tag_objects_by_topotaguuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/objects/ | ttmstopologytagtopotaguuidobjectsget
-*TopologiesApi* | [**ttms100_topology_tag_post**](docs/TopologiesApi.md#ttms100_topology_tag_post) | **POST** /ttms/1.0.0/topology_tag | ttmstopologytagpost
-*VnfsApi* | [**marketplace_image_add_to_my_images_by_imageid_post**](docs/VnfsApi.md#marketplace_image_add_to_my_images_by_imageid_post) | **POST** /1.0.0/marketplace/image/{imageid}/add_to_my_images/ | marketplaceimageimageidaddtomyimagespost
-*VnfsApi* | [**marketplace_image_by_imageid_get**](docs/VnfsApi.md#marketplace_image_by_imageid_get) | **GET** /1.0.0/marketplace/image/{imageid}/ | marketplaceimageimageidget
-*VnfsApi* | [**marketplace_image_get**](docs/VnfsApi.md#marketplace_image_get) | **GET** /1.0.0/marketplace/image | marketplaceimageget
-*VnfsApi* | [**marketplace_image_my_images_get**](docs/VnfsApi.md#marketplace_image_my_images_get) | **GET** /1.0.0/marketplace/image/my_images/ | marketplaceimagemyimagesget
-*VnfsApi* | [**marketplace_image_remove_from_my_images_by_imageid_post**](docs/VnfsApi.md#marketplace_image_remove_from_my_images_by_imageid_post) | **POST** /1.0.0/marketplace/image/{imageid}/remove_from_my_images/ | marketplaceimageimageidremovefrommyimagespost
-*VnfsApi* | [**vnfds100_vnf_by_vnfuuid_get**](docs/VnfsApi.md#vnfds100_vnf_by_vnfuuid_get) | **GET** /vnfds/1.0.0/vnf/{vnfuuid}/ | vnfdsvnfvnfuuidget
-*VnfsApi* | [**vnfds100_vnf_reboot_by_vnfuuid_post**](docs/VnfsApi.md#vnfds100_vnf_reboot_by_vnfuuid_post) | **POST** /vnfds/1.0.0/vnf/{vnfuuid}/reboot | vnfdsvnfvnfuuidrebootpost
-*VnfsApi* | [**vnfds100_vnf_resume_by_vnfuuid_post**](docs/VnfsApi.md#vnfds100_vnf_resume_by_vnfuuid_post) | **POST** /vnfds/1.0.0/vnf/{vnfuuid}/resume | vnfdsvnfvnfuuidresumepost
-*VnfsApi* | [**vnfds100_vnf_suspend_by_vnfuuid_post**](docs/VnfsApi.md#vnfds100_vnf_suspend_by_vnfuuid_post) | **POST** /vnfds/1.0.0/vnf/{vnfuuid}/suspend | vnfdsvnfvnfuuidsuspendpost
-*VportsApi* | [**inventory_regularvport_post**](docs/VportsApi.md#inventory_regularvport_post) | **POST** /1.0.0/inventory/regularvport | inventoryregularvportpost
-*VportsApi* | [**inventory_vnf_vport_post**](docs/VportsApi.md#inventory_vnf_vport_post) | **POST** /1.0.0/inventory/vnf/vport | inventoryvnfvportpost
-*VportsApi* | [**inventory_vport_by_vportuuid_get**](docs/VportsApi.md#inventory_vport_by_vportuuid_get) | **GET** /1.0.0/inventory/vport/{vportuuid} | inventoryvportvportuuidget
+*AuthenticationApi* | [**generate_token**](docs/AuthenticationApi.md#generate_token) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
+*AuthenticationApi* | [**validate_token**](docs/AuthenticationApi.md#validate_token) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
+*ContractsApi* | [**inventory_links_contract**](docs/ContractsApi.md#inventory_links_contract) | **POST** /1.0.0/inventory/links/{linkid}/contract | Create new Contract on specified link
+*ContractsApi* | [**inventory_links_contract_get**](docs/ContractsApi.md#inventory_links_contract_get) | **GET** /1.0.0/inventory/links/{linkid}/contract/{contractid} | Get active Contract by ContractID
+*ContractsApi* | [**inventory_links_contract_put**](docs/ContractsApi.md#inventory_links_contract_put) | **PUT** /1.0.0/inventory/links/{linkid}/contract/{contractid} | Update active Contract by ContractID
+*CustomersApi* | [**account**](docs/CustomersApi.md#account) | **GET** /1.0.0/account/{customeruuid} | Get account information details
+*CustomersApi* | [**account_user**](docs/CustomersApi.md#account_user) | **GET** /1.0.0/account/{customeruuid}/user | List users
+*DatacentresApi* | [**inventory_datacentres**](docs/DatacentresApi.md#inventory_datacentres) | **GET** /1.0.0/inventory/datacenters | Get list of all the data centers
+*EndpointsApi* | [**endpoint_endpointuuid_get**](docs/EndpointsApi.md#endpoint_endpointuuid_get) | **GET** /eis/1.0.0/endpoint/endpointuuid/{endpointuuid} | Get Endpoint name and status
+*EndpointsApi* | [**endpoint_endpointuuid_put**](docs/EndpointsApi.md#endpoint_endpointuuid_put) | **PUT** /eis/1.0.0/endpoint/endpointuuid/{endpointuuid} | Update Endpoint name
+*EndpointsApi* | [**endpoints_assign_topology_tag**](docs/EndpointsApi.md#endpoints_assign_topology_tag) | **POST** /eis/1.0.0/endpoints/{endpointuuid}/assign_topology_tag | Assign an Endpoint to a Topology
+*EndpointsApi* | [**endpoints_topology_tag_uuid**](docs/EndpointsApi.md#endpoints_topology_tag_uuid) | **GET** /eis/1.0.0/endpoints/topology_tag_uuid/{topotaguuid} | List Endpoints for Topology
+*EndpointsApi* | [**endpoints_topology_tag_uuid_endpoint**](docs/EndpointsApi.md#endpoints_topology_tag_uuid_endpoint) | **DELETE** /eis/1.0.0/endpoints/topology_tag_uuid/{topotaguuid}/endpoint/{endpointuuid} | Remove Endpoint from a Topology
+*EndpointsApi* | [**inventory_endpoint**](docs/EndpointsApi.md#inventory_endpoint) | **GET** /1.0.0/inventory/endpoint/{endpointuuid} | Get information about the specified endpoint
+*EndpointsApi* | [**inventory_endpoints_customeruuid**](docs/EndpointsApi.md#inventory_endpoints_customeruuid) | **GET** /1.0.0/inventory/endpoints/customeruuid/{customeruuid} | Get list of endpoints for a customer
+*EndpointsApi* | [**inventory_links_stats_endpoint**](docs/EndpointsApi.md#inventory_links_stats_endpoint) | **GET** /1.0.0/inventory/links-stats/endpoint/{endpointuuid}/{startdate}/{enddate} | Get statistics for endpoint
+*EndpointsApi* | [**inventory_links_stats_endpointstate**](docs/EndpointsApi.md#inventory_links_stats_endpointstate) | **GET** /1.0.0/inventory/links-stats/endpointstate/{endpointuuid}/{startdate}/{enddate} | Get state statistics for endpoint
+*EndpointsApi* | [**inventory_regularendpoint**](docs/EndpointsApi.md#inventory_regularendpoint) | **POST** /1.0.0/inventory/regularendpoint | Create Physical (Port) Endpoint
+*EndpointsApi* | [**inventory_regularvport**](docs/EndpointsApi.md#inventory_regularvport) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
+*EndpointsApi* | [**inventory_vnfendpoint**](docs/EndpointsApi.md#inventory_vnfendpoint) | **POST** /1.0.0/inventory/vnfendpoint | Instantiate Virtual Network Function
+*EndpointsApi* | [**vnfendpoint_vnfuuid**](docs/EndpointsApi.md#vnfendpoint_vnfuuid) | **GET** /eis/1.0.0/vnfendpoint/vnfuuid/{vnfuuid} | Get details of a specific VNF
+*ExchangeApi* | [**account_profile_exchange**](docs/ExchangeApi.md#account_profile_exchange) | **GET** /1.0.0/account/profile/exchange | Get the current account&#39;s Exchange profile
+*ExchangeApi* | [**exchange**](docs/ExchangeApi.md#exchange) | **GET** /1.0.0/exchange | List all Exchange providers, with POPs
+*ExchangeApi* | [**exchange_exprovuuid**](docs/ExchangeApi.md#exchange_exprovuuid) | **GET** /1.0.0/exchange/{exprovuuid} | Exchange provider details
+*ExchangeApi* | [**visitcard**](docs/ExchangeApi.md#visitcard) | **GET** /1.0.0/visitcard | Get list of Visit Cards
+*ExchangeApi* | [**visitcard_uuid_get**](docs/ExchangeApi.md#visitcard_uuid_get) | **GET** /1.0.0/visitcard/{visitcarduuid} | View details of the specified Visit Card
+*ExchangeApi* | [**visitcard_uuid_put**](docs/ExchangeApi.md#visitcard_uuid_put) | **PUT** /1.0.0/visitcard/{visitcarduuid} | Update details of the specified Visit Card
+*LinksApi* | [**inventory_link**](docs/LinksApi.md#inventory_link) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
+*LinksApi* | [**inventory_links**](docs/LinksApi.md#inventory_links) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
+*LinksApi* | [**inventory_links_customer**](docs/LinksApi.md#inventory_links_customer) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
+*LinksApi* | [**inventory_links_history**](docs/LinksApi.md#inventory_links_history) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
+*LinksApi* | [**inventory_links_stats_flow**](docs/LinksApi.md#inventory_links_stats_flow) | **GET** /1.0.0/inventory/links-stats/flow/{linkid}/{startdate}/{enddate} | Get statistics for flow
+*StatisticsApi* | [**inventory_links_stats_endpoint**](docs/StatisticsApi.md#inventory_links_stats_endpoint) | **GET** /1.0.0/inventory/links-stats/endpoint/{endpointuuid}/{startdate}/{enddate} | Get statistics for endpoint
+*StatisticsApi* | [**inventory_links_stats_endpointstate**](docs/StatisticsApi.md#inventory_links_stats_endpointstate) | **GET** /1.0.0/inventory/links-stats/endpointstate/{endpointuuid}/{startdate}/{enddate} | Get state statistics for endpoint
+*StatisticsApi* | [**inventory_links_stats_flow**](docs/StatisticsApi.md#inventory_links_stats_flow) | **GET** /1.0.0/inventory/links-stats/flow/{linkid}/{startdate}/{enddate} | Get statistics for flow
+*TopologiesApi* | [**endpoints_assign_topology_tag**](docs/TopologiesApi.md#endpoints_assign_topology_tag) | **POST** /eis/1.0.0/endpoints/{endpointuuid}/assign_topology_tag | Assign an Endpoint to a Topology
+*TopologiesApi* | [**endpoints_topology_tag_uuid**](docs/TopologiesApi.md#endpoints_topology_tag_uuid) | **GET** /eis/1.0.0/endpoints/topology_tag_uuid/{topotaguuid} | List Endpoints for Topology
+*TopologiesApi* | [**endpoints_topology_tag_uuid_endpoint**](docs/TopologiesApi.md#endpoints_topology_tag_uuid_endpoint) | **DELETE** /eis/1.0.0/endpoints/topology_tag_uuid/{topotaguuid}/endpoint/{endpointuuid} | Remove Endpoint from a Topology
+*TopologiesApi* | [**topology_tag_get**](docs/TopologiesApi.md#topology_tag_get) | **GET** /ttms/1.0.0/topology_tag | List all topology tags
+*TopologiesApi* | [**topology_tag_objects**](docs/TopologiesApi.md#topology_tag_objects) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/objects/ | List objects for Topology
+*TopologiesApi* | [**topology_tag_post**](docs/TopologiesApi.md#topology_tag_post) | **POST** /ttms/1.0.0/topology_tag | Create a named topology tag
+*TopologiesApi* | [**topology_tag_uuid_delete**](docs/TopologiesApi.md#topology_tag_uuid_delete) | **DELETE** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Delete a topology tag
+*TopologiesApi* | [**topology_tag_uuid_get**](docs/TopologiesApi.md#topology_tag_uuid_get) | **GET** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Get information about the specified topology tag
+*TopologiesApi* | [**topology_tag_uuid_put**](docs/TopologiesApi.md#topology_tag_uuid_put) | **PUT** /ttms/1.0.0/topology_tag/{topotaguuid}/ | Update a topology tag&#39;s name and/or description
+*UsersApi* | [**account_user**](docs/UsersApi.md#account_user) | **GET** /1.0.0/account/{customeruuid}/user | List users
+*VnfsApi* | [**bms_backup**](docs/VnfsApi.md#bms_backup) | **POST** /bms/1.0.0/backup | Create backup of specified VNF
+*VnfsApi* | [**bms_backup_delete**](docs/VnfsApi.md#bms_backup_delete) | **DELETE** /bms/1.0.0/backup/{backupuuid} | Delete specified backup
+*VnfsApi* | [**bms_backup_get**](docs/VnfsApi.md#bms_backup_get) | **GET** /bms/1.0.0/backup/{backupuuid} | Get information about the specified backup
+*VnfsApi* | [**bms_backup_restore**](docs/VnfsApi.md#bms_backup_restore) | **POST** /bms/1.0.0/backup/{backupuuid}/restore | Restore VNF from backup
+*VnfsApi* | [**bms_backup_vnf**](docs/VnfsApi.md#bms_backup_vnf) | **GET** /bms/1.0.0/backup/vnf/{vnfuuid} | List backups
+*VnfsApi* | [**bms_backup_vnf_delete**](docs/VnfsApi.md#bms_backup_vnf_delete) | **POST** /bms/1.0.0/backup/vnf/{vnfuuid}/delete | Delete multiple backups
+*VnfsApi* | [**inventory_vnf_vport**](docs/VnfsApi.md#inventory_vnf_vport) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
+*VnfsApi* | [**inventory_vnfendpoint**](docs/VnfsApi.md#inventory_vnfendpoint) | **POST** /1.0.0/inventory/vnfendpoint | Instantiate Virtual Network Function
+*VnfsApi* | [**marketplace_image**](docs/VnfsApi.md#marketplace_image) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
+*VnfsApi* | [**marketplace_image_add**](docs/VnfsApi.md#marketplace_image_add) | **POST** /1.0.0/marketplace/image/{imageid}/add_to_my_images/ | Add specified image to \&quot;My Images\&quot;
+*VnfsApi* | [**marketplace_image_imageid**](docs/VnfsApi.md#marketplace_image_imageid) | **GET** /1.0.0/marketplace/image/{imageid}/ | Get information about the specified image
+*VnfsApi* | [**marketplace_image_my_images**](docs/VnfsApi.md#marketplace_image_my_images) | **GET** /1.0.0/marketplace/image/my_images/ | List images in \&quot;My Images\&quot;
+*VnfsApi* | [**marketplace_image_remove**](docs/VnfsApi.md#marketplace_image_remove) | **POST** /1.0.0/marketplace/image/{imageid}/remove_from_my_images/ | Remove specified image from \&quot;My Images\&quot;
+*VnfsApi* | [**vnf**](docs/VnfsApi.md#vnf) | **GET** /vnfds/1.0.0/vnf/{vnfuuid}/ | Get status information about the specified VNF
+*VnfsApi* | [**vnf_reboot**](docs/VnfsApi.md#vnf_reboot) | **POST** /vnfds/1.0.0/vnf/{vnfuuid}/reboot | Reboot the specified VNF
+*VnfsApi* | [**vnf_resume**](docs/VnfsApi.md#vnf_resume) | **POST** /vnfds/1.0.0/vnf/{vnfuuid}/resume | Resume the specified VNF
+*VnfsApi* | [**vnf_suspend**](docs/VnfsApi.md#vnf_suspend) | **POST** /vnfds/1.0.0/vnf/{vnfuuid}/suspend | Suspend the specified VNF
+*VnfsApi* | [**vnfendpoint_vnfuuid**](docs/VnfsApi.md#vnfendpoint_vnfuuid) | **GET** /eis/1.0.0/vnfendpoint/vnfuuid/{vnfuuid} | Get details of a specific VNF
+*VportsApi* | [**inventory_regularvport**](docs/VportsApi.md#inventory_regularvport) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
+*VportsApi* | [**inventory_vnf_vport**](docs/VportsApi.md#inventory_vnf_vport) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
+*VportsApi* | [**inventory_vport**](docs/VportsApi.md#inventory_vport) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
 
 
 ## Documentation For Models
 
- - [AccountcustomeruuidgetResponse](docs/AccountcustomeruuidgetResponse.md)
- - [AuthgeneratetokenpostResponse](docs/AuthgeneratetokenpostResponse.md)
- - [AuthvalidatetokengetResponse](docs/AuthvalidatetokengetResponse.md)
+ - [Assigntopotagrequest](docs/Assigntopotagrequest.md)
+ - [Backup](docs/Backup.md)
+ - [Backuprequest](docs/Backuprequest.md)
  - [Billing](docs/Billing.md)
  - [Body](docs/Body.md)
- - [Body42](docs/Body42.md)
- - [Body45](docs/Body45.md)
- - [Body51](docs/Body51.md)
- - [Body53](docs/Body53.md)
- - [Body56](docs/Body56.md)
- - [Body58](docs/Body58.md)
- - [Body67](docs/Body67.md)
- - [Body71](docs/Body71.md)
- - [Body72](docs/Body72.md)
- - [Body80](docs/Body80.md)
- - [Classification](docs/Classification.md)
+ - [Connections](docs/Connections.md)
  - [Contract](docs/Contract.md)
- - [Datacenter](docs/Datacenter.md)
- - [Datacenter34](docs/Datacenter34.md)
- - [EisendpointstopologytaguuidtopotaguuidgetResponse](docs/EisendpointstopologytaguuidtopotaguuidgetResponse.md)
- - [Endpoint](docs/Endpoint.md)
+ - [ContractresponseFragment](docs/ContractresponseFragment.md)
+ - [ContractresponsefragmentParams](docs/ContractresponsefragmentParams.md)
+ - [Createcontractrequest](docs/Createcontractrequest.md)
+ - [Createlinkrequest](docs/Createlinkrequest.md)
  - [EndpointPort](docs/EndpointPort.md)
- - [Endpointlist](docs/Endpointlist.md)
+ - [Endpointupdaterequest](docs/Endpointupdaterequest.md)
  - [Error](docs/Error.md)
+ - [ExchangeProvider](docs/ExchangeProvider.md)
  - [Flavor](docs/Flavor.md)
- - [GlanceImage](docs/GlanceImage.md)
  - [Image](docs/Image.md)
- - [InventorydatacentersgetException](docs/InventorydatacentersgetException.md)
- - [InventorydatacentersgetResponse](docs/InventorydatacentersgetResponse.md)
- - [InventoryendpointendpointuuidgetResponse](docs/InventoryendpointendpointuuidgetResponse.md)
- - [InventoryendpointscustomeruuidcustomeruuidgetResponse](docs/InventoryendpointscustomeruuidcustomeruuidgetResponse.md)
- - [InventorylinkpostResponse](docs/InventorylinkpostResponse.md)
- - [InventorylinksgetResponse](docs/InventorylinksgetResponse.md)
- - [InventorylinkshistorylinkidgetResponse](docs/InventorylinkshistorylinkidgetResponse.md)
- - [InventorylinkslinkidcontractpostResponse](docs/InventorylinkslinkidcontractpostResponse.md)
- - [InventorylinkslinkidgetResponse](docs/InventorylinkslinkidgetResponse.md)
- - [InventorylinksputResponse](docs/InventorylinksputResponse.md)
- - [InventoryregularendpointpostResponse](docs/InventoryregularendpointpostResponse.md)
- - [InventoryregularvportpostResponse](docs/InventoryregularvportpostResponse.md)
- - [InventoryvnfendpointpostResponse](docs/InventoryvnfendpointpostResponse.md)
- - [InventoryvnfvportpostResponse](docs/InventoryvnfvportpostResponse.md)
+ - [ImageClassifications](docs/ImageClassifications.md)
+ - [ImageGlanceImage](docs/ImageGlanceImage.md)
+ - [ImageProduct](docs/ImageProduct.md)
+ - [ImageZeroDayConfigSpec](docs/ImageZeroDayConfigSpec.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
+ - [InlineResponse2001](docs/InlineResponse2001.md)
+ - [InlineResponse20010](docs/InlineResponse20010.md)
+ - [InlineResponse20011](docs/InlineResponse20011.md)
+ - [InlineResponse20012](docs/InlineResponse20012.md)
+ - [InlineResponse20013](docs/InlineResponse20013.md)
+ - [InlineResponse20013Endpoints](docs/InlineResponse20013Endpoints.md)
+ - [InlineResponse20013Links](docs/InlineResponse20013Links.md)
+ - [InlineResponse20014](docs/InlineResponse20014.md)
+ - [InlineResponse20014Endpoints](docs/InlineResponse20014Endpoints.md)
+ - [InlineResponse20015](docs/InlineResponse20015.md)
+ - [InlineResponse20016](docs/InlineResponse20016.md)
+ - [InlineResponse20017](docs/InlineResponse20017.md)
+ - [InlineResponse20018](docs/InlineResponse20018.md)
+ - [InlineResponse20019](docs/InlineResponse20019.md)
+ - [InlineResponse2001Endpointlist](docs/InlineResponse2001Endpointlist.md)
+ - [InlineResponse2002](docs/InlineResponse2002.md)
+ - [InlineResponse20020](docs/InlineResponse20020.md)
+ - [InlineResponse2002Datacenter](docs/InlineResponse2002Datacenter.md)
+ - [InlineResponse2003](docs/InlineResponse2003.md)
+ - [InlineResponse2004](docs/InlineResponse2004.md)
+ - [InlineResponse2005](docs/InlineResponse2005.md)
+ - [InlineResponse2006](docs/InlineResponse2006.md)
+ - [InlineResponse2006Params](docs/InlineResponse2006Params.md)
+ - [InlineResponse2007](docs/InlineResponse2007.md)
+ - [InlineResponse2008](docs/InlineResponse2008.md)
+ - [InlineResponse2009](docs/InlineResponse2009.md)
+ - [InlineResponse200Datacenters](docs/InlineResponse200Datacenters.md)
+ - [InlineResponse202](docs/InlineResponse202.md)
+ - [InlineResponse202Errormsg](docs/InlineResponse202Errormsg.md)
+ - [InlineResponse401](docs/InlineResponse401.md)
  - [Link](docs/Link.md)
- - [Link78](docs/Link78.md)
- - [MarketplaceimagegetResponse](docs/MarketplaceimagegetResponse.md)
- - [MarketplaceimageimageidaddtomyimagespostResponse](docs/MarketplaceimageimageidaddtomyimagespostResponse.md)
- - [MarketplaceimageimageidremovefrommyimagespostResponse](docs/MarketplaceimageimageidremovefrommyimagespostResponse.md)
- - [MarketplaceimagemyimagesgetResponse](docs/MarketplaceimagemyimagesgetResponse.md)
  - [Meta](docs/Meta.md)
- - [Params](docs/Params.md)
- - [Params44](docs/Params44.md)
- - [Params47](docs/Params47.md)
- - [Params50](docs/Params50.md)
- - [Product](docs/Product.md)
+ - [Model100inventorylinksstatsflowlinkidstartdateenddateTags](docs/Model100inventorylinksstatsflowlinkidstartdateenddateTags.md)
+ - [Pop](docs/Pop.md)
+ - [Rebootrequest](docs/Rebootrequest.md)
+ - [Regendpointrequest](docs/Regendpointrequest.md)
+ - [Regvportrequest](docs/Regvportrequest.md)
+ - [RegvportrequestVportvalue](docs/RegvportrequestVportvalue.md)
  - [Role](docs/Role.md)
  - [SuccessFragment](docs/SuccessFragment.md)
  - [Topology](docs/Topology.md)
- - [TtmstopologytagtopotaguuidobjectsgetResponse](docs/TtmstopologytagtopotaguuidobjectsgetResponse.md)
+ - [Topotagcreaterequest](docs/Topotagcreaterequest.md)
+ - [Topotagupdateresponse](docs/Topotagupdateresponse.md)
  - [User](docs/User.md)
+ - [Visitcard](docs/Visitcard.md)
  - [Vlan](docs/Vlan.md)
  - [VnfTag](docs/VnfTag.md)
- - [VnfdsvnfvnfuuidgetResponse](docs/VnfdsvnfvnfuuidgetResponse.md)
+ - [Vnfendpointrequest](docs/Vnfendpointrequest.md)
  - [Vport](docs/Vport.md)
- - [Vportvalue](docs/Vportvalue.md)
+ - [Vportrequest](docs/Vportrequest.md)
 
 
-## Documentation For Authorization
+## Documentation For Authorisation
 
 
-## auth
+## oAuth2
 
 - **Type**: OAuth
 - **Flow**: password
-- **Authorization URL**: 
-- **Scopes**: 
- - **oAuth2**: oAuth2
+- **Authorisation URL**: 
+- **Scopes**: N/A
+
+
+## Author
+
+pnapi-support@team.telstra.com
 
 
