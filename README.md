@@ -47,6 +47,7 @@ from TelstraTPN.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
+
 api_instance = TelstraTPN.AuthenticationApi(TelstraTPN.ApiClient(configuration))
 grant_type = 'password' # str |  (default to 'password')
 username = 'username_example' # str | 
